@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+$green_blue: #00ad81;
+$bright_teal: #00ffbe;
+$darkish_blue: #002e81;
+$ligh_y_blue: rgb(43, 72, 136);
+$darkish_blue: #002e81;
+$light_blue_grey: #bbcae9;
+$soft_blue: #7795d4;
+$very_light_pink_two: #bbbbbb;
+$black: #000000;
+$black-50: rgba(0, 0, 0, 50%);
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: Poppins, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Este es el fondo azul de la pantalla principal*/
+.background-blue {
+    background: rgb(22,35,64);
+    background: linear-gradient(180deg, rgba(22,35,64,1) 0%, rgba(0,46,129,1) 100%);
 }
