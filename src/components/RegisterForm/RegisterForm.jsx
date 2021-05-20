@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
     return (
         <div className="shadow p-3 mb-5 bg-body rounded login-container">
-            <h2>Login</h2>
+            <h2>¡Únete a la comunidad!</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="row mb-3">
                     <label htmlFor="username" className="col-sm-2 col-form-label">
@@ -40,8 +40,7 @@ const RegisterForm = () => {
                             className="form-control"
                             id="username"
                             onChange={handleInputChange}
-                            value={formData.email}
-                        />
+                            value={formData.email}/>
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -55,15 +54,13 @@ const RegisterForm = () => {
                             className="form-control"
                             id="email"
                             onChange={handleInputChange}
-                            value={formData.email}
-                        />
+                            value={formData.email}/>
                     </div>
                 </div>
                 <div className="row mb-3">
                     <label
                         htmlFor="password"
-                        className="col-sm-2 col-form-label"
-                    >
+                        className="col-sm-2 col-form-label">
                         Password
                     </label>
                     <div className="col-sm-10">
@@ -73,8 +70,7 @@ const RegisterForm = () => {
                             className="form-control"
                             id="password"
                             onChange={handleInputChange}
-                            value={formData.password}
-                        />
+                            value={formData.password}/>
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary">
