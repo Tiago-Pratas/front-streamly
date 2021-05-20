@@ -1,13 +1,13 @@
 import React from 'react';
-import { Loading } from './components';
+import { Loading} from './components';
+import {Wellcome} from './page';
 import './App.scss';
 
 function App() {
     return (
         <div className="app">
             <Loading />
-            <div>APP</div>
-            
+            <Wellcome />
         </div>
     );
 }
