@@ -1,0 +1,44 @@
+.loading{
+    z-index: 1000;
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__title{
+        font-size: 65px;
+        background: #ccc;
+        background: linear-gradient(90deg, #00ad81, #00ffbe);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: latido 2s infinite;
+    }
+
+    @keyframes latido {
+        0%
+        {
+          transform: scale( 0.6 )
+        }
+        30%
+        {
+          transform: scale( 0.8 )
+        }
+         60%
+        {
+          transform: scale( 1 )
+        }
+        80%
+        {
+          transform: scale( 0.8 )
+        }
+        100%
+        {
+          transform: scale( 0.6 )
+        }
+      }
+}
