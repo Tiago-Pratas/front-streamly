@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {login, logout} from '../../api/auth';
+import {login, logout, register } from '../../api/auth';
+
+export const registerAsync = createAsyncThunk('user/register', async (form) => {
+    return await register(form);
+});
 
 export const loginAsync = createAsyncThunk('user/login', async (form) => {
     return await login(form);
