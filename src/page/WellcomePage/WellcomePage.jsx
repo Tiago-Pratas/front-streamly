@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Wellcome = () => {
+const WellcomePage = () => {
     return (
         <>
             <div className="wellcome">
@@ -12,4 +12,4 @@ const Wellcome = () => {
     );
 };
 
-export default Wellcome;
+export default WellcomePage;

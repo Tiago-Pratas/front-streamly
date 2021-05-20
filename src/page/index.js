@@ -1,8 +1,8 @@
-import Wellcome from './Wellcome/Wellcome';
-import Recommender from './RecommenderPage/RecommenderPage';
+import WellcomePage from './WellcomePage/WellcomePage';
+import RecommenderPage from './RecommenderPage/RecommenderPage';
 
 
 export {
-    Wellcome,
-    Recommender
+    WellcomePage,
+    RecommenderPage
 };

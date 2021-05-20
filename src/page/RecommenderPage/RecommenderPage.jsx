@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Recommender = () => {
+const RecommenderPage = () => {
     return (
         <>
             <div className="recommender">
@@ -11,4 +11,4 @@ const Recommender = () => {
     );
 };
 
-export default Recommender;
+export default RecommenderPage;
