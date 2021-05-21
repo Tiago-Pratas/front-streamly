@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Loading, Header } from './components/index';
-import { WelcomePage, RecommenderPage, Home, Auth } from './pages/index';
+import { Loading, Header } from './components';
+import { WelcomePage, RecommenderPage, Home, Auth } from './Pages';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import './App.scss';
@@ -24,14 +24,13 @@ function App() {
                     <Route path="/bienvenido-recomendador">
                         <RecommenderPage />
                     </Route>
-
                     <Route path="/registro-iniciar-sesion">
                         <Auth />
                     </Route>
                 </main>
             </BrowserRouter>
         </>
-        
+
     );
 }
 
