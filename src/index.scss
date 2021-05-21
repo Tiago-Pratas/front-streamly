@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import './Styles//bottons.scss';
 
 $green_blue: #00ad81;
 $bright_teal: #00ffbe;
@@ -11,6 +12,10 @@ $very_light_pink_two: #bbbbbb;
 $black: #000000;
 $black-50: rgba(0, 0, 0, 50%);
 
+* {
+  margin: 0;
+}
+
 h1, h2, h3, h4, h5, h6, p {
   font-family: Poppins, sans-serif;
 }
@@ -20,3 +25,6 @@ h1, h2, h3, h4, h5, h6, p {
     background: rgb(22,35,64);
     background: linear-gradient(180deg, rgba(22,35,64,1) 0%, rgba(0,46,129,1) 100%);
 }
+
+
+

@@ -1,8 +1,8 @@
-import WellcomePage from './WellcomePage/WellcomePage';
+import WelcomePage from './WelcomePage/WelcomePage';
 import RecommenderPage from './RecommenderPage/RecommenderPage';
 
 
 export {
-    WellcomePage,
+    WelcomePage,
     RecommenderPage
 };

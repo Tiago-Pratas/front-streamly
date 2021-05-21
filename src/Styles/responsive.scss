@@ -1,0 +1,21 @@
+$layout_bp_tablet: 670px;
+$layout_bp_tablet-big: 945px;
+$layout_bp_desktop: 1280px;
+
+@mixin tablet {
+    @media only screen and (min-width: #{$layout_bp_tablet}) {
+      @content;
+    }
+  }
+
+@mixin tablet-big {
+    @media only screen and (min-width: #{$layout_bp_tablet-big}) {
+      @content;
+    }
+}
+  
+@mixin desktop {
+    @media only screen and (min-width: #{$layout_bp_desktop}) {
+      @content;
+    }
+}
