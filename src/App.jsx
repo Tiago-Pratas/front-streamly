@@ -1,16 +1,37 @@
 import React from 'react';
-import { WelcomePage, RecommenderPage, Auth } from './pages/index';
-import { Loading } from './components/index';
+
+import { Loading, Header } from './components/index';
+import { WelcomePage, RecommenderPage, Home, Auth } from './pages/index';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import './App.scss';
 
 function App() {
     return (
-        <div className="app">
-            <Loading />
-            <Auth />
-            <WelcomePage />
-            <RecommenderPage />
-        </div>
+        <>
+            <BrowserRouter>
+                <Loading />
+                <Header />
+                <main>
+                    <Route path="/" exact={true}>
+                        <Home />
+                    </Route>
+                    {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
+                    <Route path="/bienvenida">
+                        <WelcomePage />
+                    </Route>
+                    {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
+                    <Route path="/bienvenido-recomendador">
+                        <RecommenderPage />
+                    </Route>
+
+                    <Route path="/registro-iniciar-sesion">
+                        <Auth />
+                    </Route>
+                </main>
+            </BrowserRouter>
+        </>
+        
     );
 }
 
