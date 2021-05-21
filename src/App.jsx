@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Loading, Header } from './components';
-import { WelcomePage, RecommenderPage, Home, Auth } from './Pages';
+import { WelcomePage, RecommenderPage, Home, Auth } from './pages';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import './App.scss';
