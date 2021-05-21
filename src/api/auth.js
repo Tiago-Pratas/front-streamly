@@ -7,17 +7,7 @@ const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
 
 export const register = async (userData) => {
-    const request = await axios.post(registerUrl, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        withCredentials: true,
-        data: userData,
-    });
-
-    console.log('here', request);
+    const request = await axios.post(registerUrl, userData);
 
     if(!request.ok) {
         throw new Error(request.message);
@@ -32,7 +22,7 @@ export const login = async (userData) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            //'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': '*',
         },
         credentials: 'include',
         body: JSON.stringify(userData),
