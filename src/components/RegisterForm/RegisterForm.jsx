@@ -24,14 +24,15 @@ const RegisterForm = () => {
         const { name, value } = ev.target;
         setFormData({ ...formData, [name]: value });
     };
-
+    
+    //TODO: error messages below input
     return (
         <div className="shadow p-3 mb-5 bg-body rounded login-container">
-            <h2>¡Únete a la comunidad!</h2>
+            <h2>Registro</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="row mb-3">
                     <label htmlFor="username" className="col-sm-2 col-form-label">
-                        Username
+                        Usuario
                     </label>
                     <div className="col-sm-10">
                         <input
@@ -61,7 +62,7 @@ const RegisterForm = () => {
                     <label
                         htmlFor="password"
                         className="col-sm-2 col-form-label">
-                        Password
+                        Contraseña
                     </label>
                     <div className="col-sm-10">
                         <input
@@ -74,7 +75,7 @@ const RegisterForm = () => {
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                    Sign in
+                    Registrarse
                 </button>
             </form>
         </div>

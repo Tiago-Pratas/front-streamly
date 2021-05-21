@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { loginAsync } from '../../redux/slices/user.slice';
 import './LoginForm.scss';
 
 const INITIAL_STATE = {
+    username: '',
     email: '',
     password: '',
 };
@@ -29,6 +29,21 @@ const LoginForm = () => {
             <h2>Login</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="row mb-3">
+                    <label htmlFor="username" className="col-sm-2 col-form-label">
+                        Usuario
+                    </label>
+                    <div className="col-sm-10">
+                        <input
+                            type="text"
+                            name="username"
+                            className="form-control"
+                            id="username"
+                            onChange={handleInputChange}
+                            value={formData.username}
+                        />
+                    </div>
+                </div>
+                <div className="row mb-3">
                     <label htmlFor="email" className="col-sm-2 col-form-label">
                         Email
                     </label>
@@ -48,7 +63,7 @@ const LoginForm = () => {
                         htmlFor="password"
                         className="col-sm-2 col-form-label"
                     >
-                        Password
+                        Contraseña
                     </label>
                     <div className="col-sm-10">
                         <input
@@ -62,7 +77,7 @@ const LoginForm = () => {
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                    Sign in
+                    Entrar
                 </button>
             </form>
         </div>
