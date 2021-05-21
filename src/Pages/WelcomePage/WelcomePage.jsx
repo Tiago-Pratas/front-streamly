@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import NetflixLogo from '../../img/Netflix.png';
 import HboLogo from '../../img/HBO.png';
 import AmazonLogo from '../../img/Amazon-prime-video.png';
@@ -26,7 +28,7 @@ const WelcomePage = () => {
             </div>
 
 
-            <button className="btn-white welcome-container__button">Siguiente</button>
+            <Link to="/bienvenido-recomendador" className="btn-white welcome-container__button">Siguiente</Link>
 
 
         </div>

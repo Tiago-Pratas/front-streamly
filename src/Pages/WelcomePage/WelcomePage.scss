@@ -44,17 +44,17 @@
         width: 30%;
         margin-top: 15px;
         border-radius: 10px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        animation: animation 1s cubic-bezier(.87,.19,.35,.65) forwards;
+        animation-delay: 2.5s;
+
+        @keyframes animation {
+            to{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
     }
 
-    @include tablet {
-        &__text {
-            margin-bottom: 10%;
-        }
-
-        &__img {
-            margin-bottom: 10%;
-        }
-    }
 
     @include tablet-big {
         &__title {
