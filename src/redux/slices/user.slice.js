@@ -32,6 +32,19 @@ export const userSlice = createSlice({
                 state.error = action.payload.message || action.payload;
             }
         });
+        
+        builder.addCase(registerAsync.fulfilled, (state, action) => {
+            if (!action.payload.message) {
+                state.user = action.payload;
+                state.hasUser = true;
+                state.error = '';
+            } else {
+                state.hasUser = false;
+                state.error = action.payload.message;
+            }
+        
+        });
+
         builder.addCase(logoutAsync.fulfilled, (state) => {
             state.user = null;
             state.hasUser = null;

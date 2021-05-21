@@ -13,19 +13,17 @@ export const register = async (userData) => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
         },
-        credentials: 'include',
+        withCredentials: true,
         data: userData,
     });
 
-    const response = await request.json();
-
-    console.log(request);
+    console.log('here', request);
 
     if(!request.ok) {
-        throw new Error(response.message);
+        throw new Error(request.message);
     }
 
-    return response;
+    return request;
 };
 
 export const login = async (userData) => {
@@ -34,7 +32,7 @@ export const login = async (userData) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Origin': '*',
         },
         credentials: 'include',
         body: JSON.stringify(userData),
