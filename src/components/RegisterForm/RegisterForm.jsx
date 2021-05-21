@@ -40,7 +40,7 @@ const RegisterForm = () => {
                             className="form-control"
                             id="username"
                             onChange={handleInputChange}
-                            value={formData.email}/>
+                            value={formData.username}/>
                     </div>
                 </div>
                 <div className="row mb-3">

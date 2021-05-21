@@ -19,6 +19,8 @@ export const register = async (userData) => {
 
     const response = await request.json();
 
+    console.log(request);
+
     if(!request.ok) {
         throw new Error(response.message);
     }

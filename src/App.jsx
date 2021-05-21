@@ -1,13 +1,12 @@
 import React from 'react';
-import { LoginForm } from './Pages';
-import { RegisterForm } from './components/index';
+
+import { Auth } from './Pages/index';
 import './App.scss';
 
 function App() {
     return (
         <div className="app">
-            <LoginForm/>
-            <RegisterForm />
+            <Auth />
         </div>
     );
 }
