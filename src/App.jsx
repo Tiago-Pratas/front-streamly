@@ -1,6 +1,7 @@
 import React from 'react';
 import { Auth } from './Pages/index';
 import { Loading } from './components/index';
+import {RecommenderPage, WellcomePage} from './page';
 import './App.scss';
 
 function App() {
@@ -8,8 +9,8 @@ function App() {
         <div className="app">
             <Loading />
             <Auth />
-            <div>APP</div>
-            
+            <WellcomePage />
+            <RecommenderPage />
         </div>
     );
 }
