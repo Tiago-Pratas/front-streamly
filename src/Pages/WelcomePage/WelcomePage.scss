@@ -25,6 +25,11 @@
     
     &__title-streamly {
         font-weight: 900;
+        background: #ccc;
+        background: linear-gradient(90deg, #00ad81, #00ffbe);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
     }
 
     &__img {
@@ -52,6 +57,9 @@
     }
 
     @include tablet-big {
+        &__title {
+            font-size: 28px;
+        }
         &__logo {
             width: 20%;
             margin-left: 30px;
