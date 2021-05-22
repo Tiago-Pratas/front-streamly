@@ -6,7 +6,6 @@ import {
 const Auth = () => {
     const [showForm, setShowForm] = useState('');
 
-    //TODO: create a switch that will show either component
     return (
         <>
             <h2>¡Únete a la comunidad!</h2>
