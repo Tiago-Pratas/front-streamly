@@ -1,6 +1,8 @@
-@import '../../Styles/responsive.scss';
+@import '../../styles/responsive.scss';
 
 .welcome-container {
+    position: absolute;
+    top: 0;
     text-align: center;
     margin: 0 auto;
     padding: 20px 0;
@@ -14,7 +16,7 @@
 
     &__text {
         width: 80%;
-        margin-bottom: 25%;
+        margin-bottom: 15%;
     }
 
     &__title {
@@ -37,7 +39,7 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        margin-bottom: 25%;
+        margin-bottom: 100px;
     }
 
     &__logo {
