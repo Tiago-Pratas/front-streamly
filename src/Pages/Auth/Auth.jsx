@@ -4,7 +4,7 @@ import {
     LoginForm } from '../../components/index';
 
 const Auth = () => {
-    const [showForm, setShowForm] = useState('');
+    const [showForm, setShowForm] = useState('login');
 
     return (
         <>

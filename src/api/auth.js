@@ -5,15 +5,8 @@ const registerUrl = `${serverDirection}/auth/register`;
 const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
 
-export const register = async (userData) => {
-    const request = await axios.post(registerUrl, 
-        { headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        }}, userData );
-
-    console.log('here', request);
+const register = async (userData) => {
+    const request = await axios.post(registerUrl, userData);
 
     if(!request.ok) {
         throw new Error(request.message);
@@ -22,39 +15,24 @@ export const register = async (userData) => {
     return request;
 };
 
-export const login = async (userData) => {
-    const request = await fetch(loginUrl, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        credentials: 'include',
-        body: JSON.stringify(userData),
-    });
-
-    const response = await request.json();
+const login = async (userData) => {
+    const request = await axios.post(loginUrl, userData);
 
     if (!request.ok) {
-        throw new Error(response.message);
+        throw new Error(request.message);
     }
 
-    return response;
+    return request;
 };
 
-export const logout = async () => {
-    const request = await fetch(logoutUrl, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        credentials: 'include',
-    });
+const logout = async () => {
+    const request = await axios.post(logoutUrl);
 
-    const response = await request.json();
+    return request;
+};
 
-    return response;
+export {
+    register,
+    login,
+    logout
 };
