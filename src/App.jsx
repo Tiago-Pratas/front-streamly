@@ -18,11 +18,11 @@ function App() {
                             <Home />
                         </Route>
                         {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                        <Route path="/bienvenida">
+                        <Route path="/bienvenida-step1">
                             <WelcomePage />
                         </Route>
                         {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                        <Route path="/bienvenido-recomendador">
+                        <Route path="/bienvenido-step2">
                             <RecommenderPage />
                         </Route>
                         <Route path="/registro-iniciar-sesion">
