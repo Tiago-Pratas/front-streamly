@@ -1,11 +1,12 @@
 import Auth from './Auth/Auth';
 import WelcomePage from './WelcomePage/WelcomePage';
-import RecommenderPage from './RecommenderPage/RecommenderPage';
+import WelcomePage2 from './WelcomePage2/WelcomePage2';
 import Home from './Home/Home';
+
 
 export {
     WelcomePage,
-    RecommenderPage,
+    WelcomePage2,
     Auth,
-    Home
+    Home,
 };
