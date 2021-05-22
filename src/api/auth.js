@@ -9,6 +9,8 @@ const logoutUrl = `${serverDirection}/auth/logout`;
 export const register = async (userData) => {
     const request = await axios.post(registerUrl, userData);
 
+    console.log('here', request);
+
     if(!request.ok) {
         throw new Error(request.message);
     }
