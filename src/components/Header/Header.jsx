@@ -4,6 +4,7 @@ import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 import './Header.scss';
 
 const Header = () => {
+
     return (
         <header className="header background-blue">
             <Link className="header__logo" to="/">Streamly</Link>
