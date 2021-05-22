@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Loading, Header } from './components';
 import { WelcomePage, RecommenderPage, Home, Auth } from './pages';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.scss';
 
@@ -13,20 +13,22 @@ function App() {
                 <Loading />
                 <Header />
                 <main>
-                    <Route path="/" exact={true}>
-                        <Home />
-                    </Route>
-                    {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                    <Route path="/bienvenida">
-                        <WelcomePage />
-                    </Route>
-                    {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                    <Route path="/bienvenido-recomendador">
-                        <RecommenderPage />
-                    </Route>
-                    <Route path="/registro-iniciar-sesion">
-                        <Auth />
-                    </Route>
+                    <Switch>
+                        <Route path="/" exact={true}>
+                            <Home />
+                        </Route>
+                        {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
+                        <Route path="/bienvenida">
+                            <WelcomePage />
+                        </Route>
+                        {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
+                        <Route path="/bienvenido-recomendador">
+                            <RecommenderPage />
+                        </Route>
+                        <Route path="/registro-iniciar-sesion">
+                            <Auth />
+                        </Route>
+                    </Switch>
                 </main>
             </BrowserRouter>
         </>
