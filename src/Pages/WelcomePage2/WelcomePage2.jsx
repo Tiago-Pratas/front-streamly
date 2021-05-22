@@ -1,14 +1,14 @@
 import React from 'react';
 
-const RecommenderPage = () => {
+const WelcomePage2 = () => {
     return (
         <>
             <div className="recommender">
-                <p className="recommender__title">Personalizatu propio feed de noticias para estar al tanto de todo.</p>
+                <h1 className="recommender__title"> Personaliza tu propio feed de noticias para estar al tanto de todo.</h1>
                 <p className="recommender__title-paragraph">Además, pregúntale a nuestro <span className="recommender__title-recomendador">recomendador</span> para que facilite tus búsquedas</p>
             </div>
         </>
     );
 };
 
-export default RecommenderPage;
+export default WelcomePage2;
