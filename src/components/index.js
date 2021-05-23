@@ -4,12 +4,14 @@ import LoginForm from './LoginForm/LoginForm';
 import Header from './Header/Header';
 import Carousel from './Carousel/Carousel';
 import CarouselFilter from './CarouselFilter/CarouselFilter';
+import NavbarBottom from './NavbarBottom/NavbarBottom';
 
-export { 
+export {
     RegisterForm,
     LoginForm,
     Loading,
     Header,
     Carousel,
-    CarouselFilter
+    CarouselFilter,
+    NavbarBottom
 };
