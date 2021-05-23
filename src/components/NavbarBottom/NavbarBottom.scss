@@ -13,19 +13,6 @@
     }
 
     @include tablet {
-        display: block;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &__nav {
-            display: block;
-        }
-
-        &__nav-link {
-            color: #fff;
-            margin-right: 20px;
-            text-decoration: none;
-        }
+        display: none;
     }
 }
