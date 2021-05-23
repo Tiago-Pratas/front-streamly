@@ -25,7 +25,7 @@ const Carousel = () => {
 
     return (
         <>
-            <div className="top-filter" onClick={showSwiper}>
+            <div className="top-filter" >
                 <div className={swiperView ? 'top-filter__active' : 'top-filter__swiper'}>
                     <Swiper
                         spaceBetween={0}
@@ -49,7 +49,7 @@ const Carousel = () => {
                     </Swiper>
                 </div>
 
-                <div className="top-filter__icon">
+                <div className="top-filter__icon" onClick={showSwiper}>
                     <HiMenuAlt4 />
                 </div>
             </div>
