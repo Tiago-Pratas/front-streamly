@@ -28,11 +28,10 @@ const Carousel = () => {
             <div className="top-filter" >
                 <div className={swiperView ? 'top-filter__active' : 'top-filter__swiper'}>
                     <Swiper
-                        spaceBetween={0}
-                        slidesPerView={6}
+                        spaceBetween={10}
+                        slidesPerView={'auto'}
                         scrollbar={{ draggable: true }}
-                        autoHeight={true}
-                        with={'100px'}
+                        width={25}
                     >
                         <SwiperSlide>
                             <img src={NetflixLogo} alt="Logo de Netflix" className="top-filter__logo"></img>

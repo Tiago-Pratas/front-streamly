@@ -1,30 +1,99 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Link} from 'react-router-dom';
 import SwiperCore, { Scrollbar } from 'swiper';
+import fclub from '../../img/fclub.jpeg';
 import 'swiper/swiper.scss';
+import './Carousel.scss';
 
 SwiperCore.use([Scrollbar]);
 
 const Carousel = () => {
+    const image = fclub;
     return (
         <>
+            <div className='swiper-text'>
+                <h3 className='swiper-text__color'>Novedades</h3>
+                <Link className='swiper-text__link'> Ver todo</Link>
+            </div>
             <Swiper
-                spaceBetween={5}
-                slidesPerView={4}
+                spaceBetween={10}
+                slidesPerView={'auto'}
                 scrollbar={{ draggable: true }}
+                className='swiper-conatiner__height'
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
-                <SwiperSlide>Slide 10</SwiperSlide>
-                <SwiperSlide>Slide 11</SwiperSlide>
-                <SwiperSlide>Slide 12</SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={image} alt="fclub" className="swiper-image" />
+                </SwiperSlide>
             </Swiper>
         </>
     );

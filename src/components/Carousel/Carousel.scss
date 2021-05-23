@@ -1,0 +1,27 @@
+@import '../../styles/colors';
+.swiper-image {
+    width: 100%;
+}
+
+.swiper-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 4%;
+    margin-top: 5%;
+    &__color {
+        color: $green_blue;
+    }
+    &__link {
+        text-decoration: none;
+        color: $black;
+    }
+}
+
+.swiper-conatiner {
+    &__height {
+        display: flex;
+        align-content: center;
+        box-sizing: border-box;
+    }
+}
