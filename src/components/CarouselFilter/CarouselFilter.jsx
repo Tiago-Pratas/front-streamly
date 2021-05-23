@@ -34,18 +34,24 @@ const Carousel = () => {
                         autoHeight={true}
                         with={'100px'}
                     >
-                        <SwiperSlide><img src={NetflixLogo} alt="Logo de Netflix" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide><img src={HboLogo} alt="Logo de HBO" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide><img src={AmazonLogo} alt="Logo de Amazon prime video" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide><img src={AppleTv} alt="Logo de Apple TV" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide><img src={MovistarLogo} alt="Logo de Movistar Series" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide><img src={DisneyLogo} alt="Logo de diney plus" className="top-filter__logo"></img></SwiperSlide>
-                        <SwiperSlide>Slide 7</SwiperSlide>
-                        <SwiperSlide>Slide 8</SwiperSlide>
-                        <SwiperSlide>Slide 9</SwiperSlide>
-                        <SwiperSlide>Slide 10</SwiperSlide>
-                        <SwiperSlide>Slide 11</SwiperSlide>
-                        <SwiperSlide>Slide 12</SwiperSlide>
+                        <SwiperSlide>
+                            <img src={NetflixLogo} alt="Logo de Netflix" className="top-filter__logo"></img>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={HboLogo} alt="Logo de HBO" className="top-filter__logo"></img>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={AmazonLogo} alt="Logo de Amazon prime video" className="top-filter__logo"></img>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={AppleTv} alt="Logo de Apple TV" className="top-filter__logo"></img>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={MovistarLogo} alt="Logo de Movistar Series" className="top-filter__logo"></img>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={DisneyLogo} alt="Logo de diney plus" className="top-filter__logo"></img>
+                        </SwiperSlide>
                     </Swiper>
                 </div>
 
