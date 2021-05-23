@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAsync } from '../../redux/slices/user.slice';
-import { BsFillHouseFill } from 'react-icons/bs';
+import { BiLogIn } from 'react-icons/bi';
 import './LoginForm.scss';
 
 const INITIAL_STATE = {
@@ -27,7 +27,7 @@ const LoginForm = () => {
 
     return (
         <div className="shadow p-3 mb-5 bg-body rounded login-container">
-            <BsFillHouseFill className="login-icon"/>
+            <BiLogIn className="login-icon"/>
             <form onSubmit={handleFormSubmit}>
 
                 <input
