@@ -1,6 +1,6 @@
-@import '../../styles/responsive.scss';
+@import '../../Styles/responsive.scss';
 
-.welcome-container {
+.welcome2-container {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -18,7 +18,7 @@
 
     &__text {
         width: 80%;
-        margin-bottom: 15%;
+        margin-bottom: 25%;
     }
 
     &__title {
@@ -27,7 +27,7 @@
         margin-bottom: 10px;
     }
     
-    &__title-streamly {
+    &__title-recommender {
         font-weight: 900;
         background: #ccc;
         background: linear-gradient(90deg, #00ad81, #00ffbe);
@@ -36,29 +36,19 @@
         background-clip: text;
     }
 
-    &__img {
-        max-width: 80%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-bottom: 100px;
-    }
-
-    &__logo {
-        width: 30%;
+/*     &__logo{
+        width: 40vmin;
+        height: 40vmin;
         margin-top: 15px;
         border-radius: 10px;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        animation: animation 1s cubic-bezier(.87,.19,.35,.65) forwards;
-        animation-delay: 2.5s;
+        color: #00ffbe;
+    } */
 
-        @keyframes animation {
-            to{
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-        }
+    &__button{
+        display: flex;
+        align-items: center;
+        margin-top: 100px;
     }
-
 
     @include tablet-big {
         &__title {
@@ -85,4 +75,12 @@
             margin-right: 0;
         }
     }
+}
+
+.logo{
+    width: 40vmin;
+    height: 40vmin;
+    margin-top: 15px;
+    border-radius: 10px;
+    color: #00ffbe;
 }

@@ -28,7 +28,7 @@ const WelcomePage = () => {
             </div>
 
 
-            <Link to="/bienvenido-recomendador" className="btn-white welcome-container__button">Siguiente</Link>
+            <Link to="/bienvenida-step2" className="btn-white welcome-container__button">Siguiente</Link>
 
 
         </div>
