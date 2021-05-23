@@ -3,6 +3,7 @@ import './RecommenderPage.scss';
 import { MdUpdate } from 'react-icons/md';
 import { BsPlay } from 'react-icons/bs';
 import { BiMovie } from 'react-icons/bi';
+import { FiRewind } from 'react-icons/fi';
 
 
 const RecommenderPage = () => {
@@ -26,7 +27,7 @@ const RecommenderPage = () => {
                 <p>Dime de cuanto tiempo dispones</p>
             </div>
             <div>
-                <button className="recommender__button"></button>
+                <button className="recommender__button"><FiRewind /></button>
                 <p>No tengo prisa</p>
                 <button className="recommender__button"> <BsPlay /> </button>
                 <p>Tengo un rato</p>
