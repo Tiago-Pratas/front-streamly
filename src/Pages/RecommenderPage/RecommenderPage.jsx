@@ -19,7 +19,7 @@ const RecommenderPage = () => {
                     <p>Serie</p>
                 </div>
                 <div>
-                    <button className="recommender__button"><BiMovie className=""/></button>
+                    <button className="recommender__button"><BiMovie className="recommender__icon"/></button>
                     <p>Peli</p>
                 </div>
             </div>
@@ -29,7 +29,7 @@ const RecommenderPage = () => {
             <div>
                 <button className="recommender__button"><FiRewind /></button>
                 <p>No tengo prisa</p>
-                <button className="recommender__button"> <BsPlay /> </button>
+                <button className="recommender__button"> <BsPlay className="recommender__icon"/> </button>
                 <p>Tengo un rato</p>
                 <button className="recommender__button"></button>
                 <p>Algo rápido</p>
