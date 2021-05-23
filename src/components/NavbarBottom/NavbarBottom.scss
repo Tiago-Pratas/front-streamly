@@ -1,23 +1,10 @@
 @import '../../styles/responsive.scss';
 
-.header {
+.navbar-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px;
-
-    &__nav {
-        display: none;
-    }
-
-    &__logo {
-        font-size: 28px;
-        font-weight: 900;
-        background: linear-gradient(90deg, #00ad81, #00ffbe);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-    }
 
     &__icons-i {
         font-size: 30px;

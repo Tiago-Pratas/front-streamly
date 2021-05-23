@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './WelcomePage2.scss';
-/* import ArmChairs from '../../img/armchairs.png'; */
 import { MdEventSeat } from 'react-icons/md';
 
 const WelcomePage2 = () => {
