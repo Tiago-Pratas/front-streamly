@@ -6,13 +6,21 @@ const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
 
 const register = async (userData) => {
-    const request = await axios.post(registerUrl, userData);
-
-    if(!request.ok) {
-        throw new Error(request.message);
+    try {
+        const request = await axios.post(registerUrl, userData);
+    
+        console.log(request.data);
+    
+        if(!request.ok) {
+            throw new Error(request.message);
+        
+        } 
+        return request;
+        
+    } catch (err) {
+        return err;
     }
 
-    return request;
 };
 
 const login = async (userData) => {

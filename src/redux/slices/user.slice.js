@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {login, logout, register } from '../../api/auth';
+import { login, logout, register } from '../../api/auth';
 
 export const registerAsync = createAsyncThunk('user/register', async (form) => {
     return await register(form);
@@ -34,6 +34,7 @@ export const userSlice = createSlice({
         });
         
         builder.addCase(registerAsync.fulfilled, (state, action) => {
+            console.log(action.payload);
             if (!action.payload.message) {
                 state.user = action.payload;
                 state.hasUser = true;
