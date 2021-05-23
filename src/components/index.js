@@ -3,11 +3,13 @@ import RegisterForm from './RegisterForm/RegisterForm';
 import LoginForm from './LoginForm/LoginForm';
 import Header from './Header/Header';
 import Carousel from './Carousel/Carousel';
+import CarouselFilter from './CarouselFilter/CarouselFilter';
 
 export { 
     RegisterForm,
     LoginForm,
     Loading,
     Header,
-    Carousel
+    Carousel,
+    CarouselFilter
 };
