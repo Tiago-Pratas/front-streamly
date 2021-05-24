@@ -5,10 +5,7 @@ import { BsPlay, BsDisplayFill } from 'react-icons/bs';
 import { BiMovie } from 'react-icons/bi';
 import { FiFastForward } from 'react-icons/fi';
 import {IoPlaySkipForwardOutline} from 'react-icons/io5';
-<<<<<<< HEAD
 
-=======
->>>>>>> de744d44ef3e53eda8f157f1b116c4e50842ecd1
 
 const RecommenderPage = () => {
     return(
