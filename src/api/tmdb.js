@@ -5,13 +5,19 @@ const baseUrl = 'https://api.themoviedb.org/3/';
 
 const getProviders = async () => {
     //get all the services for Spain
-    const response = await axios.get(`${baseUrl}watch/providers/movie`, {
-        params : {
-            api_key: process.env.REACT_APP_API_KEY,
-            watch_region: 'ES',
-            language: 'es-ES'
-        }});
-    return response.data;
+    try {
+        const response = await axios.get(`${baseUrl}watch/providers/movie`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                watch_region: 'ES',
+                language: 'es-ES',
+            },
+        });
+        const request = await response.data;
+        return request;
+    } catch (err) {
+        return err;
+    }
 };
 
 const getMovies = async (provider, date, genre, sort, page) => {
@@ -23,15 +29,13 @@ const getMovies = async (provider, date, genre, sort, page) => {
             language: 'es-ES',
             watch_region: 'ES',
             page: `${page}`,
-            'release_date.gte':  `${date}`,
-            sort_by: `${sort}`
-
-        }
+            'release_date.gte': `${date}`,
+            sort_by: `${sort}`,
+        },
     });
 
     return response.data;
 };
-
 
 const getTvShow = async (provider) => {
     const responseTv = await axios.get(`${baseUrl}discover/tv`, {
@@ -40,13 +44,9 @@ const getTvShow = async (provider) => {
             with_watch_providers: `${provider}`,
             language: 'es-ES',
             watch_region: 'ES',
-        }
+        },
     });
     return responseTv.data;
 };
 
-export {
-    getProviders,
-    getMovies,
-    getTvShow
-};
+export { getProviders, getMovies, getTvShow };
