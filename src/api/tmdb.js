@@ -11,7 +11,7 @@ const getProviders = async () => {
             watch_region: 'ES',
             language: 'es-ES'
         }});
-    return response;
+    return response.data;
 };
 
 const getMovies = async (provider, date, genre, sort, page) => {
@@ -29,28 +29,24 @@ const getMovies = async (provider, date, genre, sort, page) => {
         }
     });
 
+    return response.data;
+};
+
+
+const getTvShow = async (provider) => {
     const responseTv = await axios.get(`${baseUrl}discover/tv`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
             with_watch_providers: `${provider}`,
-            with_genres: `${genre}`,
             language: 'es-ES',
             watch_region: 'ES',
-            page: `${page}`,
-            'release_date.gte':  `${date}`,
-            sort_by: `${sort}`
-
         }
     });
-
-    console.log({response, responseTv});
-
-    return response.data.results + responseTv.data.results;
+    return responseTv.data;
 };
-
-
 
 export {
     getProviders,
     getMovies,
+    getTvShow
 };
