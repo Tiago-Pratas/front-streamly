@@ -9,7 +9,7 @@
     padding-top: 50px;
 }
 
-.recommender__button{
+/* .recommender__button{
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -19,6 +19,19 @@
         &:active{
         color:#00ffbe,
         }
+} */
+
+.recommender__icon{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $darkish_blue;
+    border: none;
+    padding: 8px;
 }
 
 .recommender__button-icon{
@@ -26,13 +39,6 @@
     justify-content: space-around;
     align-items: center;
     padding: 25px;
-}
-
-.recommender__icon{
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    color: white;
 }
 
 .recommender__container-title{
@@ -71,9 +77,14 @@
     text-align: center;
 }
 
-.recommender__finish-p{
+.recommender__finish-links{
     margin-right: 40px;
     margin-bottom: 14px;
+}
+
+.recommender__finish-link{
+    text-decoration:none;
+    color: black;
 }
 
 @include tablet-big {
