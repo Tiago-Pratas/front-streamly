@@ -14,15 +14,13 @@ const getProviders = async () => {
             },
         });
         
-        console.log('API', response);
-
         return response.data.results;
     } catch (err) {
         return err;
     }
 };
 
-const getMovies = async (provider, date, genre, sort, page) => {
+/* const getMovies = async (provider, date, genre, sort, page) => {
     const response = await axios.get(`${baseUrl}discover/movie`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -37,7 +35,7 @@ const getMovies = async (provider, date, genre, sort, page) => {
     });
 
     return response.data;
-};
+}; */
 
 const getTvShows = async (provider) => {
     const responseTv = await axios.get(`${baseUrl}discover/tv`, {
@@ -48,8 +46,22 @@ const getTvShows = async (provider) => {
             watch_region: 'ES',
         },
     });
-    console.log('here',responseTv);
     return responseTv.data.results;
+};
+
+const getMovies = async (provider) => {
+    const response = await axios.get(`${baseUrl}discover/movie`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            with_watch_providers: `${provider}`,
+            page: 1,
+            language: 'es-ES',
+            watch_region: 'ES',
+        },
+    });
+
+    console.log('response',response);
+    return response.data.results;
 };
 
 export { getProviders, getMovies, getTvShows };

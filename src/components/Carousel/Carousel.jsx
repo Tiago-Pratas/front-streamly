@@ -7,17 +7,18 @@ import SwiperCore, { Scrollbar } from 'swiper';
 import 'swiper/swiper.scss';
 import './Carousel.scss';
 
+
 SwiperCore.use([Scrollbar]);
 
 const Carousel = () => {
     //const image = fclub;
 
     const tvShows = useSelector(state => state.tmdb.tvShows);
+    const movies = useSelector(state => state.tmdb.movies);
 
-    console.log('tvShows', tvShows);
-    
+    const allMedia = [...tvShows, ...movies];
+    console.log('movies', movies);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
-
 
     return (
         <>
@@ -32,7 +33,7 @@ const Carousel = () => {
                 className='swiper-conatiner__height'
             >
 
-                { tvShows.map(tvShow => (
+                { allMedia.map(tvShow => (
                     <SwiperSlide key={tvShow.id}>
                         <img src={`${imgUrl}${tvShow.poster_path}`} alt="fclub" className="swiper-image" />
                     </SwiperSlide>

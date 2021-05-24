@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Loading, Header, NavbarBottom } from './components';
 import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details } from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { getAllProviders, getAllTvShows } from './redux/slices/data.slice';
+import { getAllProviders, getAllTvShows, getAllMovies } from './redux/slices/data.slice';
 
 import './App.scss';
 
@@ -11,10 +11,14 @@ import './App.scss';
 function App() {
 
     const dispatch = useDispatch();
+    const filteredProviders = useSelector(state => state.tmdb.topFilter);
     const getProviders = dispatch(getAllProviders());
-    const tvShows = dispatch(getAllTvShows(8));
-    console.log(tvShows);
+    const tvShows = dispatch(getAllTvShows(filteredProviders));
+    const movies = dispatch(getAllMovies(filteredProviders));
+    console.log('tv', filteredProviders);
+    console.log(tvShows, 'movies2', movies);
     console.log(getProviders);
+    
     return (
         <>
             <BrowserRouter>
