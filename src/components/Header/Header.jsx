@@ -12,8 +12,8 @@ const Header = () => {
                 <Link className="header__logo" to="/">Streamly</Link>
 
                 <nav className="header__nav">
-                    <Link className="header__nav-link" to="/recomendador">Recomendador</Link>
-                    <Link className="header__nav-link" to="/favoritos">Favoritos</Link>
+                    <Link className="header__nav-link" to="/recommender">Recomendador</Link>
+                    <Link className="header__nav-link" to="/favorites">Favoritos</Link>
                     <Link className="header__nav-link" to="/blog">Blog</Link>
                 </nav>
 

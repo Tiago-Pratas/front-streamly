@@ -3,7 +3,6 @@ import './RecommenderPage.scss';
 import { MdUpdate } from 'react-icons/md';
 import { BsPlay, BsDisplayFill } from 'react-icons/bs';
 import { BiMovie } from 'react-icons/bi';
-import { FiRewind } from 'react-icons/fi';
 import { FiFastForward } from 'react-icons/fi';
 import {IoPlaySkipForwardOutline} from 'react-icons/io5';
 
@@ -43,16 +42,10 @@ const RecommenderPage = () => {
                 </div>
             </div>
             <div>
-                <button className="recommender__button"><FiRewind /></button>
-                <p>No tengo prisa</p>
-                <button className="recommender__button"> <BsPlay className="recommender__icon"/> </button>
-                <p>Tengo un rato</p>
-                <button className="recommender__button"></button>
-                <p>Algo rápido</p>
                 <MdUpdate />
             </div>
             <div>
-                <div className="recommender-list">
+                <div className="recommender__list">
                     <div>
                         <p>Mis Listas</p>
                     </div>
@@ -61,12 +54,12 @@ const RecommenderPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="recommender-finish">
-                <div>
+            <div className="recommender__finish">
+                <div className="recommender__finish-p">
                     <p>Saltar</p>
                 </div>
                 <div>
-                    <button className="recommender-button">Continuar</button>
+                    <button className="btn-blue welcome-container__button">Continuar</button>
                 </div>
             </div>
         </div>
