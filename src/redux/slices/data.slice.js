@@ -1,10 +1,10 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import { getProviders } from '../../api/tmdb';
+import { getProviders, getTvShows } from '../../api/tmdb';
 
 const INITIAL_STATE={
     providers:[],
     movies:[],
-    tvShow:[]
+    tvShows:[]
 };
 
 export const getAllProviders = createAsyncThunk( 'tmdb/getProviders',
@@ -12,7 +12,11 @@ export const getAllProviders = createAsyncThunk( 'tmdb/getProviders',
     
 );
 
-export const dataSlice =createSlice({
+export const getAllTvShows = createAsyncThunk('tmdb/getTvShow', 
+    async (data) => { return await getTvShows(data); }
+);
+
+export const dataSlice = createSlice({
     name:'tmdb',
     initialState: INITIAL_STATE,
     reducers:{
@@ -20,6 +24,10 @@ export const dataSlice =createSlice({
     extraReducers:(builder)=>{
         builder.addCase(getAllProviders.fulfilled, (state, action)=>{
             state.providers = action.payload;
+        });
+
+        builder.addCase(getAllTvShows.fulfilled, (state, action) => {
+            state.tvShows = action.payload;
         });
     }
 });

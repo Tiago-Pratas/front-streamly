@@ -39,7 +39,7 @@ const getMovies = async (provider, date, genre, sort, page) => {
     return response.data;
 };
 
-const getTvShow = async (provider) => {
+const getTvShows = async (provider) => {
     const responseTv = await axios.get(`${baseUrl}discover/tv`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -48,7 +48,8 @@ const getTvShow = async (provider) => {
             watch_region: 'ES',
         },
     });
-    return responseTv.data;
+    console.log('here',responseTv);
+    return responseTv.data.results;
 };
 
-export { getProviders, getMovies, getTvShow };
+export { getProviders, getMovies, getTvShows };
