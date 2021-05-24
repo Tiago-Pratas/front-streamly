@@ -23,7 +23,7 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(loginAsync.fulfilled, (state, action) => {
-            console.log(action.payload.email);
+            console.log(action.payload.data);
             if (action.payload.email) {
                 state.user = action.payload;
                 state.hasUser = true;

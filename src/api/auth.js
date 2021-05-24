@@ -7,7 +7,7 @@ const logoutUrl = `${serverDirection}/auth/logout`;
 
 const register = async (userData) => {
     try {
-        const request = await axios.post(registerUrl, userData);
+        const request = await axios.post(registerUrl, userData, {withCredentials: true});
 
         console.log(request);
         
