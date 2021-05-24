@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './Auth.scss';
+
 import {
     RegisterForm,
     LoginForm } from '../../components/index';
@@ -8,8 +10,12 @@ const Auth = () => {
 
     return (
         <>
-            <h2>¡Únete a la comunidad!</h2>
-            <div className="wrapper">
+            <div className="form-container__controls">
+                <button className="form-container__controls-btn btn-blue" onClick={() => setShowForm('login')}>Login</button>
+                <button className="form-container__controls-btn btn-blue" onClick={() => setShowForm('register')}>Registro</button>
+            </div>
+            
+            <div className="form-container">
                 {showForm === 'login' && (
                     <LoginForm />
                 )}
@@ -18,10 +24,6 @@ const Auth = () => {
                     <RegisterForm />
                 )}
 
-                <div className="controls">
-                    <button onClick={() => setShowForm('login')}>Login</button>
-                    <button onClick={() => setShowForm('register')}>Registro</button>
-                </div>
             </div>
         </>
 
