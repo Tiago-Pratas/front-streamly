@@ -22,7 +22,7 @@ const register = async (userData) => {
 
 const login = async (userData) => {
     try {
-        const request = await axios.post(loginUrl, userData);
+        const request = await axios.post(loginUrl, userData, { withCredentials: true });
     
         return request.data;
 
