@@ -19,7 +19,11 @@ const Carousel = () => {
 
 
     const providers = useSelector(state => state.tmdb.providers);
+<<<<<<< HEAD
     console.log(providers);
+=======
+    console.log('CAROUSEL',providers);
+>>>>>>> 4176990c25dc4a6c8ccdbfa7ea9ddf14aee7742b
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -37,7 +41,7 @@ const Carousel = () => {
                         autoHeight={true}
                         with={'100px'}
                     >
-                        { providers.results.map((provider) => (
+                        { providers.map((provider) => (
                             <SwiperSlide key={provider.provider_id}>
                                 <img
                                     src={`${imgUrl}${provider.logo_path}`}

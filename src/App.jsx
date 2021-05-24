@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch,} from 'react-redux';
 import { Loading, Header, NavbarBottom } from './components';
-import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage } from './pages';
+import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details } from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { getAllProviders } from './redux/slices/data.slice';
 
@@ -36,6 +36,9 @@ function App() {
                         </Route>
                         <Route path="/recommender">
                             <RecommenderPage />
+                        </Route>
+                        <Route path="/details">
+                            <Details />
                         </Route>
                     </Switch>
                 </main>

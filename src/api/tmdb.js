@@ -14,9 +14,9 @@ const getProviders = async () => {
             },
         });
         
-        console.log(response);
+        console.log('API', response);
 
-        return response.data;
+        return response.data.results;
     } catch (err) {
         return err;
     }
