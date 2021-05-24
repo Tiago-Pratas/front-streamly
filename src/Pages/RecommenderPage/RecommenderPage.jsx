@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './RecommenderPage.scss';
 import { MdUpdate } from 'react-icons/md';
 import { BsPlay, BsDisplayFill } from 'react-icons/bs';
@@ -16,11 +17,13 @@ const RecommenderPage = () => {
             </div>
             <div className="recommender__button-icon">
                 <div className="recommender__container-text">
-                    <button className="recommender__button icon"> <BsDisplayFill className="recommender__icon"/></button>
+                    {/* <button type="button" className="recommender__button icon"> <BsDisplayFill className="recommender__icon"/></button> */}
+                    <Link to="/tvShow" className="recommender__button icon"><BsDisplayFill className="recommender__icon"/></Link>
                     <p className="recommender__container-p">Serie</p>
                 </div>
                 <div className="recommender__container-text">
-                    <button className="recommender__button"><BiMovie className="recommender__icon"/></button>
+                    {/* <button className="recommender__button"><BiMovie className="recommender__icon"/></button> */}
+                    <Link to="/movie" className="recommender__button"><BiMovie className="recommender__icon"/></Link>
                     <p className="recommender__container-p">Peli</p>
                 </div>
             </div>

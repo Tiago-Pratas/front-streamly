@@ -15,6 +15,10 @@
     border-radius: 50%;
     background-color: $darkish_blue;
     border: none;
+
+        &:active{
+        color:#00ffbe,
+        }
 }
 
 .recommender__button-icon{
