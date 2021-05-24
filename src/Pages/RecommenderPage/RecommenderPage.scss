@@ -1,4 +1,5 @@
 @import '../../Styles/responsive.scss';
+@import '../../styles/colors.scss';
 
 .recommender-container{
     width: 100%;
@@ -12,8 +13,12 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #002e81;
+    background-color: $darkish_blue;
     border: none;
+
+        &:active{
+        color:#00ffbe,
+        }
 }
 
 .recommender__button-icon{
@@ -30,13 +35,13 @@
     color: white;
 }
 
-.recommender-container__title{
+.recommender__container-title{
         font-size: 16px;
         font-weight: 100;
         margin-bottom: 10px;
 }
 
-.recommender-container__text{
+.recommender__container-text{
         font-size: 16px;
         font-weight: 100;
         margin-bottom: 10px;
@@ -46,26 +51,30 @@
     font-weight: bold;
 }
 
-.recommender-list{
+.recommender__list{
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 40px;
 }
 
-.recommender-finish{
+.recommender__finish{
     display: flex;
     justify-content: flex-end;
+    align-items:flex-end;
     padding-top: 40px;
     padding-right: 50px;
 }
 
-.recommender-container__p{
+.recommender__container-p{
     padding-top: 10px;
-    margin-right: 50px;
+    text-align: center;
 }
 
-
+.recommender__finish-p{
+    margin-right: 40px;
+    margin-bottom: 14px;
+}
 
 @include tablet-big {
     &__title {
