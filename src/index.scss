@@ -1,22 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 @import './Styles//buttons.scss';
-
-$green_blue: #00ad81;
-$bright_teal: #00ffbe;
-$darkish_blue: #002e81;
-$ligh_y_blue: rgb(43, 72, 136);
-$darkish_blue: #002e81;
-$light_blue_grey: #bbcae9;
-$soft_blue: #7795d4;
-$very_light_pink_two: #bbbbbb;
-$black: #000000;
-$black-50: rgba(0, 0, 0, 50%);
+@import './styles/colors';
 
 * {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, input, a, label {
   font-family: Poppins, sans-serif;
 }
 
@@ -26,5 +16,20 @@ h1, h2, h3, h4, h5, h6, p {
     background: linear-gradient(180deg, rgba(22,35,64,1) 0%, rgba(0,46,129,1) 100%);
 }
 
-
-
+input {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem; /* 40px */
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid $very_light_pink_two;
+    outline: none;
+    padding: 1.2rem 0;
+    &::placeholder {
+        color: rgba(0,0,0,.2);
+    }
+ 
+    @media(max-width: 60rem){ 
+        font-size: 1.2rem; 
+    }
+}

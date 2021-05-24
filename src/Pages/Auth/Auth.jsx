@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
-import { RegisterForm, LoginForm } from '../../components/index';
+import './Auth.scss';
+
+import {
+    RegisterForm,
+    LoginForm } from '../../components/index';
 
 const Auth = () => {
     const [showForm, setShowForm] = useState('login');
 
     return (
         <>
-            <h2>¡Únete a la comunidad!</h2>
-            <div className="wrapper">
-                {showForm === 'login' && <LoginForm />}
+            <div className="form-container__controls">
+                <button className="form-container__controls-btn btn-blue" onClick={() => setShowForm('login')}>Login</button>
+                <button className="form-container__controls-btn btn-blue" onClick={() => setShowForm('register')}>Registro</button>
+            </div>
+            
+            <div className="form-container">
+                {showForm === 'login' && (
+                    <LoginForm />
+                )}
 
                 {showForm === 'register' && <RegisterForm />}
 

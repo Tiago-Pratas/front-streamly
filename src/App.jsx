@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Loading, Header } from './components';
-import { WelcomePage, RecommenderPage, Home, Auth } from './pages';
+import { Loading, Header, NavbarBottom } from './components';
+import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage } from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import './App.scss';
+
 
 function App() {
     return (
@@ -22,14 +22,20 @@ function App() {
                             <WelcomePage />
                         </Route>
                         {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                        <Route path="/bienvenido-step2">
-                            <RecommenderPage />
+                        <Route exact path="/bienvenida-step2">
+                            <WelcomePage2 />
                         </Route>
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
+                        <Route path="/recommender">
+                            <RecommenderPage />
+                        </Route>
                     </Switch>
                 </main>
+                <div className="navbar">
+                    <NavbarBottom />
+                </div>
             </BrowserRouter>
         </>
 
