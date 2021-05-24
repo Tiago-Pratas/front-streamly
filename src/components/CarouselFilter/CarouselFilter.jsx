@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
+<<<<<<< HEAD
 import { useDispatch } from 'react-redux';
+=======
+import {useSelector } from 'react-redux';
+>>>>>>> 2cd0052cd19c3879965aebd1c07d3b9810c06578
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { HiMenuAlt4 } from 'react-icons/hi';
-import { getAllProviders } from '../../redux/slices/data.slice';
 
 import 'swiper/swiper.scss';
 
@@ -13,16 +16,19 @@ import './CarouselFilter.scss';
 SwiperCore.use([Scrollbar]);
 
 const Carousel = () => {
-    const dispatch = useDispatch();
+    
     const [swiperView, setSwiperView] = useState(false);
 
     const showSwiper = () => setSwiperView(!swiperView);
 
-    const getProviders = dispatch(getAllProviders());
-    console.log(getProviders);
 
+<<<<<<< HEAD
     //const providers = useSelector(state => state);
     //console.log(providers);
+=======
+    const providers = useSelector(state => state.tmdb.providers);
+    console.log(providers);
+>>>>>>> 2cd0052cd19c3879965aebd1c07d3b9810c06578
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -40,7 +46,7 @@ const Carousel = () => {
                         autoHeight={true}
                         with={'100px'}
                     >
-                        { providers.map((provider) => (
+                        { providers.results.map((provider) => (
                             <SwiperSlide key={provider.provider_id}>
                                 <img
                                     src={`${imgUrl}${provider.logo_path}`}
@@ -49,7 +55,6 @@ const Carousel = () => {
                                 ></img>
                             </SwiperSlide>
                         ))}
-                        
                     </Swiper>
                 </div>
 
