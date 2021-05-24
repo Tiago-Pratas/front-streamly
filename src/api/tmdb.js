@@ -13,8 +13,10 @@ const getProviders = async () => {
                 language: 'es-ES',
             },
         });
-        const request = await response.data;
-        return request;
+        
+        console.log(response);
+
+        return response.data;
     } catch (err) {
         return err;
     }
