@@ -10,11 +10,11 @@ const NavbarBottom = () => {
     return (
         <>
             <navBar className="navbar-bottom background-blue">
-                <Link className="navbar-bottom__icons-i" to="/registro-iniciar-sesion"><AiFillHome /></Link>
-                <Link className="navbar-bottom__icons-i" to="/registro-iniciar-sesion"><MdLocalMovies /></Link>
-                <Link className="navbar-bottom__icons-i" to="/registro-iniciar-sesion"><MdEventSeat /></Link>
-                <Link className="navbar-bottom__icons-i" to="/registro-iniciar-sesion"><AiFillHeart /></Link>
-                <Link className="navbar-bottom__icons-i" to="/registro-iniciar-sesion"><IoNewspaperSharp /></Link>
+                <Link className="navbar-bottom__icons-i" to="/"><AiFillHome /></Link>
+                <Link className="navbar-bottom__icons-i" to="/"><MdLocalMovies /></Link>
+                <Link className="navbar-bottom__icons-i" to="/recommender"><MdEventSeat /></Link>
+                <Link className="navbar-bottom__icons-i" to="/favorites"><AiFillHeart /></Link>
+                <Link className="navbar-bottom__icons-i" to="/news"><IoNewspaperSharp /></Link>
             </navBar>
         </>
     );

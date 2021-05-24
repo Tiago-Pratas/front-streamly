@@ -1,31 +1,25 @@
 @import '../../styles/responsive.scss';
 
 .navbar-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 25px;
+    padding: 10px;
 
     &__icons-i {
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         margin-left: 10px;
     }
 
     @include tablet {
-        display: block;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &__nav {
-            display: block;
-        }
-
-        &__nav-link {
-            color: #fff;
-            margin-right: 20px;
-            text-decoration: none;
-        }
+        display: none;
     }
+}
+
+.navbar-bottom__icons-i:active{
+    color:#00ffbe,
 }
