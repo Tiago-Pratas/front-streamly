@@ -8,29 +8,27 @@ const logoutUrl = `${serverDirection}/auth/logout`;
 const register = async (userData) => {
     try {
         const request = await axios.post(registerUrl, userData);
-    
-        console.log(request.data);
-    
-        if(!request.ok) {
-            throw new Error(request.message);
+
+        console.log(request);
         
-        } 
-        return request;
-        
-    } catch (err) {
-        return err;
+        return request.data;
+
+    } catch (error) {
+        console.log(error);
+        return error;
     }
 
 };
 
 const login = async (userData) => {
-    const request = await axios.post(loginUrl, userData);
+    try {
+        const request = await axios.post(loginUrl, userData);
+    
+        return request.data;
 
-    if (!request.ok) {
-        throw new Error(request.message);
+    } catch (error) {
+        return error;
     }
-
-    return request;
 };
 
 const logout = async () => {

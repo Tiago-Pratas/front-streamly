@@ -23,25 +23,25 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(loginAsync.fulfilled, (state, action) => {
-            if (!action.payload.message && action.payload.email) {
+            console.log(action.payload.email);
+            if (action.payload.email) {
                 state.user = action.payload;
                 state.hasUser = true;
                 state.error = '';
             } else {
                 state.hasUser = false;
-                state.error = action.payload.message || action.payload;
+                state.error = action.payload;
             }
         });
         
         builder.addCase(registerAsync.fulfilled, (state, action) => {
-            console.log(action.payload);
-            if (!action.payload.message) {
+            if (Object(action.payload) === action.payload) {
                 state.user = action.payload;
                 state.hasUser = true;
                 state.error = '';
             } else {
                 state.hasUser = false;
-                state.error = action.payload.message;
+                state.error = action.payload;
             }
         
         });
