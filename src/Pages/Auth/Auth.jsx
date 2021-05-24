@@ -20,14 +20,11 @@ const Auth = () => {
                     <LoginForm />
                 )}
 
-                {showForm === 'register' && (
-                    <RegisterForm />
-                )}
+                {showForm === 'register' && <RegisterForm />}
+
 
             </div>
         </>
-
-        
     );
 };
 
