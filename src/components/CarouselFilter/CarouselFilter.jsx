@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { HiMenuAlt4 } from 'react-icons/hi';
@@ -21,8 +21,8 @@ const Carousel = () => {
     const getProviders = dispatch(getAllProviders());
     console.log(getProviders);
 
-    const providers = useSelector(state => state);
-    console.log(providers);
+    //const providers = useSelector(state => state);
+    //console.log(providers);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
