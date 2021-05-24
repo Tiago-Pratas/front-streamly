@@ -20,14 +20,16 @@ const Auth = () => {
                     <LoginForm />
                 )}
 
-                {showForm === 'register' && (
-                    <RegisterForm />
-                )}
+                {showForm === 'register' && <RegisterForm />}
 
+                <div className="controls">
+                    <button onClick={() => setShowForm('login')}>Login</button>
+                    <button onClick={() => setShowForm('register')}>
+                        Registro
+                    </button>
+                </div>
             </div>
         </>
-
-        
     );
 };
 
