@@ -12,7 +12,6 @@ SwiperCore.use([Scrollbar]);
 
 const Carousel = (props) => {
     //const image = fclub;
-    console.log(props);
 
     Carousel.propTypes = {
         title: PropTypes.node,
@@ -34,10 +33,8 @@ const Carousel = (props) => {
         const filteredResult = allMedia.filter((item) => {
             return (item.genre_ids.indexOf(filter) >= 0);
         });
-        console.log('FFF', filteredResult);
         allMedia= filteredResult;
     }
-    console.log('movies', allMedia);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -46,9 +43,17 @@ const Carousel = (props) => {
                 <h3 className="swiper-text__color">{props.title}</h3>
                 <Link className="swiper-text__link"> Ver todo</Link>
             </div>
+
             <Swiper
+                breakpoints={{
+                    480: {
+                        width: 480,
+                        slidesPerView: 2,
+                    },
+ 
+                }}
+                slidesPerView={3}
                 spaceBetween={10}
-                slidesPerView={'auto'}
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
             >

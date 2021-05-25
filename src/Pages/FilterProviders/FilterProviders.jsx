@@ -5,12 +5,14 @@ import './FilterProviders.scss';
 
 const FilterProviders = () => {
     const providers = useSelector(state => state.tmdb.providers);
+    const user = useSelector(state => state.user.user);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     const allProviders = [...providers];
 
     const setProviders = (ev) => {
-        sendProviders(ev.provider_id);
+        sendProviders(user.email, ev);
+        console.log(user.email, ev);
     };
 
     return (
@@ -23,7 +25,7 @@ const FilterProviders = () => {
                         key={provider.provider_id} 
                         alt="img-providers" 
                         className="suscription__img"
-                        onClick={() => (setProviders)}
+                        onClick={() => setProviders(provider.provider_id)}
                     />
                 ))
             }
