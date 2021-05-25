@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch,} from 'react-redux';
+import { useEffect } from 'react';
 import { Loading, Header, NavbarBottom } from './components';
 import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details } from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { getAllProviders } from './redux/slices/data.slice';
+import { checkSessionAsync } from './redux/slices/user.slice';
 
 import './App.scss';
 
@@ -13,6 +15,15 @@ function App() {
     const dispatch = useDispatch();
     const getProviders = dispatch(getAllProviders());
     console.log(getProviders);
+
+    useEffect(() => {
+        getUser();
+    }, []);
+    
+    const getUser = async () => {
+        dispatch(checkSessionAsync());
+    };
+
     return (
         <>
             <BrowserRouter>
