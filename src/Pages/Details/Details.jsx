@@ -15,6 +15,7 @@ const Details = () => {
     const id = location.id;
 
     const media = allMedia.find((allMedia) => allMedia.id === id);
+    console.log(media);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -27,7 +28,7 @@ const Details = () => {
                 ></img>
 
                 <div className="details-container__info">
-                    <h1 className="details-container__info-title">{media.title}(2021)</h1>
+                    <h1 className="details-container__info-title">{media.name || media.title}(2021)</h1>
                     <h4 className="details-container__info-genre">
                         Animación, Acción, & Aventura, Drama | Duración: 45m
                     </h4>
