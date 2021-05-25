@@ -51,7 +51,7 @@ const Carousel = (props) => {
                     },
  
                 }}
-                slidesPerView={3}
+                slidesPerView={2}
                 spaceBetween={10}
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
