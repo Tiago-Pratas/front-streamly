@@ -13,7 +13,12 @@ import './App.scss';
 function App() {
 
     const dispatch = useDispatch();
+    const filteredProviders = useSelector(state => state.tmdb.topFilter);
     const getProviders = dispatch(getAllProviders());
+    const tvShows = dispatch(getAllTvShows(filteredProviders));
+    const movies = dispatch(getAllMovies(filteredProviders));
+    console.log('tv', filteredProviders);
+    console.log(tvShows, 'movies2', movies);
     console.log(getProviders);
 
     useEffect(() => {

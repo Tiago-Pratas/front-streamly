@@ -17,13 +17,11 @@ const RecommenderPage = () => {
             </div>
             <div className="recommender__button-icon">
                 <div className="recommender__container-text">
-                    {/* <button type="button" className="recommender__button icon"> <BsDisplayFill className="recommender__icon"/></button> */}
-                    <Link to="/tvShow" className="recommender__button icon"><BsDisplayFill className="recommender__icon"/></Link>
+                    <Link to="/tvShow"><BsDisplayFill className="recommender__icon"/></Link>
                     <p className="recommender__container-p">Serie</p>
                 </div>
                 <div className="recommender__container-text">
-                    {/* <button className="recommender__button"><BiMovie className="recommender__icon"/></button> */}
-                    <Link to="/movie" className="recommender__button"><BiMovie className="recommender__icon"/></Link>
+                    <Link to="/movie"><BiMovie className="recommender__icon"/></Link>
                     <p className="recommender__container-p">Peli</p>
                 </div>
             </div>
@@ -32,34 +30,34 @@ const RecommenderPage = () => {
             </div>
             <div className="recommender__button-icon">
                 <div  className="recommender__container-text">
-                    <button className="recommender__button"> <IoPlaySkipForwardOutline className="recommender__icon"/></button>
+                    <Link to="/play-pause"><IoPlaySkipForwardOutline className="recommender__icon"/></Link>
                     <p className="recommender__container-p">No tengo prisa</p>
                 </div>
                 <div className="recommender__container-text">
-                    <button className="recommender__button"> <BsPlay className="recommender__icon"/> </button>
+                    <Link to="/play"><BsPlay className="recommender__icon"/></Link>
                     <p className="recommender__container-p">Tengo un rato</p>
                 </div>
                 <div className="recommender__container-text">
-                    <button className="recommender__button"> <FiFastForward className="recommender__icon"/> </button>
-                    <p className="recommender__container_p">Algo rápido</p>
+                    <Link to="/rewind"><FiFastForward className="recommender__icon"/></Link>
+                    <p className="recommender__container-p">Algo rápido</p>
                 </div>
             </div>
             <div>
                 <MdUpdate />
             </div>
-            <div>
-                <div className="recommender__list">
-                    <div>
-                        <p>Mis Listas</p>
+            {/*  <div>
+                    <div className="recommender__list">
+                        <div>
+                            <p>Mis Listas</p>
+                        </div>
+                        <div>
+                            <p>Más opciones</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>Más opciones</p>
-                    </div>
-                </div>
-            </div>
+                </div> */}
             <div className="recommender__finish">
-                <div className="recommender__finish-p">
-                    <p>Saltar</p>
+                <div className="recommender__finish-links">
+                    <Link to="/" className="recommender__finish-link">saltar</Link>
                 </div>
                 <div>
                     <button className="btn-blue welcome-container__button">Continuar</button>
