@@ -27,7 +27,7 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(loginAsync.fulfilled, (state, action) => {
-            console.log(action.payload.data);
+
             if (action.payload.email) {
                 state.user = action.payload;
                 state.hasUser = true;
@@ -50,12 +50,14 @@ export const userSlice = createSlice({
         });
 
         builder.addCase(checkSessionAsync.fulfilled, (state, action) => {
-            if(Object(action.payload) === action.payload) {
+            if(action.payload.email) {
+                console.log('check',action);
                 state.user = action.payload;
                 state.hasUser = true;
                 state.error = '';
             }else {
                 state.hasUser = false;
+                state.error = action.payload.message;
             }
         });
 

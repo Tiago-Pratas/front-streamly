@@ -49,7 +49,6 @@ export const dataSlice = createSlice({
         });
 
         builder.addCase(getAllMovies.fulfilled, (state, action) => {
-            console.log(action);
             state.movies = action.payload;
         });
 

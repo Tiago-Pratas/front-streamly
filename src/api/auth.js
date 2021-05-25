@@ -35,7 +35,6 @@ const login = async (userData) => {
 const checkSession = async () => {
     try {
         const request = await axios.get(checkSessionUrl, {withCredentials: true});
-
         return request.data;
 
     } catch (error) {
