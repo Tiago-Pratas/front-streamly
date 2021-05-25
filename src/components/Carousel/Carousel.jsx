@@ -13,7 +13,7 @@ SwiperCore.use([Scrollbar]);
 const Carousel = (props) => {
     //const image = fclub;
     console.log(props);
-    
+
     Carousel.propTypes = {
         title: PropTypes.node,
         date: PropTypes.node,
@@ -24,8 +24,19 @@ const Carousel = (props) => {
 
     let allMedia = [...tvShows, ...movies];
 
-    if(props.date) allMedia = allMedia.filter(allMedia => allMedia.release_date < props.date);
-    /* if(props.genre) allMedia = allMedia.filter((genre) => genre.genres_id.map(genre => props.genre) >=0); */
+    if (props.date)
+        allMedia = allMedia.filter(
+            (allMedia) => allMedia.release_date < props.date
+        );
+
+    if (props.genre) {
+        const filter= parseInt(props.genre);
+        const filteredResult = allMedia.filter((item) => {
+            return (item.genre_ids.indexOf(filter) >= 0);
+        });
+        console.log('FFF', filteredResult);
+        allMedia= filteredResult;
+    }
     console.log('movies', allMedia);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 

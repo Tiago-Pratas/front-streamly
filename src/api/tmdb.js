@@ -60,7 +60,6 @@ const getMovies = async (provider) => {
         },
     });
 
-    console.log('response',response);
     return response.data.results;
 };
 

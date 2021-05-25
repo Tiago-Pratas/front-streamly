@@ -7,15 +7,26 @@ const Home = () => {
             title: 'Novedades',
             date: '2021/01/01',
             genre: '',
-            page: 1,
-            sort_by: 'release_date.desc',
         },
         {
             title: 'Comedias',
             release_date: '',
             genre: '35',
-            page: 1,
-            sort_by: 'release_date.desc',
+        },
+        {
+            title: 'Acción',
+            release_date: '',
+            genre: '28',
+        },
+        {
+            title: 'Animación',
+            release_date: '',
+            genre: '16',
+        },
+        {
+            title: 'Terror',
+            release_date: '',
+            genre: '27',
         },
     ];
 
