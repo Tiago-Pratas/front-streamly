@@ -72,6 +72,9 @@ function App() {
                         <Route path="/recommender1">
                             <Recommender1Page />
                         </Route>
+                        <Route path="/recommender2">
+                            <Recommender2Page />
+                        </Route>
                         <Route path="/details">
                             <Details />
                         </Route>
