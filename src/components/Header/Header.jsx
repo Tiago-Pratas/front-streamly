@@ -1,5 +1,4 @@
 import React from 'react';
-import TopFilter from '../TopFilter/TopFilter';
 import { Link } from 'react-router-dom';
 import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 import './Header.scss';
@@ -22,9 +21,6 @@ const Header = () => {
                     <AiOutlineSearch className="header__icons-i" />
                 </div>
             </header>
-            <div>
-                <TopFilter />
-            </div>
         </>
     );
 };

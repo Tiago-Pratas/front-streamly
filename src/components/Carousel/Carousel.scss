@@ -1,6 +1,11 @@
 @import '../../styles/colors';
+@import '../../styles/responsive';
 .swiper-image {
     width: 100%;
+    min-height: 177px;
+    @include tablet {
+        min-height: 352px;
+    }
 }
 
 .swiper-text {
@@ -25,8 +30,4 @@
         box-sizing: border-box;
         padding: 10px;
     }
-
-    
 }
-
-  

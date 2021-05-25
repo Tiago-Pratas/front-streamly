@@ -34,6 +34,11 @@
             text-align: left;
         }
     }
+    &__genre {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     &__providers-img {
         max-width: 85px;
     }
