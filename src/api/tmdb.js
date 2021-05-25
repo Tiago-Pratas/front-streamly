@@ -63,4 +63,20 @@ const getMovies = async (provider) => {
     return response.data.results;
 };
 
-export { getProviders, getMovies, getTvShows };
+const getGenres = async () => {
+    const response = await axios.get(`${baseUrl}genre/movie/list`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: 'es-ES',
+        },
+    });
+    const responseTv = await axios.get(`${baseUrl}genre/tv/list`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: 'es-ES',
+        },
+    });
+    return [...response.data.genres,  ...responseTv.data.genres];
+};
+
+export { getProviders, getMovies, getTvShows, getGenres };

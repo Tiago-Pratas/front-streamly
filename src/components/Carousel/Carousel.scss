@@ -1,6 +1,18 @@
 @import '../../styles/colors';
+@import '../../styles/responsive';
+
 .swiper-image {
     width: 100%;
+    min-height: 200px;
+    border-radius: 10px;
+    
+    @include movil {
+        min-height: 255px;
+    }
+    
+    @include movil-big {
+        min-height: 355px;
+    }
 }
 
 .swiper-text {
@@ -25,8 +37,4 @@
         box-sizing: border-box;
         padding: 10px;
     }
-
-    
 }
-
-  

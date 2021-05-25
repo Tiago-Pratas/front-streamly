@@ -2,23 +2,39 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loading, Header, NavbarBottom } from './components';
-import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Recommender1Page, Recommender2Page, Details, FilterProviders } from './pages';
+import {
+    WelcomePage,
+    WelcomePage2,
+    Home,
+    Auth,
+    RecommenderPage,
+    Recommender1Page,
+    Details,
+    FilterProviders,
+} from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { getAllProviders, getAllTvShows, getAllMovies } from './redux/slices/data.slice';
+import {
+    getAllProviders,
+    getAllTvShows,
+    getAllMovies,
+    getAllGenres,
+} from './redux/slices/data.slice';
 import { checkSessionAsync } from './redux/slices/user.slice';
 
 import './App.scss';
 
-
 function App() {
-
     const dispatch = useDispatch();
-    const filteredProviders = useSelector(state => state.tmdb.topFilter);
+
+    const filteredProviders = useSelector((state) => state.tmdb.topFilter);
+
     const getProviders = dispatch(getAllProviders());
+    const genres = dispatch(getAllGenres());
     const tvShows = dispatch(getAllTvShows(filteredProviders));
     const movies = dispatch(getAllMovies(filteredProviders));
-    console.log('tv', filteredProviders);
-    console.log(tvShows, 'movies2', movies);
+
+    console.log(filteredProviders);
+    console.log(tvShows,'GGG', genres, movies);
     console.log(getProviders);
 
     useEffect(() => {
@@ -72,7 +88,6 @@ function App() {
                 </div>
             </BrowserRouter>
         </>
-
     );
 }
 
