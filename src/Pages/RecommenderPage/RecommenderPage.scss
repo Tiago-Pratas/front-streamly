@@ -68,7 +68,6 @@
     display: flex;
     justify-content: flex-end;
     align-items:flex-end;
-    padding-top: 40px;
     padding-right: 50px;
 }
 
@@ -85,6 +84,11 @@
 .recommender__finish-link{
     text-decoration:none;
     color: black;
+}
+
+.recommender1__button{
+    display: flex;
+    justify-content: center;
 }
 
 @include tablet-big {

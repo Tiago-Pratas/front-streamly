@@ -50,7 +50,7 @@ const RecommenderPage = () => {
             <div>
                 <MdUpdate />
             </div>
-            <div>
+            {/* <div>
                 <div className="recommender__list">
                     <div>
                         <p>Mis Listas</p>
@@ -59,13 +59,13 @@ const RecommenderPage = () => {
                         <p>Más opciones</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="recommender__finish">
                 <div className="recommender__finish-links">
                     <Link to="/" className="recommender__finish-link">saltar</Link>
                 </div>
-                <div>
-                    <button className="btn-blue welcome-container__button">Continuar</button>
+                <div className="recommender1__button">
+                    <Link to="/recommender2" className="btn-blue">Continuar</Link>
                 </div>
             </div>
         </div>
