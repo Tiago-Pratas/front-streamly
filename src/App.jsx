@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch,} from 'react-redux';
 import { Loading, Header, NavbarBottom } from './components';
-import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details } from './pages';
+import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details, FilterProviders } from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { getAllProviders } from './redux/slices/data.slice';
 
@@ -39,6 +39,9 @@ function App() {
                         </Route>
                         <Route path="/details">
                             <Details />
+                        </Route>
+                        <Route path="/filter-providers">
+                            <FilterProviders />
                         </Route>
                     </Switch>
                 </main>
