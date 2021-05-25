@@ -16,7 +16,7 @@ const Recommender1Page = () => {
                 <img className="recommender1__container-img" src={popcorn} alt="image popcorn"></img>
             </div>
             <div className="recommender1__button">
-                <Link to="/recommender" className="btn-blue">Finalizar</Link>
+                <Link to="/recommender" className="btn-blue">Continuar</Link>
             </div>
         </div>
 
