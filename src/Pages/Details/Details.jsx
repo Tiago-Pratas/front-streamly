@@ -22,13 +22,17 @@ const Details = () => {
         genres.find((genre) => genre.id == media)
     );
 
+    
+
     console.log(media, filtersGenres);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
+    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`};
+
     return (
         <>
-            <div className="details-container">
+            <div className="details-container" style={backgroundImg }>
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
