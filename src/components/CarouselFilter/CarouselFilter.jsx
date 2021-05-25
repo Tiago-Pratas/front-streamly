@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
-import {useSelector } from 'react-redux';
+import {useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { HiMenuAlt4 } from 'react-icons/hi';
+import { filterProviders } from '../../redux/slices/data.slice';
 
 import 'swiper/swiper.scss';
 
@@ -17,9 +17,13 @@ const Carousel = () => {
 
     const showSwiper = () => setSwiperView(!swiperView);
 
+    const dispatch = useDispatch();
+
+    const handleFilter = (ev) => {
+        dispatch(filterProviders(ev));
+    };
 
     const providers = useSelector(state => state.tmdb.providers);
-    console.log('CAROUSEL',providers);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -31,14 +35,13 @@ const Carousel = () => {
                     }
                 >
                     <Swiper
-                        spaceBetween={0}
-                        slidesPerView={6}
+                        spaceBetween={10}
+                        slidesPerView={'auto'}
                         scrollbar={{ draggable: true }}
-                        autoHeight={true}
-                        with={'100px'}
+                        width={25}
                     >
                         { providers.map((provider) => (
-                            <SwiperSlide key={provider.provider_id}>
+                            <SwiperSlide onClick={() => handleFilter(provider.provider_id)} key={provider.provider_id}>
                                 <img
                                     src={`${imgUrl}${provider.logo_path}`}
                                     alt="Logo de Netflix"
