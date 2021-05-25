@@ -1,13 +1,29 @@
 import React from 'react';
 import { Carousel } from '../../components';
-import fclub from '../../img/fclub.jpeg';
 
 const Home = () => {
-    const image = fclub;
+    const setupSwiper = [
+        {
+            title: 'Novedades',
+            date: '2021/01/01',
+            genre: '',
+            page: 1,
+            sort_by: 'release_date.desc',
+        },
+        {
+            title: 'Comedias',
+            release_date: '',
+            genre: '35',
+            page: 1,
+            sort_by: 'release_date.desc',
+        },
+    ];
+
     return (
         <div>
-            <h1>Página de inicio</h1>
-            <Carousel  image={image}/>
+            {setupSwiper.map((setup) => (
+                <Carousel title={setup.title} date={setup.date} genre={setup.genre}key={setup.title}/>
+            ))}
         </div>
     );
 };
