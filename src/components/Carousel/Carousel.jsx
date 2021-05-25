@@ -11,8 +11,6 @@ import PropTypes from 'prop-types';
 SwiperCore.use([Scrollbar]);
 
 const Carousel = (props) => {
-    //const image = fclub;
-
     Carousel.propTypes = {
         title: PropTypes.node,
         date: PropTypes.node,
@@ -29,13 +27,14 @@ const Carousel = (props) => {
         );
 
     if (props.genre) {
-        const filter= parseInt(props.genre);
+        const filter = parseInt(props.genre);
         const filteredResult = allMedia.filter((item) => {
-            return (item.genre_ids.indexOf(filter) >= 0);
+            return item.genre_ids.indexOf(filter) >= 0;
         });
-        allMedia= filteredResult;
+        allMedia = filteredResult;
     }
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
+
 
     return (
         <>
@@ -57,13 +56,20 @@ const Carousel = (props) => {
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
             >
-                {allMedia.map((tvShow) => (
-                    <SwiperSlide key={tvShow.id}>
-                        <img
-                            src={`${imgUrl}${tvShow.poster_path}`}
-                            alt="fclub"
-                            className="swiper-image"
-                        />
+                {allMedia.map((media) => (
+                    <SwiperSlide key={media.id}>
+                        <Link
+                            to={{
+                                pathname: '/details',
+                                id: media.id,
+                            }}
+                        >
+                            <img
+                                src={`${imgUrl}${media.poster_path}`}
+                                alt={media.title}
+                                className="swiper-image"
+                            />
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>

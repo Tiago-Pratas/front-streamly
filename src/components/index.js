@@ -5,6 +5,7 @@ import Header from './Header/Header';
 import Carousel from './Carousel/Carousel';
 import CarouselFilter from './CarouselFilter/CarouselFilter';
 import NavbarBottom from './NavbarBottom/NavbarBottom';
+import TopFilter from './TopFilter/TopFilter';
 
 export {
     RegisterForm,
@@ -13,5 +14,6 @@ export {
     Header,
     Carousel,
     CarouselFilter,
-    NavbarBottom
+    NavbarBottom,
+    TopFilter,
 };

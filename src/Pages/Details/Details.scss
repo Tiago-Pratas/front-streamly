@@ -1,19 +1,15 @@
 @import '../../styles/responsive';
-
 .details-container {
     position: relative;
     display: flex;
     align-items: center;
     padding: 30px 40px;
-    background-image: url(../../img/invencible-back.jpg);
     background-position: center;
     color: #fff;
     height: auto;
-
     &__img {
         display: none;
         height: auto;
-
         @include tablet-big {
             display: block;
             position: relative;
@@ -21,42 +17,37 @@
             margin-right: 40px;
         }
     }
-
     &__info {
         display: flex;
         justify-content: center;
         flex-direction: column;
         text-align: center;
         position: relative;
-
         ul {
             padding: 0;
-
             li {
                 list-style: none;
             }
         }
-
         @include tablet-big {
             align-items: flex-start;
             text-align: left;
         }
     }
-
+    &__genre {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     &__providers-img {
         max-width: 85px;
     }
-
     &__info-genre {
         margin: 20px 0;
     }
-
     &__info-description {
         margin-bottom: 20px;
     }
-
-
-
     @include tablet-big {
         position: relative;
         display: flex;
@@ -66,34 +57,30 @@
 }
 
 .details-container::before {
-    content:'';
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.6);
-
+    background-color: rgba(0, 0, 0, 0.6);
     @include tablet-big {
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(0, 0, 0, 0.8);
     }
 }
 
 .trailer {
     max-width: 80%;
     margin: 20px auto 100px;
-
     &__title {
-        margin:20px;
+        margin: 20px;
         text-align: center;
     }
-
     iframe {
         width: 100%;
         height: 350px;
         border-radius: 30px;
         border: none;
-
         @include tablet-big {
             height: 650px;
         }
