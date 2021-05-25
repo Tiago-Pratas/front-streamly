@@ -9,29 +9,29 @@
     padding-top: 50px;
 }
 
-/* .recommender__button{
+.recommender__button{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: $darkish_blue;
     border: none;
 
-        &:active{
+        & :active{
         color:#00ffbe,
         }
-} */
+}
 
 .recommender__icon{
     font-size: 30px;
     align-items: center;
     justify-content: center;
     color: white;
-    width: 50px;
+    /* width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: $darkish_blue;
     border: none;
-    padding: 8px;
+    padding: 8px; */
 }
 
 .recommender__button-icon{
@@ -68,7 +68,6 @@
     display: flex;
     justify-content: flex-end;
     align-items:flex-end;
-    padding-top: 40px;
     padding-right: 50px;
 }
 
@@ -85,6 +84,11 @@
 .recommender__finish-link{
     text-decoration:none;
     color: black;
+}
+
+.recommender1__button{
+    display: flex;
+    justify-content: center;
 }
 
 @include tablet-big {

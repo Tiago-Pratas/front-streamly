@@ -42,9 +42,17 @@ const Carousel = (props) => {
                 <h3 className="swiper-text__color">{props.title}</h3>
                 <Link className="swiper-text__link"> Ver todo</Link>
             </div>
+
             <Swiper
+                breakpoints={{
+                    480: {
+                        width: 480,
+                        slidesPerView: 2,
+                    },
+ 
+                }}
+                slidesPerView={3}
                 spaceBetween={10}
-                slidesPerView={'auto'}
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
             >
