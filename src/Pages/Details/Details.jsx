@@ -28,7 +28,7 @@ const Details = () => {
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
-    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`};
+    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
 
     return (
         <>
