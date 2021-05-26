@@ -9,8 +9,8 @@ export const loginAsync = createAsyncThunk('user/login', async (form) => {
     return await login(form);
 });
 
-export const logoutAsync = createAsyncThunk('logout', async () => {
-    return await logout();
+export const logoutAsync = createAsyncThunk('logout', async (user) => {
+    return await logout(user);
 });
 
 export const checkSessionAsync = createAsyncThunk('user/checksession', async () => {
