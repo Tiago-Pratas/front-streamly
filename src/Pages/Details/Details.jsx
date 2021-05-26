@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './Details.scss';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BsFillHeartFill } from 'react-icons/bs';
 import { getMovieDetails } from '../../api/tmdb';
+import { sendFavorites, deleteFavorites } from '../../api/api';
 
 const Details = () => {
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
     const [providers, setProviders] = useState([]);
+    const user = useSelector((state) => state.user.user);
 
     //use the params that are passed from Carousel.jsx
     const params = useParams();
+
+    const inFavorites = user.id_medias.filter(id => id == params.id);
+
+    console.log('infavs', inFavorites);
+
+    const setFavorites = () => {
+        if (!inFavorites) {
+            sendFavorites(user.email, params.id);
+        } else {
+            deleteFavorites(user.email, params.id);
+        }
+    };
 
     useEffect(() => {
         //unwrap the values that arrive from the api call and set them on the state
@@ -28,11 +44,24 @@ const Details = () => {
     console.log(providers);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
-    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
+    const backgroundImg = {
+        backgroundImage: `url(${imgUrl}${media.backdrop_path})`,
+        backgroundSize: 'cover',
+    };
 
     return (
         <>
-            <div className="details-container" style={backgroundImg }>
+            <div className="details-container" style={backgroundImg}>
+                <span
+                    className={
+                        !inFavorites
+                            ? 'details-container__icon'
+                            : 'details-container__icon-red'
+                    }
+                    onClick={() => setFavorites(media.id)}
+                >
+                    <BsFillHeartFill />
+                </span>
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
