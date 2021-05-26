@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import popcorn from '../../img/popcorn.png';
+import popcorn from '../../img/undraw_home_cinema_l7yl.svg';
 import './Recommender1Page.scss';
 
 const Recommender1Page = () => {

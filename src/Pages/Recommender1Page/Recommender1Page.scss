@@ -23,8 +23,12 @@
 }
 
 .recommender1__container-img{
-    width: 60%;
-    padding-top: 50px;
+    width: 50%;
+    margin-top: 50px;
+
+    @include tablet-big {
+        width: 30%;
+    }
 }
 .recommender1-bold{
     font-weight: bold;
