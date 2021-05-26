@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const serverDirection = 'http://localhost:5000';
+export const serverDirection = 'http://localhost:5000';
+
 const registerUrl = `${serverDirection}/auth/register`;
 const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
@@ -52,5 +53,5 @@ export {
     register,
     login,
     logout,
-    checkSession
+    checkSession,
 };

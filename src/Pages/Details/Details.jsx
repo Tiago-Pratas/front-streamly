@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { BsFillHeartFill } from 'react-icons/bs';
+import { sendFavorites, deleteFavorites } from '../../api/api';
+
 import './Details.scss';
 import AmazonLog from '../../img/Amazon-prime-video.png';
 
@@ -10,8 +12,7 @@ const Details = () => {
     const tvShows = useSelector((state) => state.tmdb.tvShows);
     const movies = useSelector((state) => state.tmdb.movies);
     const genres = useSelector((state) => state.tmdb.genres);
-
-    console.log(genres);
+    const { email, id_medias } = useSelector((state) => state.user.user);
 
     let allMedia = [...tvShows, ...movies];
 
@@ -19,11 +20,26 @@ const Details = () => {
 
     let media = allMedia.find((allMedia) => allMedia.id === id);
 
+    const favorite = () => id_medias.find((id_medias) => id_medias == media.id);
+
+    let inFavorites = favorite();
+    console.log('antes', inFavorites);
+
+    const setFavorites = (id) => {
+        if (!inFavorites) {
+            sendFavorites(email, id);
+        } else {
+            deleteFavorites(email, id);
+        }
+    };
+
+    useEffect(() => {
+        favorite();
+    }, [setFavorites()]);
+
     const filtersGenres = media.genre_ids.map((media) =>
         genres.find((genre) => genre.id == media)
     );
-
-    console.log(media, filtersGenres);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
@@ -35,7 +51,16 @@ const Details = () => {
     return (
         <>
             <div className="details-container" style={backgroundImg}>
-                <span className='details-icon'><BsFillHeartFill/></span>
+                <span
+                    className={
+                        !inFavorites
+                            ? 'details-container__icon'
+                            : 'details-container__icon-red'
+                    }
+                    onClick={() => setFavorites(media.id)}
+                >
+                    <BsFillHeartFill />
+                </span>
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
