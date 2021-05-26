@@ -1,8 +1,9 @@
 import React from 'react';
-import './Details.scss';
-import AmazonLog from '../../img/Amazon-prime-video.png';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { BsFillHeartFill } from 'react-icons/bs';
+import './Details.scss';
+import AmazonLog from '../../img/Amazon-prime-video.png';
 
 const Details = () => {
     const location = useLocation();
@@ -22,17 +23,19 @@ const Details = () => {
         genres.find((genre) => genre.id == media)
     );
 
-    
-
     console.log(media, filtersGenres);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
-    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
+    const backgroundImg = {
+        backgroundImage: `url(${imgUrl}${media.backdrop_path})`,
+        backgroundSize: 'cover',
+    };
 
     return (
         <>
-            <div className="details-container" style={backgroundImg }>
+            <div className="details-container" style={backgroundImg}>
+                <span className='details-icon'><BsFillHeartFill/></span>
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
@@ -45,7 +48,10 @@ const Details = () => {
                     </h1>
                     <div className="details-container__genre">
                         {filtersGenres.map((filtersGenres) => (
-                            <h4 className="details-container__info-genre" key={filtersGenres.id}>
+                            <h4
+                                className="details-container__info-genre"
+                                key={filtersGenres.id}
+                            >
                                 {filtersGenres.name}
                             </h4>
                         ))}
