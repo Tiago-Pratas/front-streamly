@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     providers: [],
     movies: [],
     tvShows: [],
-    topFilter: [],
+    topFilter: '',
     genres: [],
 };
 
@@ -36,7 +36,7 @@ export const dataSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         filterProviders: (state, action) => {
-            state.topFilter = [...state.topFilter, action.payload];
+            state.topFilter = state.topFilter+=`|${action.payload}`;
         },
     },
     extraReducers: (builder) => {

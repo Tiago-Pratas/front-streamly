@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginAsync } from '../../redux/slices/user.slice';
 import { BiLogIn } from 'react-icons/bi';
 import './LoginForm.scss';
@@ -13,6 +13,8 @@ const INITIAL_STATE = {
 const LoginForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
+    let { error } = useSelector((state) => state.user);
+    if (error === 'Request failed with status code 401') error = '';
 
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();
@@ -65,8 +67,13 @@ const LoginForm = () => {
                     Iniciar Sesión
                 </button>
             </form>
-
-
+            <div className='error-container'>
+                {error && (
+                    <div className="error-container__text">
+                        <h3>{error}</h3>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

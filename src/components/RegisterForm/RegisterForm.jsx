@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerAsync } from '../../redux/slices/user.slice';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import './RegisterForm.scss';
@@ -14,6 +14,8 @@ const INITIAL_STATE = {
 const RegisterForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
+    let { error } = useSelector((state) => state.user);
+    if (error === 'Request failed with status code 401') error = '';
 
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();
@@ -29,9 +31,8 @@ const RegisterForm = () => {
     //TODO: error messages below input
     return (
         <div className="shadow p-3 mb-5 bg-body rounded login-container">
-            <AiOutlineUsergroupAdd className="login-icon"/>
+            <AiOutlineUsergroupAdd className="login-icon" />
             <form className="form" onSubmit={handleFormSubmit}>
-                
                 <input
                     type="text"
                     name="username"
@@ -70,7 +71,8 @@ const RegisterForm = () => {
                 <div>
                     <label
                         htmlFor="password"
-                        className="col-sm-2 col-form-label">
+                        className="col-sm-2 col-form-label"
+                    >
                         Contraseña
                     </label>
                 </div>
@@ -79,6 +81,13 @@ const RegisterForm = () => {
                     Registrarse
                 </button>
             </form>
+            <div className='error-container'>
+                {error && (
+                    <div className="error-container__text">
+                        <h3>{error}</h3>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
