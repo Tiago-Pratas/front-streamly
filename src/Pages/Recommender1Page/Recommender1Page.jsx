@@ -7,11 +7,15 @@ import './Recommender1Page.scss';
 
 const Recommender1Page = () => {
     const { user } = useSelector((state) => state);
+    console.log(user);
     return (
         <div className="recommender1-container">
             <div className="recommender1__container-text">
                 <h1 className="recommender1__container-title">
-                    ¡Hola <span className="recommender1-bold">{user.user.username|| 'User'}</span>
+                    ¡Hola{' '}
+                    <span className="recommender1-bold">
+                        {user.hasUser ? <span>{user.user.username}</span> : 'User'}
+                    </span>
                     ! ¿Qué tal? Supongo que quieres que te ayude a encontrar
                     algo interesante que ver.
                 </h1>
