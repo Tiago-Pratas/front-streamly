@@ -75,10 +75,7 @@ const Carousel = (props) => {
                 {allMedia.slice(0, 19).map((media) => (
                     <SwiperSlide key={media.id}>
                         <Link
-                            to={{
-                                pathname: '/details',
-                                id: media.id,
-                            }}
+                            to={`/details/${media.id}`}
                         >
                             <img
                                 src={`${imgUrl}${media.poster_path}`}

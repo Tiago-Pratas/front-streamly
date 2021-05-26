@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Details.scss';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getMovieDetails } from '../../api/tmdb';
 
 const Details = () => {
@@ -8,14 +8,16 @@ const Details = () => {
     const [video, setVideo] = useState('');
     const [providers, setProviders] = useState([]);
 
-    const location = useLocation();
+    //use params that are passed from Carousel.jsx
+    const params = useParams();
 
     useEffect(() => {
-        getMovieDetails(location.id)
+
+        getMovieDetails(params.id)
             .then(data => { 
                 setMedia(data); console.log(data); 
-                setVideo(data.videos.results[0].key); 
-                setProviders(data['watch/providers'].results.US.flatrate);
+                setVideo(data.videos?.results[0]?.key); 
+                setProviders(data['watch/providers']?.results?.US?.flatrate);
             });
     }, []);
 

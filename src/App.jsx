@@ -84,7 +84,7 @@ function App() {
                         <Route path="/recommender3">
                             <Recommender3Page />
                         </Route>
-                        <Route path="/details">
+                        <Route path="/details/:id">
                             <Details />
                         </Route>
                         <Route path="/filter-providers">

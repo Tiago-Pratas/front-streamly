@@ -111,6 +111,20 @@ const getMovieDetails = async (id) => {
             }
         });
 
+        if (!response) {
+            const responseTv = await axios.get(`${baseUrl}tv/${id}`, {
+                params: {
+                    api_key: process.env.REACT_APP_API_KEY,
+                    language: 'en-US',
+                    append_to_response: 'videos,watch/providers,languages',
+                }
+            });
+
+            console.log(responseTv.data);
+
+            return responseTv.data;
+        }
+
         console.log('re', response.data);
 
         return response.data;
