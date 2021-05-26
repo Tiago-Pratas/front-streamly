@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AllMovies } from '../../components/';
 import { Carousel } from '../../components';
 import { TopFilter } from '../../components';
 
@@ -31,21 +32,39 @@ const Home = () => {
         },
     ];
 
+    const [carouselView, setCarouselView] = useState(true);
+
+    const handleView = () => {
+        setCarouselView(!carouselView);
+    };
+
     return (
         <>
-            <div>
-                <TopFilter />
-            </div>
-            <div>
-                {setupSwiper.map((setup) => (
-                    <Carousel
-                        title={setup.title}
-                        date={setup.date}
-                        genre={setup.genre}
-                        key={setup.title}
-                    />
-                ))}
-            </div>
+            {
+                carouselView ? (
+                    <div>
+                        <div>
+                            <TopFilter />
+                        </div>
+                        <div>
+                            {setupSwiper.map((setup) => (
+                                <Carousel
+                                    title={setup.title}
+                                    date={setup.date}
+                                    genre={setup.genre}
+                                    key={setup.title}
+                                    changeView={handleView}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )
+                    :
+                    (<AllMovies
+                        changeView={handleView}
+                        setupSwiper={setupSwiper}
+                    />)
+            }
         </>
     );
 };

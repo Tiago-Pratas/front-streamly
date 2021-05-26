@@ -15,9 +15,15 @@ const Carousel = (props) => {
         title: PropTypes.node,
         date: PropTypes.node,
         genre: PropTypes.node,
+        changeView: PropTypes.node,
     };
     const tvShows = useSelector((state) => state.tmdb.tvShows);
     const movies = useSelector((state) => state.tmdb.movies);
+
+    const hadleAllMoviesView = () => {
+        props.changeView();
+    };
+
 
     let allMedia = [...tvShows, ...movies];
 
@@ -40,7 +46,12 @@ const Carousel = (props) => {
         <>
             <div className="swiper-text">
                 <h3 className="swiper-text__color">{props.title}</h3>
-                <Link className="swiper-text__link"> Ver todo</Link>
+                <Link 
+                    className="swiper-text__link"
+                    onClick={hadleAllMoviesView}
+                > 
+                    Ver todo
+                </Link>
             </div>
 
             <Swiper

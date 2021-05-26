@@ -2,8 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AllMovies.scss';
+import PropTypes from 'prop-types';
 
-const AllMovies = () => {
+const AllMovies = (props) => {
+    AllMovies.propTypes = {
+        changeView: PropTypes.node,
+        setupSwiper: PropTypes.node,
+    };
+
+
     const movies = useSelector(state => state.tmdb.movies);
     const tvShows = useSelector(state => state.tmdb.tvShows);
 
@@ -11,12 +18,14 @@ const AllMovies = () => {
 
     const allMoviesTvShows = [...movies, ...tvShows];
 
+    const filterMedia = allMoviesTvShows.filter(genre => genre.genre_ids.includes());
 
     return (
         <div className="movie">
             <h1>All movies</h1>
+            <h6 onClick={props.changeView}>Volver</h6>
             <div className="movie__container">
-                {allMoviesTvShows.map((media) => (
+                {filterMedia.map((media) => (
                     <Link
                         key={media.id}
                         className="movie__container-link"
@@ -26,6 +35,7 @@ const AllMovies = () => {
                         }}
                     >
                         <img
+                            loading="lazy"
                             src={`${imgUrl}${media.poster_path}`}
                             alt={media.title}
                             key={media.id}
