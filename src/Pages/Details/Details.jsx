@@ -17,7 +17,7 @@ const Details = () => {
             .then(data => { 
                 setMedia(data); console.log(data); 
                 setVideo(data.videos?.results[0]?.key); 
-                setProviders(data['watch/providers']?.results?.US?.flatrate);
+                setProviders(data['watch/providers']?.results?.ES?.flatrate);
             });
     }, []);
 
