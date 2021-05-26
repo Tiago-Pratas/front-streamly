@@ -32,6 +32,13 @@ const Home = () => {
         },
     ];
 
+    const [value, setValue] = useState('');
+
+    const onchange = (data) => {
+        setValue(data);
+
+    };
+
     const [carouselView, setCarouselView] = useState(true);
 
     const handleView = () => {
@@ -54,6 +61,7 @@ const Home = () => {
                                     genre={setup.genre}
                                     key={setup.title}
                                     changeView={handleView}
+                                    onchange={onchange}
                                 />
                             ))}
                         </div>
@@ -62,7 +70,7 @@ const Home = () => {
                     :
                     (<AllMovies
                         changeView={handleView}
-                        setupSwiper={setupSwiper}
+                        value={value}
                     />)
             }
         </>

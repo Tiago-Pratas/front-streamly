@@ -16,13 +16,18 @@ const Carousel = (props) => {
         date: PropTypes.node,
         genre: PropTypes.node,
         changeView: PropTypes.node,
+        onchange: PropTypes.node,
     };
+    const carouselTitle = props.title;
+    const carouselGenre = props.genre;
     const tvShows = useSelector((state) => state.tmdb.tvShows);
     const movies = useSelector((state) => state.tmdb.movies);
 
     const hadleAllMoviesView = () => {
         props.changeView();
+        props.onchange([carouselTitle, carouselGenre]);
     };
+    
 
 
     let allMedia = [...tvShows, ...movies];

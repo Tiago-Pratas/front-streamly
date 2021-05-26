@@ -7,9 +7,11 @@ import PropTypes from 'prop-types';
 const AllMovies = (props) => {
     AllMovies.propTypes = {
         changeView: PropTypes.node,
-        setupSwiper: PropTypes.node,
+        value: PropTypes.node,
     };
 
+    
+    let genreId = parseInt(props.value[1]);
 
     const movies = useSelector(state => state.tmdb.movies);
     const tvShows = useSelector(state => state.tmdb.tvShows);
@@ -18,11 +20,18 @@ const AllMovies = (props) => {
 
     const allMoviesTvShows = [...movies, ...tvShows];
 
-    const filterMedia = allMoviesTvShows.filter(genre => genre.genre_ids.includes());
+    let filterMedia;
+
+    if(genreId) {
+        filterMedia = allMoviesTvShows.filter(genre => genre.genre_ids.includes(genreId));
+    } else {
+        filterMedia = allMoviesTvShows;
+    }
+
 
     return (
         <div className="movie">
-            <h1>All movies</h1>
+            <h1>{props.value[0]}</h1>
             <h6 onClick={props.changeView}>Volver</h6>
             <div className="movie__container">
                 {filterMedia.map((media) => (
