@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loading, Header, NavbarBottom } from './components';
+import { Loading, Header, NavbarBottom, UserSettings } from './components';
 import {
     WelcomePage,
     WelcomePage2,
@@ -14,6 +14,7 @@ import {
     Details,
     FilterProviders,
 } from './pages';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
     getAllProviders,
@@ -67,6 +68,9 @@ function App() {
                         </Route>
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
+                        </Route>
+                        <Route path="/user-settings">
+                            <UserSettings />
                         </Route>
                         <Route path="/recommender">
                             <RecommenderPage />
