@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AllMovies.scss';
 import PropTypes from 'prop-types';
+import { BiArrowBack } from 'react-icons/bi';
 
 const AllMovies = (props) => {
     AllMovies.propTypes = {
@@ -31,8 +32,10 @@ const AllMovies = (props) => {
 
     return (
         <div className="movie">
-            <h1>{props.value[0]}</h1>
-            <h6 onClick={props.changeView}>Volver</h6>
+            <div className="movie__header-container">
+                <h1 className="movie__header-container-title">{props.value[0]}</h1>
+                <BiArrowBack className="movie__header-container-icon" onClick={props.changeView} />
+            </div>
             <div className="movie__container">
                 {filterMedia.map((media) => (
                     <Link

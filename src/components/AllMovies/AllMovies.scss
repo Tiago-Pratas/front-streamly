@@ -2,6 +2,28 @@
 
 .movie {
     max-width: 100%;
+    text-align: center;
+
+    &__header-container {
+        position: relative;
+    }
+
+    &__header-container-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        font-size: 38px;
+        color: #00D8A1;
+    }
+
+    &__header-container-title {
+        margin: 15px 0;
+        background: linear-gradient(90deg, #00ad81, #00ffbe);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 
     &__container {
         display: flex;
