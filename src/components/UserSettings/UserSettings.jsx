@@ -7,9 +7,13 @@ import './UserSettings.scss';
 const UserSettings = () => {
 
     const dispatch = useDispatch();
-    const {user} = useSelector(state => state.user);
+    const {user } = useSelector(state => state.user);
     const history = useHistory();
     console.log(history);
+    const logout = () => {
+        dispatch(logoutAsync(user.email));
+        history.push('/registro-iniciar-sesion');
+    };
 
     return(
         <div className="settings-container">
@@ -22,14 +26,9 @@ const UserSettings = () => {
                 </Link>
             </div>
             <div className="settings__logout">
-                {user &&(
-                    <div>
-                        <button className="btn-blue" onClick={() => dispatch(logoutAsync(user.email))}>Cerrar Sesión</button>
-                    </div>
-                )}
-                {/*  <span className="nav__text">
-                Hasta pronto, {user.user.username}!
-                </span> */}
+                <div>
+                    <button className="btn-blue" onClick={() => logout()}>Cerrar Sesión</button>
+                </div>
             </div>
         </div>
     );

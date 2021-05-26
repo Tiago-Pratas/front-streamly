@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
+import { FiSettings } from 'react-icons/fi';
 import './Header.scss';
 
 const Header = () => {
@@ -19,6 +20,7 @@ const Header = () => {
                 <div className="header__icons">
                     <Link className="header__icons-i" to="/registro-iniciar-sesion"><AiOutlineUser /></Link>
                     <AiOutlineSearch className="header__icons-i" />
+                    <Link className="header__icons-i" to="/user-settings"><FiSettings /></Link>
                 </div>
             </header>
         </>
