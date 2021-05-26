@@ -19,5 +19,5 @@ export {
     Recommender2Page,
     Recommender3Page,
     Details,
-    FilterProviders
+    FilterProviders,
 };
