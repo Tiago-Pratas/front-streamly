@@ -4,6 +4,8 @@
 .settings-container {
     width: 90%;
     height: auto;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     text-align: center;
     padding-top: 20%;
@@ -17,6 +19,11 @@
     color: $green_blue;
 }
 
+/* .recommender1__button {
+    display: flex;
+    justify-content: center;
+} */
+
 /* .settings__container-text {
     font-size: 30px;
     font-weight: 100;
@@ -25,6 +32,11 @@
 
 .settings__provider{
     padding-top: 10%;
+}
+
+.settings__provider-button{
+    display: flex;
+    justify-content: center;
 }
 
 .settings__logout{
