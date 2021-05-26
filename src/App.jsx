@@ -14,6 +14,7 @@ import {
     Details,
     FilterProviders,
 } from './pages';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
     getAllProviders,
