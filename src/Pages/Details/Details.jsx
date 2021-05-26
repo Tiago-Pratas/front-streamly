@@ -5,12 +5,15 @@ import { useLocation } from 'react-router-dom';
 import { getMovieDetails } from '../../api/tmdb';
 
 const Details = () => {
-    const [media, setMedia] = useState({});
+    const [media, setMedia] = useState('');
+    const [video, setVideo] = useState('');
+
 
     const location = useLocation();
 
     useEffect(() => {
-        getMovieDetails(location.id).then(data => { setMedia(data); });
+        getMovieDetails(location.id)
+            .then(data => { setMedia(data); setVideo(data.videos.results[0].key); });
     }, []);
     
         
@@ -62,7 +65,7 @@ const Details = () => {
                 <iframe
                     width="560"
                     height="315"
-                    src={'https://www.youtube-nocookie.com/embed/${media.videos.results[0].key}'}
+                    src={`https://www.youtube-nocookie.com/embed/${video}`}
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>
