@@ -7,6 +7,7 @@ import CarouselFilter from './CarouselFilter/CarouselFilter';
 import NavbarBottom from './NavbarBottom/NavbarBottom';
 import TopFilter from './TopFilter/TopFilter';
 import AllMovies from './AllMovies/AllMovies';
+import UserSettings from './UserSettings/UserSettings';
 
 export {
     RegisterForm,
@@ -17,5 +18,6 @@ export {
     CarouselFilter,
     NavbarBottom,
     TopFilter,
-    AllMovies
+    AllMovies,
+    UserSettings
 };
