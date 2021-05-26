@@ -19,23 +19,6 @@ const getProviders = async () => {
     }
 };
 
-/* const getMovies = async (provider, date, genre, sort, page) => {
-    const response = await axios.get(`${baseUrl}discover/movie`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            with_genres: `${genre}`,
-            language: 'es-ES',
-            watch_region: 'ES',
-            page: `${page}`,
-            'release_date.gte': `${date}`,
-            sort_by: `${sort}`,
-        },
-    });
-
-    return response.data;
-}; */
-
 const getTvShows = async (provider) => {
     let response = [];
 
@@ -79,7 +62,6 @@ const getMovies = async (provider) => {
         });
 
         response = [ ...response, ...result.data.results ];
-        console.log('result' , result);
     }
 
     return response.flat();
@@ -101,18 +83,12 @@ const getGenres = async () => {
     return [...response.data.genres,  ...responseTv.data.genres];
 };
 
-const getMovieDetails = async (id) => {
+const getMovieDetails = async (format, id) => {
     try {
-        const response = await axios.get(`${baseUrl}movie/${id}`, {
-            params: {
-                api_key: process.env.REACT_APP_API_KEY,
-                language: 'en-US',
-                append_to_response: 'videos,watch/providers,languages',
-            }
-        });
 
-        if (!response) {
-            const responseTv = await axios.get(`${baseUrl}tv/${id}`, {
+        if (format == 'movie') { 
+
+            const response = await axios.get(`${baseUrl}movie/${id}`, {
                 params: {
                     api_key: process.env.REACT_APP_API_KEY,
                     language: 'en-US',
@@ -120,14 +96,21 @@ const getMovieDetails = async (id) => {
                 }
             });
 
-            console.log(responseTv.data);
+            return response.data;
+
+        } else {
+
+            const responseTv = await axios.get(`${baseUrl}tv/${id}`, {
+                params: {
+                    api_key: process.env.REACT_APP_API_KEY,
+                    language: 'en-US',
+                    append_to_response: 'videos,watch/providers',
+                }
+            });
+
 
             return responseTv.data;
         }
-
-        console.log('re', response.data);
-
-        return response.data;
 
     } catch (err) {
         return err;

@@ -8,12 +8,12 @@ const Details = () => {
     const [video, setVideo] = useState('');
     const [providers, setProviders] = useState([]);
 
-    //use params that are passed from Carousel.jsx
+    //use the params that are passed from Carousel.jsx
     const params = useParams();
 
     useEffect(() => {
 
-        getMovieDetails(params.id)
+        getMovieDetails(params.format, params.id)
             .then(data => { 
                 setMedia(data); console.log(data); 
                 setVideo(data.videos?.results[0]?.key); 
@@ -21,7 +21,7 @@ const Details = () => {
             });
     }, []);
 
-    //format date so that it only shows the year the media was released
+    //format the date so that it only shows the year the media was released
     const releaseDate = new Date(media.release_date);
     const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
 

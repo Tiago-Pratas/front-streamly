@@ -28,8 +28,6 @@ const Carousel = (props) => {
         props.onchange([carouselTitle, carouselGenre]);
     };
     
-
-
     let allMedia = [...tvShows, ...movies];
 
     if (props.date)
@@ -65,7 +63,7 @@ const Carousel = (props) => {
                         width: 480,
                         slidesPerView: 2,
                     },
- 
+
                 }}
                 slidesPerView={2}
                 spaceBetween={10}
@@ -75,7 +73,7 @@ const Carousel = (props) => {
                 {allMedia.slice(0, 19).map((media) => (
                     <SwiperSlide key={media.id}>
                         <Link
-                            to={`/details/${media.id}`}
+                            to={`/details/${media.name && 'tv' || media.title && 'movie'}/${media.id}`}
                         >
                             <img
                                 src={`${imgUrl}${media.poster_path}`}
