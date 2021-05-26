@@ -9,6 +9,7 @@ import {
     Auth,
     RecommenderPage,
     Recommender1Page,
+    Recommender2Page,
     Details,
     FilterProviders,
 } from './pages';
@@ -71,6 +72,9 @@ function App() {
                         </Route>
                         <Route path="/recommender1">
                             <Recommender1Page />
+                        </Route>
+                        <Route path="/recommender2">
+                            <Recommender2Page />
                         </Route>
                         <Route path="/details">
                             <Details />
