@@ -10,8 +10,6 @@ const Details = () => {
     const movies = useSelector((state) => state.tmdb.movies);
     const genres = useSelector((state) => state.tmdb.genres);
 
-    console.log(genres);
-
     let allMedia = [...tvShows, ...movies];
 
     const id = location.id;
@@ -21,10 +19,6 @@ const Details = () => {
     const filtersGenres = media.genre_ids.map((media) =>
         genres.find((genre) => genre.id == media)
     );
-
-    
-
-    console.log(media, filtersGenres);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 

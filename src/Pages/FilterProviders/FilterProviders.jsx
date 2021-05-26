@@ -10,9 +10,9 @@ const FilterProviders = () => {
 
     const allProviders = [...providers];
 
-    const setProviders = (ev) => {
-        sendProviders(user.email, ev);
-        console.log(user.email, ev);
+    const setProviders = (id) => {
+        sendProviders(user.email, id);
+        console.log(user.email, id);
     };
 
     return (
