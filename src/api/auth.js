@@ -42,8 +42,8 @@ const checkSession = async () => {
     }
 };
 
-const logout = async () => {
-    const request = await axios.post(logoutUrl);
+const logout = async (user) => {
+    const request = await axios.post(logoutUrl, user, {withCredentials: true});
 
     return request;
 };
