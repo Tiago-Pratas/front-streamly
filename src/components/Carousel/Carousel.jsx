@@ -56,7 +56,7 @@ const Carousel = (props) => {
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
             >
-                {allMedia.map((media) => (
+                {allMedia.slice(0, 19).map((media) => (
                     <SwiperSlide key={media.id}>
                         <Link
                             to={{

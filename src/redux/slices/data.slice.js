@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import { getProviders } from '../../api/tmdb';
-
-const INITIAL_STATE={
-    providers:[],
-    movies:[],
-    tvShow:[]
-=======
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getProviders, getTvShows, getMovies, getGenres } from '../../api/tmdb';
 
@@ -16,7 +7,6 @@ const INITIAL_STATE = {
     tvShows: [],
     topFilter: '',
     genres: [],
->>>>>>> develop
 };
 
 export const getAllProviders = createAsyncThunk(
@@ -67,8 +57,5 @@ export const dataSlice = createSlice({
         });
     },
 });
-<<<<<<< HEAD
-=======
 
 export const { filterProviders } = dataSlice.actions;
->>>>>>> develop

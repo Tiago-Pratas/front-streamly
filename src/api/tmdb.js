@@ -38,29 +38,53 @@ const getProviders = async () => {
 }; */
 
 const getTvShows = async (provider) => {
-    const responseTv = await axios.get(`${baseUrl}discover/tv`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            language: 'es-ES',
-            watch_region: 'ES',
-        },
-    });
-    return responseTv.data.results;
+    let response = [];
+
+    let page = 0;
+
+    while (page < 3) {
+        page += 1;
+        console.log('page', page);
+        const result = await axios.get(`${baseUrl}discover/tv`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                with_watch_providers: `${provider}`,
+                page: page,
+                language: 'es-ES',
+                watch_region: 'ES',
+            },
+        });
+
+        response = [ ...response, ...result.data.results ];
+        console.log('result' , result);
+    }
+
+    return response.flat();
 };
 
 const getMovies = async (provider) => {
-    const response = await axios.get(`${baseUrl}discover/movie`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            page: 1,
-            language: 'es-ES',
-            watch_region: 'ES',
-        },
-    });
+    let response = [];
 
-    return response.data.results;
+    let page = 0;
+
+    while (page < 3) {
+        page += 1;
+        console.log('page', page);
+        const result = await axios.get(`${baseUrl}discover/movie`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                with_watch_providers: `${provider}`,
+                page: page,
+                language: 'es-ES',
+                watch_region: 'ES',
+            },
+        });
+
+        response = [ ...response, ...result.data.results ];
+        console.log('result' , result);
+    }
+
+    return response.flat();
 };
 
 const getGenres = async () => {

@@ -24,14 +24,7 @@ const Carousel = () => {
     };
 
     const providers = useSelector(state => state.tmdb.providers);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    console.log(providers);
-=======
-    console.log('CAROUSEL',providers);
->>>>>>> 4176990c25dc4a6c8ccdbfa7ea9ddf14aee7742b
-=======
->>>>>>> develop
+
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
