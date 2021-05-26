@@ -9,6 +9,7 @@ import {
     Auth,
     RecommenderPage,
     Recommender1Page,
+    Recommender2Page,
     Details,
     FilterProviders,
 } from './pages';
