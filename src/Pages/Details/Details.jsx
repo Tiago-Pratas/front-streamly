@@ -12,7 +12,7 @@ const Details = () => {
     const params = useParams();
 
     useEffect(() => {
-
+        //unwrap the values that arrive from the api call and set them on the state
         getMovieDetails(params.format, params.id)
             .then(data => { 
                 setMedia(data); console.log(data); 
@@ -22,7 +22,7 @@ const Details = () => {
     }, []);
 
     //format the date so that it only shows the year the media was released
-    const releaseDate = new Date(media.release_date);
+    const releaseDate = new Date(media.release_date || media.first_air_date);
     const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
 
     console.log(providers);
