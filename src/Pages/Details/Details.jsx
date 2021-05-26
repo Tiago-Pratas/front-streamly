@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import './Details.scss';
-import AmazonLog from '../../img/Amazon-prime-video.png';
 import { useLocation } from 'react-router-dom';
 import { getMovieDetails } from '../../api/tmdb';
 
 const Details = () => {
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
-
+    const [providers, setProviders] = useState([]);
 
     const location = useLocation();
 
     useEffect(() => {
         getMovieDetails(location.id)
-            .then(data => { setMedia(data); setVideo(data.videos.results[0].key); });
+            .then(data => { 
+                setMedia(data); console.log(data); 
+                setVideo(data.videos.results[0].key); 
+                setProviders(data['watch/providers'].results.US.flatrate);
+            });
     }, []);
-    
-        
-    console.log('media', media.videos);
 
+    //format date so that it only shows the year the media was released
+    const releaseDate = new Date(media.release_date);
+    const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
+
+    console.log(providers);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
@@ -34,7 +39,7 @@ const Details = () => {
 
                 <div className="details-container__info">
                     <h1 className="details-container__info-title">
-                        {media.name || media.title}(2021)
+                        {media.name || media.title}({releaseYear})
                     </h1>
                     <div className="details-container__genre">
                         
@@ -45,16 +50,23 @@ const Details = () => {
                     <h4>Donde ver:</h4>
                     <ul>
                         <li className="details-container__providers">
-                            <a
-                                href="https://www.primevideo.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img
-                                    className="details-container__providers-img"
-                                    src={AmazonLog}
-                                ></img>
-                            </a>
+                            {
+                                providers != undefined && providers.map(provider => (
+                                    <a
+                                        href="https://www.primevideo.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        key={provider.id}
+                                    >
+                                        <img
+                                            className="details-container__providers-img"
+                                            src={`${imgUrl}${provider.logo_path}`}
+                                        ></img>
+                                    </a>
+                                    
+                                ))
+                            }
+
                         </li>
                     </ul>
                 </div>

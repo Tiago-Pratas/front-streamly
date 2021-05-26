@@ -107,7 +107,7 @@ const getMovieDetails = async (id) => {
             params: {
                 api_key: process.env.REACT_APP_API_KEY,
                 language: 'en-US',
-                append_to_response: 'videos',
+                append_to_response: 'videos,watch/providers,languages',
             }
         });
 
