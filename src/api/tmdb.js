@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
-//const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
 const getProviders = async () => {
     //get all the services for Spain
@@ -56,7 +55,6 @@ const getTvShows = async (provider) => {
         });
 
         response = [ ...response, ...result.data.results ];
-        console.log('result' , result);
     }
 
     return response.flat();
@@ -103,4 +101,23 @@ const getGenres = async () => {
     return [...response.data.genres,  ...responseTv.data.genres];
 };
 
-export { getProviders, getMovies, getTvShows, getGenres };
+const getMovieDetails = async (id) => {
+    try {
+        const response = await axios.get(`${baseUrl}movie/${id}`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                language: 'en-US',
+                append_to_response: 'videos',
+            }
+        });
+
+        console.log('re', response.data);
+
+        return response.data;
+
+    } catch (err) {
+        return err;
+    }
+};
+
+export { getProviders, getMovies, getTvShows, getGenres, getMovieDetails };
