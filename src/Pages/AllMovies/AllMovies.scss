@@ -1,0 +1,49 @@
+@import '../../styles/responsive';
+
+.movie {
+    max-width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    &__container-link {
+        max-width: 48%;
+
+        @include movil {
+            max-width: 32%;
+        }
+
+        @include tablet {
+            max-width: 24%;
+        }
+
+        @include tablet-big {
+            max-width: 19%;
+        }
+
+        @include desktop {
+            max-width: 16%;
+        }
+    }
+
+    &__container-img {
+        width: 100%;
+        min-height: 301px;
+        border-radius: 10px;
+
+        @include movil {
+            min-height: 255px;
+        }
+        
+        @include movil-big {
+            min-height: 355px;
+        }
+
+        @include desktop {
+            min-height: 394px;
+        }
+    }
+}

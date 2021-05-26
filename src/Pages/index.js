@@ -8,6 +8,7 @@ import Recommender2Page from './Recommender2Page/Recommender2Page';
 import Recommender3Page from './Recommender3Page/Recommender3Page';
 import Details from './Details/Details';
 import FilterProviders from './FilterProviders/FilterProviders';
+import AllMovies from './AllMovies/AllMovies';
 
 export {
     WelcomePage,
@@ -19,5 +20,6 @@ export {
     Recommender2Page,
     Recommender3Page,
     Details,
-    FilterProviders
+    FilterProviders,
+    AllMovies,
 };

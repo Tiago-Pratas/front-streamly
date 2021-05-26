@@ -13,7 +13,9 @@ import {
     Recommender3Page,
     Details,
     FilterProviders,
+    AllMovies
 } from './pages';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
     getAllProviders,
@@ -85,6 +87,9 @@ function App() {
                         </Route>
                         <Route path="/filter-providers">
                             <FilterProviders />
+                        </Route>
+                        <Route path="/all-movies">
+                            <AllMovies />
                         </Route>
                     </Switch>
                 </main>
