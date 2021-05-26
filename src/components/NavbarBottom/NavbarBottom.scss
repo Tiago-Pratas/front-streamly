@@ -1,5 +1,4 @@
 @import '../../styles/responsive.scss';
-
 .navbar-bottom {
     position: fixed;
     bottom: 0;
@@ -8,18 +7,17 @@
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-
+    z-index: 1;
     &__icons-i {
         font-size: 20px;
         color: #fff;
         margin-left: 10px;
     }
-
     @include tablet {
         display: none;
     }
 }
 
-.navbar-bottom__icons-i:active{
-    color:#00ffbe,
+.navbar-bottom__icons-i:active {
+    color: #00ffbe,
 }

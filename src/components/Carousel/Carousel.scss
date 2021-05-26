@@ -1,0 +1,40 @@
+@import '../../styles/colors';
+@import '../../styles/responsive';
+
+.swiper-image {
+    width: 100%;
+    min-height: 200px;
+    border-radius: 10px;
+    
+    @include movil {
+        min-height: 255px;
+    }
+    
+    @include movil-big {
+        min-height: 355px;
+    }
+}
+
+.swiper-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 4%;
+    margin-top: 5%;
+    &__color {
+        color: $green_blue;
+    }
+    &__link {
+        text-decoration: none;
+        color: $black;
+    }
+}
+
+.swiper-container {
+    &__height {
+        display: flex;
+        align-content: center;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+}

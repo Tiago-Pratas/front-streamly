@@ -1,18 +1,52 @@
 import React from 'react';
-import { useDispatch,} from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Loading, Header, NavbarBottom } from './components';
-import { WelcomePage, WelcomePage2, Home, Auth, RecommenderPage, Details } from './pages';
+import {
+    WelcomePage,
+    WelcomePage2,
+    Home,
+    Auth,
+    RecommenderPage,
+    Recommender1Page,
+    Recommender2Page,
+    Recommender3Page,
+    Details,
+    FilterProviders,
+} from './pages';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { getAllProviders } from './redux/slices/data.slice';
+import {
+    getAllProviders,
+    getAllTvShows,
+    getAllMovies,
+    getAllGenres,
+} from './redux/slices/data.slice';
+import { checkSessionAsync } from './redux/slices/user.slice';
 
 import './App.scss';
 
-
 function App() {
-
     const dispatch = useDispatch();
+
+    const filteredProviders = useSelector((state) => state.tmdb.topFilter);
+
     const getProviders = dispatch(getAllProviders());
+    const genres = dispatch(getAllGenres());
+    const tvShows = dispatch(getAllTvShows(filteredProviders));
+    const movies = dispatch(getAllMovies(filteredProviders));
+
+    console.log(filteredProviders);
+    console.log(tvShows,'GGG', genres, movies);
     console.log(getProviders);
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const getUser = async () => {
+        dispatch(checkSessionAsync());
+    };
+
     return (
         <>
             <BrowserRouter>
@@ -37,8 +71,20 @@ function App() {
                         <Route path="/recommender">
                             <RecommenderPage />
                         </Route>
+                        <Route path="/recommender1">
+                            <Recommender1Page />
+                        </Route>
+                        <Route path="/recommender2">
+                            <Recommender2Page />
+                        </Route>
+                        <Route path="/recommender3">
+                            <Recommender3Page />
+                        </Route>
                         <Route path="/details">
                             <Details />
+                        </Route>
+                        <Route path="/filter-providers">
+                            <FilterProviders />
                         </Route>
                     </Switch>
                 </main>
@@ -47,7 +93,6 @@ function App() {
                 </div>
             </BrowserRouter>
         </>
-
     );
 }
 

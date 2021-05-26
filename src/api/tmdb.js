@@ -14,15 +14,13 @@ const getProviders = async () => {
             },
         });
         
-        console.log('API', response);
-
         return response.data.results;
     } catch (err) {
         return err;
     }
 };
 
-const getMovies = async (provider, date, genre, sort, page) => {
+/* const getMovies = async (provider, date, genre, sort, page) => {
     const response = await axios.get(`${baseUrl}discover/movie`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -37,9 +35,9 @@ const getMovies = async (provider, date, genre, sort, page) => {
     });
 
     return response.data;
-};
+}; */
 
-const getTvShow = async (provider) => {
+const getTvShows = async (provider) => {
     const responseTv = await axios.get(`${baseUrl}discover/tv`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -48,7 +46,37 @@ const getTvShow = async (provider) => {
             watch_region: 'ES',
         },
     });
-    return responseTv.data;
+    return responseTv.data.results;
 };
 
-export { getProviders, getMovies, getTvShow };
+const getMovies = async (provider) => {
+    const response = await axios.get(`${baseUrl}discover/movie`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            with_watch_providers: `${provider}`,
+            page: 1,
+            language: 'es-ES',
+            watch_region: 'ES',
+        },
+    });
+
+    return response.data.results;
+};
+
+const getGenres = async () => {
+    const response = await axios.get(`${baseUrl}genre/movie/list`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: 'es-ES',
+        },
+    });
+    const responseTv = await axios.get(`${baseUrl}genre/tv/list`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: 'es-ES',
+        },
+    });
+    return [...response.data.genres,  ...responseTv.data.genres];
+};
+
+export { getProviders, getMovies, getTvShows, getGenres };

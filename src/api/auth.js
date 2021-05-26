@@ -4,6 +4,7 @@ const serverDirection = 'http://localhost:5000';
 const registerUrl = `${serverDirection}/auth/register`;
 const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
+const checkSessionUrl = `${serverDirection}/auth/check-session`;
 
 const register = async (userData) => {
     try {
@@ -31,6 +32,16 @@ const login = async (userData) => {
     }
 };
 
+const checkSession = async () => {
+    try {
+        const request = await axios.get(checkSessionUrl, {withCredentials: true});
+        return request.data;
+
+    } catch (error) {
+        return error;
+    }
+};
+
 const logout = async () => {
     const request = await axios.post(logoutUrl);
 
@@ -40,5 +51,6 @@ const logout = async () => {
 export {
     register,
     login,
-    logout
+    logout,
+    checkSession
 };

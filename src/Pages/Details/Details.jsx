@@ -1,24 +1,65 @@
 import React from 'react';
 import './Details.scss';
-import Invencible from '../../img/invencible.jpg';
 import AmazonLog from '../../img/Amazon-prime-video.png';
-
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 const Details = () => {
+    const location = useLocation();
+    const tvShows = useSelector((state) => state.tmdb.tvShows);
+    const movies = useSelector((state) => state.tmdb.movies);
+    const genres = useSelector((state) => state.tmdb.genres);
+
+    let allMedia = [...tvShows, ...movies];
+
+    const id = location.id;
+
+    let media = allMedia.find((allMedia) => allMedia.id === id);
+
+    const filtersGenres = media.genre_ids.map((media) =>
+        genres.find((genre) => genre.id == media)
+    );
+
+    const imgUrl = 'https://image.tmdb.org/t/p/original/';
+
+    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
+
     return (
         <>
-            <div className="details-container">
-
-                <img className="details-container__img" src={Invencible} alt=""></img>
+            <div className="details-container" style={backgroundImg }>
+                <img
+                    className="details-container__img"
+                    src={`${imgUrl}${media.poster_path}`}
+                    alt={media.title}
+                ></img>
 
                 <div className="details-container__info">
-                    <h1 className="details-container__info-title">Invencible (2021)</h1>
-                    <h4 className="details-container__info-genre">Animación, Acción, & Aventura, Drama | Duración: 45m</h4>
-                    <p className="details-container__info-description">Mark Grayson es un adolescente normal, excepto por el hecho de que su padre es el superhéroe más poderoso del planeta. Poco después de su decimoséptimo cumpleaños, Mark comienza a desarrollar sus propios poderes y entra en la tutela de su padre.</p>
+                    <h1 className="details-container__info-title">
+                        {media.name || media.title}(2021)
+                    </h1>
+                    <div className="details-container__genre">
+                        {filtersGenres.map((filtersGenres) => (
+                            <h4 className="details-container__info-genre" key={filtersGenres.id}>
+                                {filtersGenres.name}
+                            </h4>
+                        ))}
+                    </div>
+                    <p className="details-container__info-description">
+                        {media.overview}
+                    </p>
                     <h4>Donde ver:</h4>
                     <ul>
                         <li className="details-container__providers">
-                            <a href="https://www.primevideo.com/" target="_blank" rel="noopener noreferrer"><img className="details-container__providers-img" src={AmazonLog}></img></a>
+                            <a
+                                href="https://www.primevideo.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    className="details-container__providers-img"
+                                    src={AmazonLog}
+                                ></img>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -31,9 +72,8 @@ const Details = () => {
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/ROCIksHW2oc"
                     title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"        
-                >
-                </iframe>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
             </div>
         </>
     );
