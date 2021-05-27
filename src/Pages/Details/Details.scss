@@ -17,6 +17,21 @@
             margin-right: 40px;
         }
     }
+    &__icon {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    &__icon-red {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: red;
+    }
     &__info {
         display: flex;
         justify-content: center;

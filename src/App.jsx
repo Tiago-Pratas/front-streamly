@@ -31,14 +31,11 @@ function App() {
 
     const filteredProviders = useSelector((state) => state.tmdb.topFilter);
 
-    const getProviders = dispatch(getAllProviders());
-    const genres = dispatch(getAllGenres());
-    const tvShows = dispatch(getAllTvShows(filteredProviders));
-    const movies = dispatch(getAllMovies(filteredProviders));
+    dispatch(getAllProviders());
+    dispatch(getAllGenres());
+    dispatch(getAllTvShows(filteredProviders));
+    dispatch(getAllMovies(filteredProviders));
 
-    console.log(filteredProviders);
-    console.log(tvShows,'GGG', genres, movies);
-    console.log(getProviders);
 
     useEffect(() => {
         getUser();
@@ -84,7 +81,7 @@ function App() {
                         <Route path="/recommender3">
                             <Recommender3Page />
                         </Route>
-                        <Route path="/details">
+                        <Route path="/details/:format/:id">
                             <Details />
                         </Route>
                         <Route path="/filter-providers">

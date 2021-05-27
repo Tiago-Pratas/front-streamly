@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
-//const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
 const getProviders = async () => {
     //get all the services for Spain
@@ -20,47 +19,52 @@ const getProviders = async () => {
     }
 };
 
-/* const getMovies = async (provider, date, genre, sort, page) => {
-    const response = await axios.get(`${baseUrl}discover/movie`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            with_genres: `${genre}`,
-            language: 'es-ES',
-            watch_region: 'ES',
-            page: `${page}`,
-            'release_date.gte': `${date}`,
-            sort_by: `${sort}`,
-        },
-    });
-
-    return response.data;
-}; */
-
 const getTvShows = async (provider) => {
-    const responseTv = await axios.get(`${baseUrl}discover/tv`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            language: 'es-ES',
-            watch_region: 'ES',
-        },
-    });
-    return responseTv.data.results;
+    let response = [];
+
+    let page = 0;
+
+    while (page < 3) {
+        page += 1;
+        console.log('page', page);
+        const result = await axios.get(`${baseUrl}discover/tv`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                with_watch_providers: `${provider}`,
+                page: page,
+                language: 'es-ES',
+                watch_region: 'ES',
+            },
+        });
+
+        response = [ ...response, ...result.data.results ];
+    }
+
+    return response.flat();
 };
 
 const getMovies = async (provider) => {
-    const response = await axios.get(`${baseUrl}discover/movie`, {
-        params: {
-            api_key: process.env.REACT_APP_API_KEY,
-            with_watch_providers: `${provider}`,
-            page: 1,
-            language: 'es-ES',
-            watch_region: 'ES',
-        },
-    });
+    let response = [];
 
-    return response.data.results;
+    let page = 0;
+
+    while (page < 3) {
+        page += 1;
+        console.log('page', page);
+        const result = await axios.get(`${baseUrl}discover/movie`, {
+            params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                with_watch_providers: `${provider}`,
+                page: page,
+                language: 'es-ES',
+                watch_region: 'ES',
+            },
+        });
+
+        response = [ ...response, ...result.data.results ];
+    }
+
+    return response.flat();
 };
 
 const getGenres = async () => {
@@ -79,4 +83,38 @@ const getGenres = async () => {
     return [...response.data.genres,  ...responseTv.data.genres];
 };
 
-export { getProviders, getMovies, getTvShows, getGenres };
+const getMovieDetails = async (format, id) => {
+    try {
+
+        if (format == 'movie') { 
+
+            const response = await axios.get(`${baseUrl}movie/${id}`, {
+                params: {
+                    api_key: process.env.REACT_APP_API_KEY,
+                    language: 'en-US',
+                    append_to_response: 'videos,watch/providers,languages',
+                }
+            });
+
+            return response.data;
+
+        } else {
+
+            const responseTv = await axios.get(`${baseUrl}tv/${id}`, {
+                params: {
+                    api_key: process.env.REACT_APP_API_KEY,
+                    language: 'en-US',
+                    append_to_response: 'videos,watch/providers',
+                }
+            });
+
+
+            return responseTv.data;
+        }
+
+    } catch (err) {
+        return err;
+    }
+};
+
+export { getProviders, getMovies, getTvShows, getGenres, getMovieDetails };

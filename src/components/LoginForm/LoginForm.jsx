@@ -14,7 +14,7 @@ const LoginForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
     let { error } = useSelector((state) => state.user);
-    if (error === 'Request failed with status code 401') error = '';
+    if (error === 'Request failed with status code 401' || error === 'Network Error') error = '';
 
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();

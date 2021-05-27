@@ -1,32 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Details.scss';
-import AmazonLog from '../../img/Amazon-prime-video.png';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { BsFillHeartFill } from 'react-icons/bs';
+import { getMovieDetails } from '../../api/tmdb';
+import { sendFavorites, deleteFavorites } from '../../api/api';
 
 const Details = () => {
-    const location = useLocation();
-    const tvShows = useSelector((state) => state.tmdb.tvShows);
-    const movies = useSelector((state) => state.tmdb.movies);
-    const genres = useSelector((state) => state.tmdb.genres);
+    const [media, setMedia] = useState('');
+    const [video, setVideo] = useState('');
+    const [providers, setProviders] = useState([]);
+    const user = useSelector((state) => state.user.user);
 
-    let allMedia = [...tvShows, ...movies];
+    //use the params that are passed from Carousel.jsx
+    const params = useParams();
 
-    const id = location.id;
+    const inFavorites = user?.id_medias?.filter(id => id == params.id);
 
-    let media = allMedia.find((allMedia) => allMedia.id === id);
+    //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
+    const setFavorites = () => {
+        if (!inFavorites.length) {
+            sendFavorites(user.email, params.id);
+        } else {
+            deleteFavorites(user.email, params.id);
+        }
+    };
 
-    const filtersGenres = media.genre_ids.map((media) =>
-        genres.find((genre) => genre.id == media)
-    );
+    useEffect(() => {
+        //unwrap the values that arrive from the api call and set them on the state
+        getMovieDetails(params.format, params.id)
+            .then(data => { 
+                setMedia(data); console.log(data); 
+                setVideo(data.videos?.results[0]?.key); 
+                setProviders(data['watch/providers']?.results?.ES?.flatrate);
+            });
+    }, []);
+
+    //format the date so that it only shows the year the media was released
+    const releaseDate = new Date(media.release_date || media.first_air_date);
+    const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
-    const backgroundImg = { backgroundImage: `url(${imgUrl}${media.backdrop_path})`, backgroundSize: 'cover'};
+    const backgroundImg = {
+        backgroundImage: `url(${imgUrl}${media.backdrop_path})`,
+        backgroundSize: 'cover',
+    };
 
+    console.log(user.id_medias);
     return (
         <>
-            <div className="details-container" style={backgroundImg }>
+            <div className="details-container" style={backgroundImg}>
+                <span
+                    className={
+                        Boolean(user.id_medias.findIndex(el => el == params.id) + 1) && 'details-container__icon-red' ||'details-container__icon'
+                    }
+                    onClick={() => setFavorites(params.id)}
+                >
+                    <BsFillHeartFill />
+                </span>
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
@@ -35,14 +67,10 @@ const Details = () => {
 
                 <div className="details-container__info">
                     <h1 className="details-container__info-title">
-                        {media.name || media.title}(2021)
+                        {media.name || media.title}({releaseYear})
                     </h1>
                     <div className="details-container__genre">
-                        {filtersGenres.map((filtersGenres) => (
-                            <h4 className="details-container__info-genre" key={filtersGenres.id}>
-                                {filtersGenres.name}
-                            </h4>
-                        ))}
+                        
                     </div>
                     <p className="details-container__info-description">
                         {media.overview}
@@ -50,16 +78,23 @@ const Details = () => {
                     <h4>Donde ver:</h4>
                     <ul>
                         <li className="details-container__providers">
-                            <a
-                                href="https://www.primevideo.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img
-                                    className="details-container__providers-img"
-                                    src={AmazonLog}
-                                ></img>
-                            </a>
+                            {
+                                providers != undefined && providers.map(provider => (
+                                    <a
+                                        href="https://www.primevideo.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        key={provider.id}
+                                    >
+                                        <img
+                                            className="details-container__providers-img"
+                                            src={`${imgUrl}${provider.logo_path}`}
+                                        ></img>
+                                    </a>
+                                    
+                                ))
+                            }
+
                         </li>
                     </ul>
                 </div>
@@ -70,7 +105,7 @@ const Details = () => {
                 <iframe
                     width="560"
                     height="315"
-                    src="https://www.youtube-nocookie.com/embed/ROCIksHW2oc"
+                    src={`https://www.youtube-nocookie.com/embed/${video}`}
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>
