@@ -27,7 +27,7 @@ const Carousel = (props) => {
         props.changeView();
         props.onchange([carouselTitle, carouselGenre]);
     };
-    
+
     let allMedia = [...tvShows, ...movies];
 
     if (props.date)
@@ -44,15 +44,14 @@ const Carousel = (props) => {
     }
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
-
     return (
         <>
             <div className="swiper-text">
                 <h3 className="swiper-text__color">{props.title}</h3>
-                <Link 
+                <Link
                     className="swiper-text__link"
                     onClick={hadleAllMoviesView}
-                > 
+                >
                     Ver todo
                 </Link>
             </div>
@@ -63,7 +62,6 @@ const Carousel = (props) => {
                         width: 480,
                         slidesPerView: 2,
                     },
-
                 }}
                 slidesPerView={2}
                 spaceBetween={10}
@@ -73,7 +71,9 @@ const Carousel = (props) => {
                 {allMedia.slice(0, 19).map((media) => (
                     <SwiperSlide key={media.id}>
                         <Link
-                            to={`/details/${media.name && 'tv' || media.title && 'movie'}/${media.id}`}
+                            to={`/details/${
+                                (media.name && 'tv') || (media.title && 'movie')
+                            }/${media.id}`}
                         >
                             <img
                                 src={`${imgUrl}${media.poster_path}`}

@@ -51,7 +51,6 @@ export const userSlice = createSlice({
 
         builder.addCase(checkSessionAsync.fulfilled, (state, action) => {
             if(action.payload.email) {
-                console.log('check',action);
                 state.user = action.payload;
                 state.hasUser = true;
                 state.error = '';
