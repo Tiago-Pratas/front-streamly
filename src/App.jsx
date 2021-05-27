@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loading, Header, NavbarBottom} from './components';
+import { Loading, Header, NavbarBottom, UserSettings, SecureRoute } from './components';
 import {
     WelcomePage,
     WelcomePage2,
@@ -66,24 +66,39 @@ function App() {
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
-                        <Route path="/recommender">
+                        <SecureRoute
+                            exact
+                            path="/user-settings">
+                            <UserSettings />
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/recommender">
                             <RecommenderPage />
-                        </Route>
-                        <Route path="/recommender1">
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/recommender1">
                             <Recommender1Page />
-                        </Route>
-                        <Route path="/recommender2">
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/recommender2">
                             <Recommender2Page />
-                        </Route>
-                        <Route path="/recommender3">
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/recommender3">
                             <Recommender3Page />
-                        </Route>
-                        <Route path="/details/:format/:id">
+                        </SecureRoute>
+                        <SecureRoute path="/details/:format/:id">
                             <Details />
-                        </Route>
-                        <Route path="/filter-providers">
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/filter-providers">
                             <FilterProviders />
-                        </Route>
+                        </SecureRoute>
                     </Switch>
                 </main>
                 <div className="navbar">

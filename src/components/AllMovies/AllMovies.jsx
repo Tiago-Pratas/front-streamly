@@ -41,10 +41,7 @@ const AllMovies = (props) => {
                     <Link
                         key={media.id}
                         className="movie__container-link"
-                        to={{
-                            pathname: '/details',
-                            id: media.id,
-                        }}
+                        to={`/details/${media.name && 'tv' || media.title && 'movie'}/${media.id}`}
                     >
                         <img
                             loading="lazy"
