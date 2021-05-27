@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { registerAsync } from '../../redux/slices/user.slice';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import './RegisterForm.scss';
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
 const RegisterForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
+    const history = useHistory();
     let { error } = useSelector((state) => state.user);
     if (error === 'Request failed with status code 401' || error === 'Network Error') error = '';
 
@@ -21,6 +23,7 @@ const RegisterForm = () => {
         ev.preventDefault();
         dispatch(registerAsync(formData));
         setFormData(INITIAL_STATE);
+        history.push('/registro-iniciar-sesion');
     };
 
     const handleInputChange = (ev) => {
