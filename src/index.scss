@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import './Styles//buttons.scss';
+@import './styles/colors';
+* {
+    margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    margin-bottom: 65px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+a,
+label {
+    font-family: Poppins, sans-serif;
+}
+
+
+/* Este es el fondo azul de la pantalla principal*/
+
+.background-blue {
+    background: rgb(22, 35, 64);
+    background: linear-gradient(180deg, rgba(22, 35, 64, 1) 0%, rgba(0, 46, 129, 1) 100%);
+}
+
+input {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    /* 40px */
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid $very_light_pink_two;
+    outline: none;
+    padding: 1.2rem 0;
+    &::placeholder {
+        color: rgba(0, 0, 0, .2);
+    }
+    @media(max-width: 60rem) {
+        font-size: 1.2rem;
+    }
 }

@@ -1,0 +1,89 @@
+@import '../../styles/responsive.scss';
+
+.welcome-container {
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    &__text {
+        width: 80%;
+        margin-bottom: 15%;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 100;
+        margin-bottom: 10px;
+    }
+    
+    &__title-streamly {
+        font-weight: 900;
+        background: #ccc;
+        background: linear-gradient(90deg, #00ad81, #00ffbe);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    &__img {
+        max-width: 80%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+
+    &__logo {
+        width: 30%;
+        margin-top: 15px;
+        border-radius: 10px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        animation: animation 1s cubic-bezier(.87,.19,.35,.65) forwards;
+        animation-delay: 2.5s;
+
+        @keyframes animation {
+            to{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+    }
+
+
+    @include tablet-big {
+        &__title {
+            font-size: 28px;
+        }
+        &__logo {
+            width: 20%;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
+
+    @include desktop {
+        &__text {
+            margin-bottom: 5%;
+        }
+
+        &__img {
+            margin-bottom: 5%;
+        }
+        &__logo {
+            width: 15%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

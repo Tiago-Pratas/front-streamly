@@ -1,0 +1,14 @@
+.btn {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    &__text {
+        width: 50%;
+        font-size: 5rm;
+        color: lightcoral;
+    }
+}

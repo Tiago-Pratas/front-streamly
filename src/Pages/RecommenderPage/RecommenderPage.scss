@@ -1,0 +1,113 @@
+@import '../../Styles/responsive.scss';
+@import '../../styles/colors.scss';
+
+.recommender-container{
+    width: 90%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+    padding-top: 5%;
+    margin: 0 auto;
+}
+
+.recommender__button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $darkish_blue;
+    border: none;
+
+        & :active{
+        color:#00ffbe,
+        }
+}
+
+.recommender__icon{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.recommender__button-icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+}
+
+.recommender__container-title{
+        font-size: 16px;
+        font-weight: 100;
+        margin-bottom: 10px;
+}
+
+.recommender__container-text{
+        font-size: 16px;
+        font-weight: 100;
+        margin-bottom: 10px;
+}
+
+.recommender-bold{
+    font-weight: bold;
+}
+
+.recommender__list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.recommender__finish{
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+    padding-right: 50px;
+}
+
+.recommender__container-p{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.recommender__finish-links{
+    margin-right: 40px;
+    margin-bottom: 14px;
+}
+
+.recommender__finish-link{
+    text-decoration:none;
+    color: black;
+}
+
+.recommender1__button{
+    display: flex;
+    justify-content: center;
+}
+
+@include tablet-big {
+    &__title {
+        font-size: 28px;
+    }
+    &__logo {
+        width: 20%;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+@include desktop {
+    &__text {
+        margin-bottom: 5%;
+    }
+
+    &__img {
+        margin-bottom: 5%;
+    }
+    &__logo {
+        width: 15%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,39 @@
+@import '../../styles/colors';
+@import '../../styles/responsive';
+.top-filter {
+    background-color: $light_blue_grey;
+    height: 15%;
+    border-radius: 0 0 20px 20px;
+    &__swiper {
+        display: none;
+    }
+    &__logo {
+        max-width: 70%;
+        border-radius: 5px;
+        filter: drop-shadow(5px 4px 6px $darkish_blue);
+        border-bottom: 1px solid $soft_blue;
+        border-right: 1px solid $soft_blue;
+        @include tablet-big {
+            max-width: 40%;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__icon {
+        padding-top: 5px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.top-filter__swiper.active {
+    display: flex;
+}
+
+.swiper-wrapper {
+    max-width: 15%;
+    margin-top: 2%;
+    padding: 10px;
+}
