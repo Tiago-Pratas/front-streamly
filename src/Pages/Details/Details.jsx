@@ -20,7 +20,7 @@ const Details = () => {
     //use the params that are passed from Carousel.jsx
     const params = useParams();
 
-    const mediaSp = allMedia.find((allMedia) => allMedia.id == params.id);
+    const mediaSp = allMedia.find((allMedia) => allMedia.id == params.id) || {};
     const inFavorites = user?.id_medias?.filter((id) => id == params.id);
 
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
