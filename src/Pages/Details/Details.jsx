@@ -12,12 +12,16 @@ const Details = () => {
     const [color, setColor] = useState('details-container__icon-red');
     const [providers, setProviders] = useState([]);
     const user = useSelector((state) => state.user.user);
+    const tvShows = useSelector((state) => state.tmdb.tvShows);
+    const movies = useSelector((state) => state.tmdb.movies);
+
+    const allMedia = [...tvShows, ...movies];
 
     //use the params that are passed from Carousel.jsx
     const params = useParams();
 
+    const mediaSp = allMedia.find((allMedia) => allMedia.id == params.id);
     const inFavorites = user?.id_medias?.filter((id) => id == params.id);
-
 
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
     const setFavorites = () => {
@@ -75,16 +79,16 @@ const Details = () => {
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
-                    alt={media.title}
+                    alt={mediaSp.title}
                 ></img>
 
                 <div className="details-container__info">
                     <h1 className="details-container__info-title">
-                        {media.name || media.title}({releaseYear})
+                        {mediaSp.name || mediaSp.title}({releaseYear})
                     </h1>
                     <div className="details-container__genre"></div>
                     <p className="details-container__info-description">
-                        {media.overview}
+                        {mediaSp.overview}
                     </p>
                     <h4>Donde ver:</h4>
                     <ul>
