@@ -15,12 +15,11 @@ const Details = () => {
     //use the params that are passed from Carousel.jsx
     const params = useParams();
 
-    const inFavorites = user.id_medias.filter(id => id == params.id);
+    const inFavorites = user?.id_medias?.filter(id => id == params.id);
 
-    console.log('infavs', inFavorites);
-
+    //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
     const setFavorites = () => {
-        if (!inFavorites) {
+        if (!inFavorites.length) {
             sendFavorites(user.email, params.id);
         } else {
             deleteFavorites(user.email, params.id);
@@ -41,7 +40,6 @@ const Details = () => {
     const releaseDate = new Date(media.release_date || media.first_air_date);
     const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
 
-    console.log(providers);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     const backgroundImg = {
@@ -49,16 +47,15 @@ const Details = () => {
         backgroundSize: 'cover',
     };
 
+    console.log(user.id_medias);
     return (
         <>
             <div className="details-container" style={backgroundImg}>
                 <span
                     className={
-                        !inFavorites
-                            ? 'details-container__icon'
-                            : 'details-container__icon-red'
+                        Boolean(user.id_medias.findIndex(el => el == params.id) + 1) && 'details-container__icon-red' ||'details-container__icon'
                     }
-                    onClick={() => setFavorites(media.id)}
+                    onClick={() => setFavorites(params.id)}
                 >
                     <BsFillHeartFill />
                 </span>
