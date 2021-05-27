@@ -16,7 +16,7 @@ const Details = () => {
     //use the params that are passed from Carousel.jsx
     const params = useParams();
 
-    const inFavorites = user?.id_medias?.filter(id => id == params.id);
+    const inFavorites = user?.id_medias?.filter((id) => id == params.id);
 
 
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
@@ -34,17 +34,19 @@ const Details = () => {
 
     useEffect(() => {
         //unwrap the values that arrive from the api call and set them on the state
-        getMovieDetails(params.format, params.id)
-            .then(data => { 
-                setMedia(data); console.log(data); 
-                setVideo(data.videos?.results[0]?.key); 
-                setProviders(data['watch/providers']?.results?.ES?.flatrate);
-            });
+        getMovieDetails(params.format, params.id).then((data) => {
+            setMedia(data);
+            console.log(data);
+            setVideo(data.videos?.results[0]?.key);
+            setProviders(data['watch/providers']?.results?.ES?.flatrate);
+        });
     }, []);
 
     //format the date so that it only shows the year the media was released
     const releaseDate = new Date(media.release_date || media.first_air_date);
-    const releaseYear = releaseDate.toLocaleDateString(releaseDate, { year: 'numeric'});
+    const releaseYear = releaseDate.toLocaleDateString(releaseDate, {
+        year: 'numeric',
+    });
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
@@ -58,7 +60,14 @@ const Details = () => {
         <>
             <div className="details-container" style={backgroundImg}>
                 <span
-                    className={    color      }
+                    className={
+                        (Boolean(
+                            user.id_medias.findIndex((el) => el == params.id) +
+                                1
+                        ) &&
+                            'details-container__icon-red') ||
+                        'details-container__icon'
+                    }
                     onClick={() => setFavorites(params.id)}
                 >
                     <BsFillHeartFill />
@@ -73,17 +82,15 @@ const Details = () => {
                     <h1 className="details-container__info-title">
                         {media.name || media.title}({releaseYear})
                     </h1>
-                    <div className="details-container__genre">
-                        
-                    </div>
+                    <div className="details-container__genre"></div>
                     <p className="details-container__info-description">
                         {media.overview}
                     </p>
                     <h4>Donde ver:</h4>
                     <ul>
                         <li className="details-container__providers">
-                            {
-                                providers != undefined && providers.map(provider => (
+                            {providers != undefined &&
+                                providers.map((provider) => (
                                     <a
                                         href="https://www.primevideo.com/"
                                         target="_blank"
@@ -95,10 +102,7 @@ const Details = () => {
                                             src={`${imgUrl}${provider.logo_path}`}
                                         ></img>
                                     </a>
-                                    
-                                ))
-                            }
-
+                                ))}
                         </li>
                     </ul>
                 </div>
