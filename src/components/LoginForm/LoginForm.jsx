@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAsync } from '../../redux/slices/user.slice';
+import { useHistory } from 'react-router-dom';
 import { BiLogIn } from 'react-icons/bi';
 import './LoginForm.scss';
 
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
 const LoginForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
+    const history = useHistory();
     let { error } = useSelector((state) => state.user);
     if (error === 'Request failed with status code 401' || error === 'Network Error') error = '';
 
@@ -20,6 +22,7 @@ const LoginForm = () => {
         ev.preventDefault();
         await dispatch(loginAsync(formData));
         setFormData(INITIAL_STATE);
+        history.push('/');
     };
 
     const handleInputChange = (ev) => {

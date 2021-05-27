@@ -26,7 +26,6 @@ const getTvShows = async (provider) => {
 
     while (page < 3) {
         page += 1;
-        console.log('page', page);
         const result = await axios.get(`${baseUrl}discover/tv`, {
             params: {
                 api_key: process.env.REACT_APP_API_KEY,
@@ -50,7 +49,6 @@ const getMovies = async (provider) => {
 
     while (page < 3) {
         page += 1;
-        console.log('page', page);
         const result = await axios.get(`${baseUrl}discover/movie`, {
             params: {
                 api_key: process.env.REACT_APP_API_KEY,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { HiMenuAlt4 } from 'react-icons/hi';
@@ -12,7 +12,6 @@ import './CarouselFilter.scss';
 SwiperCore.use([Scrollbar]);
 
 const Carousel = () => {
-    
     const [swiperView, setSwiperView] = useState(false);
 
     const showSwiper = () => setSwiperView(!swiperView);
@@ -23,7 +22,18 @@ const Carousel = () => {
         dispatch(filterProviders(ev));
     };
 
-    const providers = useSelector(state => state.tmdb.providers);
+    const providers = useSelector((state) => state.tmdb.providers);
+    let userProvider = useSelector((state) => state.user);
+
+    if (userProvider) {
+        console.log('Loading...');
+    } else {
+        userProvider = userProvider.user.id_providers;
+    }
+
+
+    providers.map(providers => providers.provider_id == 35);
+    console.log(providers);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
@@ -41,8 +51,13 @@ const Carousel = () => {
                         scrollbar={{ draggable: true }}
                         width={25}
                     >
-                        { providers.map((provider) => (
-                            <SwiperSlide onClick={() => handleFilter(provider.provider_id)} key={provider.provider_id}>
+                        {providers.map((provider) => (
+                            <SwiperSlide
+                                onClick={() =>
+                                    handleFilter(provider.provider_id)
+                                }
+                                key={provider.provider_id}
+                            >
                                 <img
                                     src={`${imgUrl}${provider.logo_path}`}
                                     alt="Logo de Netflix"
