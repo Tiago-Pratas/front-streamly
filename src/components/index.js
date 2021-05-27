@@ -8,6 +8,7 @@ import NavbarBottom from './NavbarBottom/NavbarBottom';
 import TopFilter from './TopFilter/TopFilter';
 import AllMovies from './AllMovies/AllMovies';
 import UserSettings from './UserSettings/UserSettings';
+import SecureRoute from './SecureRoute/SecureRoute';
 
 export {
     RegisterForm,
@@ -19,5 +20,6 @@ export {
     NavbarBottom,
     TopFilter,
     AllMovies,
-    UserSettings
+    UserSettings,
+    SecureRoute
 };
