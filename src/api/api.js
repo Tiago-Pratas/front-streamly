@@ -7,21 +7,21 @@ const sendProviders = async (email, id) => {
         {email, id}, 
         { withCredentials: true });
     console.log('here', request);
-    return request;
+    return request.data;
 };
 
 const sendFavorites = async (email, id) =>{
     const request = await axios.post(`${serverDirection}/set/favorites`, 
         {email, id}, 
         { withCredential: true });
-    return request;
+    return request.data;
 };
 
 const deleteFavorites = async (email, id) =>{
     const request = await axios.post(`${serverDirection}/set/deletefavorites`, 
         {email, id}, 
         { withCredentials: true });
-    return request;
+    return request.data;
 };
 
 
