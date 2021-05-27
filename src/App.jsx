@@ -1,11 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-<<<<<<< HEAD
 import { Loading, Header, NavbarBottom, UserSettings, SecureRoute } from './components';
-=======
-import { Loading, Header, NavbarBottom} from './components';
->>>>>>> filter-logic
 import {
     WelcomePage,
     WelcomePage2,
@@ -70,7 +66,6 @@ function App() {
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
-<<<<<<< HEAD
                         <SecureRoute
                             exact
                             path="/user-settings">
@@ -79,9 +74,6 @@ function App() {
                         <SecureRoute
                             exact
                             path="/recommender">
-=======
-                        <Route path="/recommender">
->>>>>>> filter-logic
                             <RecommenderPage />
                         </SecureRoute>
                         <SecureRoute
