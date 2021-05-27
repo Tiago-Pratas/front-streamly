@@ -115,4 +115,14 @@ const getMovieDetails = async (format, id) => {
     }
 };
 
-export { getProviders, getMovies, getTvShows, getGenres, getMovieDetails };
+const findRandomMedia = async (search) => {
+    const response = await axios.get(`${baseUrl}search/movie`, {params: {
+        api_key: process.env.REACT_APP_API_KEY,
+        language: 'en-US',
+        query: search
+    }});
+    console.log(response);
+    return response;
+};
+
+export { getProviders, getMovies, getTvShows, getGenres, getMovieDetails, findRandomMedia };

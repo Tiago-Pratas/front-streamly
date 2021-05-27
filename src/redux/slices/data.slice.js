@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getProviders, getTvShows, getMovies, getGenres } from '../../api/tmdb';
+import { getProviders, getTvShows, getMovies, getGenres, findRandomMedia } from '../../api/tmdb';
 
 const INITIAL_STATE = {
     providers: [],
@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     tvShows: [],
     topFilter: '',
     genres: [],
+    searchResults: [],
 };
 
 export const getAllProviders = createAsyncThunk(
@@ -29,6 +30,10 @@ export const getAllMovies = createAsyncThunk('tmdb/getMovies', async (data) => {
 
 export const getAllGenres = createAsyncThunk('tmdb/getGenres', async (data) => {
     return await getGenres(data);
+});
+
+export const searchMediaAsync = createAsyncThunk('tmdb/searchMediaAsync', async (data) => {
+    return await findRandomMedia(data);
 });
 
 export const dataSlice = createSlice({
@@ -54,6 +59,10 @@ export const dataSlice = createSlice({
 
         builder.addCase(getAllGenres.fulfilled, (state, action) => {
             state.genres = action.payload;
+        });
+
+        builder.addCase(searchMediaAsync.fulfilled, (state, action) => {
+            state.searchResults = action.payload;
         });
     },
 });

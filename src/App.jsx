@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loading, Header, NavbarBottom, UserSettings, SecureRoute } from './components';
+import { Loading, Header, NavbarBottom, UserSettings, SecureRoute, FindMovie } from './components';
 import {
     WelcomePage,
     WelcomePage2,
@@ -26,7 +26,7 @@ import { checkSessionAsync } from './redux/slices/user.slice';
 
 import './App.scss';
 
-function App() {
+function App () {
     const dispatch = useDispatch();
 
     const filteredProviders = useSelector((state) => state.tmdb.topFilter);
@@ -44,6 +44,7 @@ function App() {
     const getUser = async () => {
         dispatch(checkSessionAsync());
     };
+
 
     return (
         <>
@@ -98,6 +99,11 @@ function App() {
                             exact
                             path="/filter-providers">
                             <FilterProviders />
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/find-movie">
+                            <FindMovie />
                         </SecureRoute>
                     </Switch>
                 </main>

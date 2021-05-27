@@ -18,7 +18,8 @@ const Header = () => {
 
                 <div className="header__icons">
                     <Link className="header__icons-i" to="/registro-iniciar-sesion"><AiOutlineUser /></Link>
-                    <AiOutlineSearch className="header__icons-i" />
+                    <Link className="header__icons-i" to="/find-movie"><AiOutlineSearch /></Link>
+                    {/* <AiOutlineSearch className="header__icons-i" /> */}
                 </div>
             </header>
         </>
