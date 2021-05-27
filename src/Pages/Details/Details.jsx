@@ -9,6 +9,7 @@ import { sendFavorites, deleteFavorites } from '../../api/api';
 const Details = () => {
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
+    const [color, setColor] = useState('details-container__icon-red');
     const [providers, setProviders] = useState([]);
     const user = useSelector((state) => state.user.user);
 
@@ -17,14 +18,19 @@ const Details = () => {
 
     const inFavorites = user?.id_medias?.filter(id => id == params.id);
 
+
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
     const setFavorites = () => {
-        if (!inFavorites.length) {
+        if (!inFavorites?.length) {
+            setColor('details-container__icon-red');
             sendFavorites(user.email, params.id);
         } else {
+            setColor('details-container__icon');
             deleteFavorites(user.email, params.id);
         }
     };
+
+    console.log(color);
 
     useEffect(() => {
         //unwrap the values that arrive from the api call and set them on the state
@@ -47,14 +53,12 @@ const Details = () => {
         backgroundSize: 'cover',
     };
 
-    console.log(user.id_medias);
+    console.log(user?.id_medias);
     return (
         <>
             <div className="details-container" style={backgroundImg}>
                 <span
-                    className={
-                        Boolean(user.id_medias.findIndex(el => el == params.id) + 1) && 'details-container__icon-red' ||'details-container__icon'
-                    }
+                    className={    color      }
                     onClick={() => setFavorites(params.id)}
                 >
                     <BsFillHeartFill />
