@@ -1,13 +1,12 @@
 .suscription {
-     margin: 50px 0;
-     text-align: center;
-
-     &__title {
-         margin-bottom: 15px;
-     }
-
-     &__img {
-         margin: 5px;
-         border-radius: 5px;
-     }
+    margin: 50px 0;
+    text-align: center;
+    &__title {
+        margin-bottom: 15px;
+    }
+    &__img {
+        margin: 5px;
+        border-radius: 5px;
+        filter: drop-shadow(5px 4px 4px #002e81);
+    }
 }

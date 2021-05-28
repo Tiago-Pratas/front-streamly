@@ -1,15 +1,12 @@
 @import '../../styles/colors';
 @import '../../styles/responsive';
-
 .swiper-image {
     width: 100%;
-    min-height: 200px;
+    min-height: 273px;
     border-radius: 10px;
-    
     @include movil {
-        min-height: 255px;
+        min-height: 285;
     }
-    
     @include movil-big {
         min-height: 355px;
     }

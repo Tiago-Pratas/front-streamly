@@ -1,35 +1,34 @@
-$layout_bp_movil: 420px;
+$layout_bp_movil: 400px;
 $layout_bp_movil-big: 530px;
 $layout_bp_tablet: 670px;
 $layout_bp_tablet-big: 945px;
 $layout_bp_desktop: 1280px;
-
 @mixin movil {
-  @media only screen and (min-width: #{$layout_bp_movil}) {
-    @content;
-  }
+    @media only screen and (min-width: #{$layout_bp_movil}) {
+        @content;
+    }
 }
 
 @mixin movil-big {
-  @media only screen and (min-width: #{$layout_bp_movil-big}) {
-    @content;
-  }
+    @media only screen and (min-width: #{$layout_bp_movil-big}) {
+        @content;
+    }
 }
 
 @mixin tablet {
     @media only screen and (min-width: #{$layout_bp_tablet}) {
-      @content;
+        @content;
     }
-  }
+}
 
 @mixin tablet-big {
     @media only screen and (min-width: #{$layout_bp_tablet-big}) {
-      @content;
+        @content;
     }
 }
-  
+
 @mixin desktop {
     @media only screen and (min-width: #{$layout_bp_desktop}) {
-      @content;
+        @content;
     }
 }

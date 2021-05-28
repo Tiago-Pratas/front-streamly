@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './Details.scss';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { getMovieDetails } from '../../api/tmdb';
 import { sendFavoritesAsync, deleteFavoritesAsync } from '../../redux/slices/user.slice';
+import './Details.scss';
 
 const Details = () => {
     const dispatch = useDispatch();
