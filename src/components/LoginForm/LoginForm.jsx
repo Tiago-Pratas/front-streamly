@@ -15,14 +15,14 @@ const LoginForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
     const history = useHistory();
-    let { error } = useSelector((state) => state.user);
+    let { error, hasUser } = useSelector((state) => state.user);
     if (error === 'Request failed with status code 401' || error === 'Network Error') error = '';
 
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();
         await dispatch(loginAsync(formData));
         setFormData(INITIAL_STATE);
-        history.push('/');
+        if(hasUser)history.push('/');
     };
 
     const handleInputChange = (ev) => {
