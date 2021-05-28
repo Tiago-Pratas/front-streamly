@@ -17,7 +17,7 @@ const UserSettings = () => {
 
     return(
         <div className="settings-container">
-            <div className="settings__container-text">
+            <div>
                 <h1 className="settings__container-title">Configuraciones de Usuario</h1>
             </div>
             <div className="recommender1__button">

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { login, logout, register, checkSession } from '../../api/auth';
+import { deleteFavorites, sendFavorites } from '../../api/api';
 
 export const registerAsync = createAsyncThunk('user/register', async (form) => {
     return await register(form);
@@ -17,12 +18,21 @@ export const checkSessionAsync = createAsyncThunk('user/checksession', async () 
     return await checkSession();
 });
 
+export const sendFavoritesAsync = createAsyncThunk('user/send-favorite', async (data) => {
+    return await sendFavorites(data.email, data.id);
+});
+
+export const deleteFavoritesAsync = createAsyncThunk('user/delete-favorite', async (data) => {
+    return await deleteFavorites(data.email, data.id);
+});
+
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
         user: null,
         hasUser: null,
         error: '',
+        isAddingFavorite: false,
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -64,6 +74,24 @@ export const userSlice = createSlice({
             state.user = null;
             state.hasUser = null;
             state.error = '';
+        });
+
+        builder.addCase(deleteFavoritesAsync.fulfilled, (state, action) => {
+            state.user = action.payload;
+            state.isAddingFavorite = false;
+        });
+
+        builder.addCase(sendFavoritesAsync.fulfilled, (state, action) => {
+            state.user = action.payload;
+            state.isAddingFavorite = false;
+        });
+
+        builder.addCase(deleteFavoritesAsync.pending, (state) => {
+            state.isAddingFavorite = true;
+        });
+
+        builder.addCase(sendFavoritesAsync.pending, (state) => {
+            state.isAddingFavorite = true;
         });
     },
 });

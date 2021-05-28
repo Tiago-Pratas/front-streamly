@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import './Details.scss';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { getMovieDetails } from '../../api/tmdb';
-import { sendFavorites, deleteFavorites } from '../../api/api';
+import { sendFavoritesAsync, deleteFavoritesAsync } from '../../redux/slices/user.slice';
 
 const Details = () => {
+    const dispatch = useDispatch();
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
-    const [color, setColor] = useState('details-container__icon-red');
     const [providers, setProviders] = useState([]);
-    const user = useSelector((state) => state.user.user);
+    const { user, isAddingFavorite } = useSelector((state) => state.user);
+
+    const tvShows = useSelector((state) => state.tmdb.tvShows);
+    const movies = useSelector((state) => state.tmdb.movies);
+
+    const allMedia = [...tvShows, ...movies];
 
     //use the params that are passed from Carousel.jsx
     const params = useParams();
 
-    const inFavorites = user?.id_medias?.filter((id) => id == params.id);
-
+    const mediaSp = allMedia.find((allMedia) => allMedia.id == params.id) || {};
+    const isFavorite = user?.id_medias?.indexOf(params.id) > -1;
 
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
-    const setFavorites = () => {
-        if (!inFavorites?.length) {
-            setColor('details-container__icon-red');
-            sendFavorites(user.email, params.id);
+    const setFavorites = (id) => {
+        if (isAddingFavorite) return;
+        if (!isFavorite) {
+            dispatch(sendFavoritesAsync({email: user.email, id }));
         } else {
-            setColor('details-container__icon');
-            deleteFavorites(user.email, params.id);
+            dispatch(deleteFavoritesAsync({email: user.email, id }));
         }
     };
 
-    console.log(color);
+    const getClass = () => {
+        if (isFavorite) {
+            return 'details-container__icon-red';
+        } else {
+            return 'details-container__icon';
+        }
+    };
 
     useEffect(() => {
         //unwrap the values that arrive from the api call and set them on the state
@@ -60,14 +70,7 @@ const Details = () => {
         <>
             <div className="details-container" style={backgroundImg}>
                 <span
-                    className={
-                        (Boolean(
-                            user.id_medias.findIndex((el) => el == params.id) +
-                                1
-                        ) &&
-                            'details-container__icon-red') ||
-                        'details-container__icon'
-                    }
+                    className={ getClass() }
                     onClick={() => setFavorites(params.id)}
                 >
                     <BsFillHeartFill />
@@ -75,16 +78,16 @@ const Details = () => {
                 <img
                     className="details-container__img"
                     src={`${imgUrl}${media.poster_path}`}
-                    alt={media.title}
+                    alt={mediaSp.title}
                 ></img>
 
                 <div className="details-container__info">
                     <h1 className="details-container__info-title">
-                        {media.name || media.title}({releaseYear})
+                        {mediaSp.name || mediaSp.title}({releaseYear})
                     </h1>
                     <div className="details-container__genre"></div>
                     <p className="details-container__info-description">
-                        {media.overview}
+                        {mediaSp.overview}
                     </p>
                     <h4>Donde ver:</h4>
                     <ul>

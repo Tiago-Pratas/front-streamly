@@ -23,15 +23,10 @@ const Carousel = () => {
     };
 
     const providers = useSelector((state) => state.tmdb.providers);
-    let userProvider = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.user);
+    if(!user) return null;
 
-    if (userProvider) {
-        console.log('Loading...');
-    } else {
-        userProvider = userProvider.user.id_providers;
-    }
-
-
+    console.log('USER', user.id_providers);
     providers.map(providers => providers.provider_id == 35);
     console.log(providers);
 

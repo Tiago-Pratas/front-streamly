@@ -13,6 +13,7 @@ import {
     Recommender3Page,
     Details,
     FilterProviders,
+    BuildingPage,
 } from './pages';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
