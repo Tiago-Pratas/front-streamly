@@ -23,7 +23,7 @@ const RegisterForm = () => {
         ev.preventDefault();
         dispatch(registerAsync(formData));
         setFormData(INITIAL_STATE);
-        history.push('/registro-iniciar-sesion');
+        history.push('/bienvenida-step1');
     };
 
     const handleInputChange = (ev) => {

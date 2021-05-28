@@ -14,7 +14,7 @@ const WelcomePage2 = () => {
                 <MdEventSeat className="logo" />
             </div>
             <div className="welcome2-container__button">
-                <Link to="/" className="btn-white welcome-container__button">Finalizar</Link>
+                <Link to="/filter-providers" className="btn-white welcome-container__button">Finalizar</Link>
             </div>
         </div>
     );
