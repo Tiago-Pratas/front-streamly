@@ -6,7 +6,7 @@ import { TopFilter } from '../../components';
 const Home = () => {
     const setupSwiper = [
         {
-            title: 'Novedades',
+            title: 'Populares',
             date: '2021/01/01',
             genre: '',
         },
@@ -29,6 +29,26 @@ const Home = () => {
             title: 'Terror',
             release_date: '',
             genre: '27',
+        },
+        {
+            title: 'Drama',
+            release_date: '',
+            genre: '18',
+        },
+        {
+            title: 'Fantasía',
+            release_date: '',
+            genre: '14',
+        },
+        {
+            title: 'Suspense',
+            release_date: '',
+            genre: '53',
+        },
+        {
+            title: 'Aventura',
+            release_date: '',
+            genre: '53',
         },
     ];
 

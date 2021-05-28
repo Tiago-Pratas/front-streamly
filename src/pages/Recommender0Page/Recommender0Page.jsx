@@ -7,7 +7,6 @@ import './Recommender0Page.scss';
 
 const Recommender0Page = () => {
     const { user } = useSelector((state) => state);
-    console.log(user);
     return (
         <div className="recommender1-container">
             <div className="recommender1__container-text">
