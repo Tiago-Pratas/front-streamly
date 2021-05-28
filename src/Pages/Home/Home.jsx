@@ -6,7 +6,7 @@ import { TopFilter } from '../../components';
 const Home = () => {
     const setupSwiper = [
         {
-            title: 'Novedades',
+            title: 'Populares',
             date: '2021/01/01',
             genre: '',
         },
