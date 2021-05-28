@@ -55,9 +55,6 @@ function App() {
     return (
         <>
             <BrowserRouter>
-                {/*  <Route path="/loading" exact={true}>
-                    <Loading />
-                </Route> */}
                 <Loading />
                 <Header />
                 <main>
@@ -97,10 +94,14 @@ function App() {
                         <SecureRoute exact path="/filter-providers">
                             <FilterProviders />
                         </SecureRoute>
-                        <SecureRoute exact path="/find-movie">
+                        <SecureRoute
+                            exact
+                            path="/find-movie">
                             <FindMovie />
                         </SecureRoute>
-                        <SecureRoute exact path="/building">
+                        <SecureRoute
+                            exact
+                            path="/building">
                             <BuildingPage />
                         </SecureRoute>
                     </Switch>

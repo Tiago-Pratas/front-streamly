@@ -26,14 +26,14 @@ const FindMovie = () => {
     return (
         <>
             <div className="input-container">
-                <input
+                <input className="input__search"
                     type="search"
                     placeholder="buscar"
                     onChange={handleInputChange}
                 />
-                <div>
+                <div className="recommender1__button">
                     <button
-                        type="submit"
+                        type="submit" 
                         onClick={() => handleFormSubmit(searchValue)}
                         className="btn-blue"
                     >
