@@ -28,9 +28,9 @@ const Details = () => {
     const setFavorites = (id) => {
         if (isAddingFavorite) return;
         if (!isFavorite) {
-            dispatch(sendFavoritesAsync({ email: user.email, id }));
+            dispatch(sendFavoritesAsync({email: user.email, id }));
         } else {
-            dispatch(deleteFavoritesAsync({ email: user.email, id }));
+            dispatch(deleteFavoritesAsync({email: user.email, id }));
         }
     };
 

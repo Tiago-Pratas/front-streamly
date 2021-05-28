@@ -1,17 +1,29 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loading, Header, NavbarBottom } from './components';
+import {
+    Loading,
+    Header,
+    NavbarBottom,
+    UserSettings,
+    SecureRoute,
+    FindMovie,
+} from './components';
 import {
     WelcomePage,
     WelcomePage2,
     Home,
     Auth,
-    RecommenderPage,
+    Recommender0Page,
     Recommender1Page,
+    Recommender2Page,
+    Recommender3Page,
     Details,
     FilterProviders,
+    BuildingPage,
+    RecommenderResults,
 } from './pages';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
     getAllProviders,
@@ -28,14 +40,10 @@ function App() {
 
     const filteredProviders = useSelector((state) => state.tmdb.topFilter);
 
-    const getProviders = dispatch(getAllProviders());
-    const genres = dispatch(getAllGenres());
-    const tvShows = dispatch(getAllTvShows(filteredProviders));
-    const movies = dispatch(getAllMovies(filteredProviders));
-
-    console.log(filteredProviders);
-    console.log(tvShows,'GGG', genres, movies);
-    console.log(getProviders);
+    dispatch(getAllProviders());
+    dispatch(getAllGenres());
+    dispatch(getAllTvShows(filteredProviders));
+    dispatch(getAllMovies(filteredProviders));
 
     useEffect(() => {
         getUser();
@@ -66,18 +74,40 @@ function App() {
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
-                        <Route path="/recommender">
-                            <RecommenderPage />
-                        </Route>
-                        <Route path="/recommender1">
+                        <SecureRoute exact path="/user-settings">
+                            <UserSettings />
+                        </SecureRoute>
+                        <SecureRoute exact path="/recommender">
+                            <Recommender0Page />
+                        </SecureRoute>
+                        <SecureRoute exact path="/recommender1">
                             <Recommender1Page />
-                        </Route>
-                        <Route path="/details">
+                        </SecureRoute>
+                        <SecureRoute exact path="/recommender2">
+                            <Recommender2Page />
+                        </SecureRoute>
+                        <SecureRoute exact path="/recommender3">
+                            <Recommender3Page />
+                        </SecureRoute>
+                        <SecureRoute exact path="/recommender-results">
+                            <RecommenderResults />
+                        </SecureRoute>
+                        <SecureRoute path="/details/:format/:id">
                             <Details />
-                        </Route>
-                        <Route path="/filter-providers">
+                        </SecureRoute>
+                        <SecureRoute exact path="/filter-providers">
                             <FilterProviders />
-                        </Route>
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/find-movie">
+                            <FindMovie />
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/building">
+                            <BuildingPage />
+                        </SecureRoute>
                     </Switch>
                 </main>
                 <div className="navbar">

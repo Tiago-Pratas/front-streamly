@@ -74,6 +74,9 @@ const Recommender3Page = () => {
                     </Link>
                 </div>
                 <div className="recommender1__button">
+<<<<<<< HEAD
+                    <Link to="/building" className="btn-blue">Continuar</Link>
+=======
                     <Link
                         to="/building"
                         className="btn-blue"
@@ -81,6 +84,7 @@ const Recommender3Page = () => {
                     >
                         Continuar
                     </Link>
+>>>>>>> 08dfd2f3ea9332dc2ea579eae5d0a229ea05f1c5
                 </div>
             </div>
         </div>
