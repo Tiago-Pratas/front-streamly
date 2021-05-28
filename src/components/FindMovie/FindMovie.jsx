@@ -1,38 +1,44 @@
-import React, {useEffect} from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { searchMediaAsync } from '../../redux/slices/data.slice';
 import './FindMovie.scss';
 
+const INITIAL_STATE = {};
+
 const FindMovie = () => {
     const dispatch = useDispatch();
-    const searchResults = useSelector(state => state.tmdb.searchResults);
+    const searchResults = useSelector((state) => state.tmdb.searchResults);
+    const [searchValue, setSearchValue] = useState(INITIAL_STATE);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
-    const searchMovie = () => {
-        dispatch(searchMediaAsync('Batman'));
+
+    const handleFormSubmit = async (searchValue) => {
+        await dispatch(searchMediaAsync(searchValue));
+        setSearchValue(INITIAL_STATE);
     };
-    useEffect(() => {
-        dispatch(searchMediaAsync('Batman'));
-    }, []);
+
+    const handleInputChange = (ev) => {
+        const { value } = ev.target;
+        setSearchValue(value);
+    };
 
     return (
         <>
             <div className="input-container">
-                <form>
-                    <input
-                        type="text"
-                        name="search"
-                        id="search"
-                        placeholder="buscar"
-                    />
-                </form>
+                <input
+                    type="search"
+                    placeholder="buscar"
+                    onChange={handleInputChange}
+                />
                 <div>
                     <button
+                        type="submit"
+                        onClick={() => handleFormSubmit(searchValue)}
                         className="btn-blue"
-                        onClick={() => searchMovie()
-                        }
-                    >Buscar</button>
+                    >
+                        Buscar
+                    </button>
                 </div>
             </div>
             <div className="movie__container">
