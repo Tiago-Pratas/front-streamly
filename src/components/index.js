@@ -9,6 +9,7 @@ import TopFilter from './TopFilter/TopFilter';
 import AllMovies from './AllMovies/AllMovies';
 import UserSettings from './UserSettings/UserSettings';
 import SecureRoute from './SecureRoute/SecureRoute';
+import FindMovie from './FindMovie/FindMovie';
 
 export {
     RegisterForm,
@@ -21,5 +22,6 @@ export {
     TopFilter,
     AllMovies,
     UserSettings,
-    SecureRoute
+    SecureRoute,
+    FindMovie
 };
