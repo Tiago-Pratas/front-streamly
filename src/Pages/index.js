@@ -2,7 +2,7 @@ import Auth from './Auth/Auth';
 import Home from './Home/Home';
 import WelcomePage from './WelcomePage/WelcomePage';
 import WelcomePage2 from './WelcomePage2/WelcomePage2';
-import RecommenderPage from './RecommenderPage/RecommenderPage';
+import Recommender0Page from './Recommender0Page/Recommender0Page';
 import Recommender1Page from './Recommender1Page/Recommender1Page';
 import Recommender2Page from './Recommender2Page/Recommender2Page';
 import Recommender3Page from './Recommender3Page/Recommender3Page';
@@ -15,7 +15,7 @@ export {
     WelcomePage2,
     Auth,
     Home,
-    RecommenderPage,
+    Recommender0Page,
     Recommender1Page,
     Recommender2Page,
     Recommender3Page,

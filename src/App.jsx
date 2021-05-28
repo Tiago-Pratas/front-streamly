@@ -14,7 +14,7 @@ import {
     WelcomePage2,
     Home,
     Auth,
-    RecommenderPage,
+    Recommender0Page,
     Recommender1Page,
     Recommender2Page,
     Recommender3Page,
@@ -77,7 +77,7 @@ function App() {
                             <UserSettings />
                         </SecureRoute>
                         <SecureRoute exact path="/recommender">
-                            <RecommenderPage />
+                            <Recommender0Page />
                         </SecureRoute>
                         <SecureRoute exact path="/recommender1">
                             <Recommender1Page />
