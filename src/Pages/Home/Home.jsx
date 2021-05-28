@@ -30,6 +30,26 @@ const Home = () => {
             release_date: '',
             genre: '27',
         },
+        {
+            title: 'Drama',
+            release_date: '',
+            genre: '18',
+        },
+        {
+            title: 'Fantasía',
+            release_date: '',
+            genre: '14',
+        },
+        {
+            title: 'Suspense',
+            release_date: '',
+            genre: '53',
+        },
+        {
+            title: 'Aventura',
+            release_date: '',
+            genre: '53',
+        },
     ];
 
     const [value, setValue] = useState('');
