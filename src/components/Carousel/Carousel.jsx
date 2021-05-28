@@ -42,6 +42,21 @@ const Carousel = (props) => {
         });
         allMedia = filteredResult;
     }
+
+    const  shuffle = (array) => {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    };
+
+    allMedia = shuffle(allMedia);
+
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     return (
@@ -68,7 +83,7 @@ const Carousel = (props) => {
                 scrollbar={{ draggable: true }}
                 className="swiper-conatiner__height"
             >
-                {allMedia.slice(0, 19).map((media) => (
+                {allMedia.slice(0, 20).map((media) => (
                     <SwiperSlide key={media.id}>
                         <Link
                             to={`/details/${

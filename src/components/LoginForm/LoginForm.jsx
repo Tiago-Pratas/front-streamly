@@ -18,11 +18,12 @@ const LoginForm = () => {
     let { error, hasUser } = useSelector((state) => state.user);
     if (error === 'Request failed with status code 401' || error === 'Network Error') error = '';
 
+    console.log(hasUser);
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();
         await dispatch(loginAsync(formData));
         setFormData(INITIAL_STATE);
-        if(hasUser)history.push('/');
+        if(!error)history.push('/');
     };
 
     const handleInputChange = (ev) => {
