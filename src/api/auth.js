@@ -33,6 +33,8 @@ const login = async (userData) => {
     }
 };
 
+
+
 const checkSession = async () => {
     try {
         const request = await axios.get(checkSessionUrl, {withCredentials: true});
@@ -49,9 +51,16 @@ const logout = async (user) => {
     return request;
 };
 
+const sendEmailValidation = async (validationUrl) => {
+    const request = await axios.post(validationUrl);
+
+    return request;
+};
+
 export {
     register,
     login,
     logout,
     checkSession,
+    sendEmailValidation
 };
