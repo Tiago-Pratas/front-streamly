@@ -12,7 +12,7 @@ const getProviders = async () => {
                 language: 'es-ES',
             },
         });
-        
+
         return response.data.results;
     } catch (err) {
         return err;
@@ -122,7 +122,7 @@ const findRandomMedia = async (search) => {
         query: search
     }});
     console.log(response);
-    return response;
+    return response.data;
 };
 
 export { getProviders, getMovies, getTvShows, getGenres, getMovieDetails, findRandomMedia };

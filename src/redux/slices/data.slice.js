@@ -62,7 +62,7 @@ export const dataSlice = createSlice({
         });
 
         builder.addCase(searchMediaAsync.fulfilled, (state, action) => {
-            state.searchResults = action.payload;
+            state.searchResults = action.payload.results;
         });
     },
 });

@@ -49,6 +49,9 @@ function App () {
     return (
         <>
             <BrowserRouter>
+                {/*  <Route path="/loading" exact={true}>
+                    <Loading />
+                </Route> */}
                 <Loading />
                 <Header />
                 <main>

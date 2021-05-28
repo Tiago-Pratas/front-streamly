@@ -14,15 +14,15 @@ const Recommender3Page = () => {
             <div className="recommender3__button-icon">
                 <div className="recommender3__container-text">
                     <button className="recommender3__button icon"> <GiWesternHat className="recommender3__icon"/></button>
-                    <p className="recommender3__container-p">Unas risas</p>
+                    <p className="recommender3__container-p">Clásico</p>
                 </div>
                 <div className="recommender3__container-text">
                     <button className="recommender3__button"><FaHatCowboy className="recommender3__icon"/></button>
-                    <p className="recommender3__container-p">Emotiva</p>
+                    <p className="recommender3__container-p">Moderno</p>
                 </div>
                 <div className="recommender3__container-text">
                     <button className="recommender3__button"><FiStar className="recommender3__icon"/></button>
-                    <p className="recommender3__container-p">Íntima</p>
+                    <p className="recommender3__container-p">Estreno</p>
                 </div>
             </div>
             {/* <div>
