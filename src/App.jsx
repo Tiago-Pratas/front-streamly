@@ -13,6 +13,7 @@ import {
     Recommender3Page,
     Details,
     FilterProviders,
+    BuildingPage,
 } from './pages';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -98,6 +99,11 @@ function App() {
                             exact
                             path="/filter-providers">
                             <FilterProviders />
+                        </SecureRoute>
+                        <SecureRoute
+                            exact
+                            path="/building">
+                            <BuildingPage />
                         </SecureRoute>
                     </Switch>
                 </main>

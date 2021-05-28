@@ -8,6 +8,7 @@ import Recommender2Page from './Recommender2Page/Recommender2Page';
 import Recommender3Page from './Recommender3Page/Recommender3Page';
 import Details from './Details/Details';
 import FilterProviders from './FilterProviders/FilterProviders';
+import BuildingPage from './BuildingPage/BuildingPage';
 
 export {
     WelcomePage,
@@ -20,4 +21,5 @@ export {
     Recommender3Page,
     Details,
     FilterProviders,
+    BuildingPage,
 };
