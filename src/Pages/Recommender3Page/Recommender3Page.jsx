@@ -25,17 +25,12 @@ const Recommender3Page = () => {
                     <p className="recommender3__container-p">Estreno</p>
                 </div>
             </div>
-            {/* <div>
-                    <div>
-                        <p>Más opciones</p>
-                    </div>
-                </div> */}
             <div className="recommender3__finish">
                 <div className="recommender3__finish-links">
                     <Link to="/" className="recommender3__finish-link">saltar</Link>
                 </div>
                 <div className="recommender1__button">
-                    <Link to="/recommender4" className="btn-blue">Continuar</Link>
+                    <Link to="/building" className="btn-blue">Continuar</Link>
                 </div>
             </div>
         </div>
