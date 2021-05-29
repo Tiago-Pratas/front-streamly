@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getRecommendation } from '../../api/tmdb';
+import { recommenderAsync } from '../../redux/slices/data.slice';
 
 const recommenderResults = () => {
     const { tvOrMovie, runtime, genre, year } = useSelector((state) => state.recommender);
-    const [recommendations, setRecommendations] = useState('');
+    const recommendations = useSelector((state) => state.tmdb.recommenderResults);
+    
 
+    const dispatch = useDispatch();
+
+    
+    
     console.log(tvOrMovie, runtime, genre, year);
-
+    
     useEffect(() => {
-        const poop = getRecommendation(tvOrMovie, runtime, genre, year)
-            .then(data => setRecommendations(data));
-        console.log(poop);
-
+        
+        dispatch(recommenderAsync(tvOrMovie, runtime, genre, year));
     }, []);
 
     let randomId = recommendations[Math.floor(Math.random() * recommendations.length)];
 
-    console.log(randomId);
     
     return (
         <Link

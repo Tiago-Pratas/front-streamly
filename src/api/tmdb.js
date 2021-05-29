@@ -124,17 +124,16 @@ const findRandomMedia = async (search) => {
 };
 
 const getRecommendation = async (format, runtime, genre, year) => {
-   
+    
     const result = await axios.get(`${baseUrl}discover/${format}`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
             language: 'es-ES',
-            'with_runtime.gte': runtime,
+            time: runtime,
             with_genres: genre,
             'primary_release_date.lte': year,
         },
     });
-    console.log(result.data.results);
     return result.data.results;
 };
 

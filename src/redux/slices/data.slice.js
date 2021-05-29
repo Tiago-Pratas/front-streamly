@@ -15,6 +15,7 @@ const INITIAL_STATE = {
     topFilter: '',
     genres: [],
     searchResults: [],
+    recommenderResults: [],
 };
 
 export const getAllProviders = createAsyncThunk(
@@ -48,8 +49,8 @@ export const searchMediaAsync = createAsyncThunk(
 
 export const recommenderAsync = createAsyncThunk(
     'tmdb/getRec',
-    async () =>{
-        return await getRecommendation();
+    async (data) =>{
+        return await getRecommendation(data);
     });
 
 export const dataSlice = createSlice({
@@ -83,10 +84,11 @@ export const dataSlice = createSlice({
         builder.addCase(recommenderAsync.fulfilled, (state, action) => {
             console.log(action.meta.arg);
             if(action.meta.arg == 'tv'){
-                state.tvShows = action.payload;
+                state.tvShows = [...state.tvShows, ...action.payload];
             }else{
-                state.movies = action.payload;
+                state.movies = [...state.movies, ...action.payload];
             }
+            state.recommenderResults = action.payload;
         });
     },
 });
