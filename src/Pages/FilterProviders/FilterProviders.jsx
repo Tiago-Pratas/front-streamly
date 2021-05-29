@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { sendProviders } from '../../api/api';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { sendProviderAsync } from '../../redux/slices/user.slice';
 import './FilterProviders.scss';
 
 const FilterProviders = () => {
+    const dispatch = useDispatch();
     const providers = useSelector((state) => state.tmdb.providers);
     const user = useSelector((state) => state.user.user);
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
@@ -12,7 +13,7 @@ const FilterProviders = () => {
     const allProviders = [...providers];
 
     const setProviders = (id) => {
-        sendProviders(user.email, id);
+        dispatch(sendProviderAsync({email: user.email, id}));
     };
 
     return (

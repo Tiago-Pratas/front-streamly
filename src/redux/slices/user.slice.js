@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { login, logout, register, checkSession } from '../../api/auth';
-import { deleteFavorites, sendFavorites } from '../../api/api';
+import { deleteFavorites, sendFavorites, sendProviders } from '../../api/api';
 
 export const registerAsync = createAsyncThunk('user/register', async (form) => {
     return await register(form);
@@ -24,6 +24,10 @@ export const sendFavoritesAsync = createAsyncThunk('user/send-favorite', async (
 
 export const deleteFavoritesAsync = createAsyncThunk('user/delete-favorite', async (data) => {
     return await deleteFavorites(data.email, data.id);
+});
+
+export const sendProviderAsync = createAsyncThunk('user/send-providers', async (data) => {
+    return await sendProviders(data.email, data.id);
 });
 
 export const userSlice = createSlice({
@@ -92,6 +96,10 @@ export const userSlice = createSlice({
 
         builder.addCase(sendFavoritesAsync.pending, (state) => {
             state.isAddingFavorite = true;
+        });
+
+        builder.addCase(sendProviderAsync.fulfilled, (state, action) => {
+            state.user = action.payload;
         });
     },
 });
