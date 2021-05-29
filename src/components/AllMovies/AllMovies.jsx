@@ -5,17 +5,20 @@ import './AllMovies.scss';
 import PropTypes from 'prop-types';
 import { BiArrowBack } from 'react-icons/bi';
 
+
 const AllMovies = (props) => {
     AllMovies.propTypes = {
         changeView: PropTypes.node,
         value: PropTypes.node,
     };
 
-    
+    window.scroll({
+        top: 0,
+    });
     let genreId = parseInt(props.value[1]);
 
-    const movies = useSelector(state => state.tmdb.movies);
-    const tvShows = useSelector(state => state.tmdb.tvShows);
+    const movies = useSelector((state) => state.tmdb.movies);
+    const tvShows = useSelector((state) => state.tmdb.tvShows);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
@@ -23,25 +26,33 @@ const AllMovies = (props) => {
 
     let filterMedia;
 
-    if(genreId) {
-        filterMedia = allMoviesTvShows.filter(genre => genre.genre_ids.includes(genreId));
+    if (genreId) {
+        filterMedia = allMoviesTvShows.filter((genre) =>
+            genre.genre_ids.includes(genreId)
+        );
     } else {
         filterMedia = allMoviesTvShows;
     }
 
-
     return (
         <div className="movie">
             <div className="movie__header-container">
-                <h1 className="movie__header-container-title">{props.value[0]}</h1>
-                <BiArrowBack className="movie__header-container-icon" onClick={props.changeView} />
+                <h1 className="movie__header-container-title">
+                    {props.value[0]}
+                </h1>
+                <BiArrowBack
+                    className="movie__header-container-icon"
+                    onClick={props.changeView}
+                />
             </div>
             <div className="movie__container">
                 {filterMedia.map((media) => (
                     <Link
                         key={media.id}
                         className="movie__container-link"
-                        to={`/details/${media.name && 'tv' || media.title && 'movie'}/${media.id}`}
+                        to={`/details/${
+                            (media.name && 'tv') || (media.title && 'movie')
+                        }/${media.id}`}
                     >
                         <img
                             loading="lazy"

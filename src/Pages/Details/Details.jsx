@@ -7,6 +7,10 @@ import { sendFavoritesAsync, deleteFavoritesAsync } from '../../redux/slices/use
 import './Details.scss';
 
 const Details = () => {
+    window.scroll({
+        top: 0,
+    });
+
     const dispatch = useDispatch();
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
