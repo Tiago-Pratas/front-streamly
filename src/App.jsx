@@ -21,7 +21,8 @@ import {
     Details,
     FilterProviders,
     BuildingPage,
-    UserVerify
+    UserVerify,
+    RecommenderResults
 } from './pages';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
