@@ -10,6 +10,7 @@ import AllMovies from './AllMovies/AllMovies';
 import UserSettings from './UserSettings/UserSettings';
 import SecureRoute from './SecureRoute/SecureRoute';
 import FindMovie from './FindMovie/FindMovie';
+import EmailConfirmation from './EmailConfirmation/EmailConfirmation';
 
 export {
     RegisterForm,
@@ -23,5 +24,6 @@ export {
     AllMovies,
     UserSettings,
     SecureRoute,
-    FindMovie
+    FindMovie,
+    EmailConfirmation,
 };
