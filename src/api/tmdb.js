@@ -123,69 +123,19 @@ const findRandomMedia = async (search) => {
     return response.data;
 };
 
-const getRecommendation = async (tvOrMovie, runtime, genre, year, provider) => {
-    let runtimeGte;
-    let runtimeLte;
-    let yearGte;
-    let yearLte;
-
-    const providerString = provider;
-
-    if (runtime == 120) {
-        runtimeGte = runtime;
-    }
-    if (runtime == 80) {
-        runtimeLte = 120;
-        runtimeGte = runtime;
-    }
-    if (runtime == 80) {
-        runtimeLte = runtime;
-    }
-
-    if (year == 1980) {
-        yearLte = '1980-01-01';
-    }
-    if (year == 1981) {
-        yearLte = '2000-01-01';
-        yearGte = '1980-01-01';
-    }
-    if (year == 2000) {
-        yearGte = '2000-01-01';
-    }
-
-    if (tvOrMovie == 'movie') {
-        const result = await axios.get(`${baseUrl}discover/movie`, {
-            params: {
-                api_key: process.env.REACT_APP_API_KEY,
-                with_watch_providers: providerString,
-                language: 'es-ES',
-                watch_region: 'ES',
-                'with_runtime.gte': runtimeGte,
-                'with_runtime.lte': runtimeLte,
-                with_genres: genre,
-                'primary_release_date.gte': yearGte,
-                'primary_release_date.lte': yearLte,
-            },
-        });
-        console.log(result);
-        return result.data;
-    } else {
-        const resultTv = await axios.get(`${baseUrl}discover/tv`, {
-            params: {
-                api_key: process.env.REACT_APP_API_KEY,
-                with_watch_providers: providerString,
-                language: 'es-ES',
-                watch_region: 'ES',
-                'with_runtime.gte': runtimeGte,
-                'with_runtime.lte': runtimeLte,
-                with_genres: genre,
-                'primary_release_date.gte': yearGte,
-                'primary_release_date.lte': yearLte,
-            },
-        });
-        console.log('TV', resultTv);
-        return resultTv.data;
-    }
+const getRecommendation = async (format, runtime, genre, year) => {
+   
+    const result = await axios.get(`${baseUrl}discover/${format}`, {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: 'es-ES',
+            'with_runtime.gte': runtime,
+            with_genres: genre,
+            'primary_release_date.lte': year,
+        },
+    });
+    console.log(result.data.results);
+    return result.data.results;
 };
 
 export {
