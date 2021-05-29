@@ -11,6 +11,8 @@ const Details = () => {
         top: 0,
     });
 
+    console.log('hola');
+
     const dispatch = useDispatch();
     const [media, setMedia] = useState('');
     const [video, setVideo] = useState('');
