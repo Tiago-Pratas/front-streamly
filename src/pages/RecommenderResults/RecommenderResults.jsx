@@ -1,42 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getRecommendation } from '../../api/tmdb';
 
 const recommenderResults = () => {
-    const movies = useSelector((state) => state.tmdb.movies);
-    const tvShows = useSelector((state) => state.tmdb.tvShows);
-    const { tvOrMovie } = useSelector((state) => state.recommender);
-    const imgUrl = 'https://image.tmdb.org/t/p/original/';
+    const { tvOrMovie, runtime, genre, year } = useSelector((state) => state.recommender);
+    const [recommendations, setRecommendations] = useState('');
 
-    let searchResults;
-    console.log('HERE', tvOrMovie);
-    if (tvOrMovie == 'tv') {
-        searchResults= tvShows;
-    } else {
-        searchResults = movies;
-    }
-    console.log('YYY', searchResults);
+    console.log(tvOrMovie, runtime, genre, year);
 
+    useEffect(() => {
+        const poop = getRecommendation(tvOrMovie, runtime, genre, year)
+            .then(data => setRecommendations(data));
+        console.log(poop);
+
+    }, []);
+
+    let randomId = recommendations[Math.floor(Math.random() * recommendations.length)];
+
+    console.log(randomId);
+    
     return (
-        <div className="movie__container">
-            {searchResults.map((media) => (
-                <Link
-                    key={media.id}
-                    className="movie__container-link"
-                    to={`/details/${
-                        (media.name && 'tv') || (media.title && 'movie')
-                    }/${media.id}`}
-                >
-                    <img
-                        loading="lazy"
-                        src={`${imgUrl}${media.poster_path}`}
-                        alt={media.title}
-                        key={media.id}
-                        className="movie__container-img"
-                    />
-                </Link>
-            ))}
-        </div>
+        <Link
+            
+            className="btn-blue"
+            to={`/details/${tvOrMovie}/${randomId?.id}`}
+        >
+            Aqui lo tienes
+        </Link>
     );
 };
 
