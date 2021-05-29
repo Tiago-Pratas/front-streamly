@@ -11,6 +11,7 @@ import Details from './Details/Details';
 import FilterProviders from './FilterProviders/FilterProviders';
 import BuildingPage from './BuildingPage/BuildingPage';
 import UserVerify from './UserVerify/UserVerify';
+import FavoritesPage from './FavoritesPage/FavoritesPage';
 
 export {
     WelcomePage,
@@ -25,5 +26,6 @@ export {
     Details,
     FilterProviders,
     BuildingPage,
-    UserVerify
+    UserVerify,
+    FavoritesPage
 };

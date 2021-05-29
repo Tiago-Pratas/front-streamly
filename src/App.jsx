@@ -22,7 +22,8 @@ import {
     FilterProviders,
     BuildingPage,
     UserVerify,
-    RecommenderResults
+    RecommenderResults,
+    FavoritesPage
 } from './pages';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -107,6 +108,9 @@ function App() {
                         </SecureRoute>
                         <SecureRoute exact path="/building">
                             <BuildingPage />
+                        </SecureRoute>
+                        <SecureRoute exact path="/favorites">
+                            <FavoritesPage />
                         </SecureRoute>
                     </Switch>
                 </main>
