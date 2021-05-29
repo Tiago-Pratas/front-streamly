@@ -1,5 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getProviders, getTvShows, getMovies, getGenres, findRandomMedia } from '../../api/tmdb';
+import {
+    getProviders,
+    getTvShows,
+    getMovies,
+    getGenres,
+    findRandomMedia,
+} from '../../api/tmdb';
+import { getRecommendation } from '../../api/tmdb';
 
 const INITIAL_STATE = {
     providers: [],
@@ -32,16 +39,25 @@ export const getAllGenres = createAsyncThunk('tmdb/getGenres', async (data) => {
     return await getGenres(data);
 });
 
-export const searchMediaAsync = createAsyncThunk('tmdb/searchMediaAsync', async (data) => {
-    return await findRandomMedia(data);
-});
+export const searchMediaAsync = createAsyncThunk(
+    'tmdb/searchMediaAsync',
+    async (data) => {
+        return await findRandomMedia(data);
+    }
+);
+
+export const recommenderAsync = createAsyncThunk(
+    'tmdb/getRec',
+    async () =>{
+        return await getRecommendation();
+    });
 
 export const dataSlice = createSlice({
     name: 'tmdb',
     initialState: INITIAL_STATE,
     reducers: {
         filterProviders: (state, action) => {
-            state.topFilter = state.topFilter+=`|${action.payload}`;
+            state.topFilter = state.topFilter += `|${action.payload}`;
         },
     },
     extraReducers: (builder) => {
@@ -63,6 +79,14 @@ export const dataSlice = createSlice({
 
         builder.addCase(searchMediaAsync.fulfilled, (state, action) => {
             state.searchResults = action.payload.results;
+        });
+        builder.addCase(recommenderAsync.fulfilled, (state, action) => {
+            console.log(action.meta.arg);
+            if(action.meta.arg == 'tv'){
+                state.tvShows = action.payload;
+            }else{
+                state.movies = action.payload;
+            }
         });
     },
 });

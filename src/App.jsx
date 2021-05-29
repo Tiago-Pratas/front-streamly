@@ -92,6 +92,9 @@ function App() {
                         <SecureRoute exact path="/recommender3">
                             <Recommender3Page />
                         </SecureRoute>
+                        <SecureRoute exact path="/recommender-results">
+                            <RecommenderResults />
+                        </SecureRoute>
                         <SecureRoute path="/details/:format/:id">
                             <Details />
                         </SecureRoute>

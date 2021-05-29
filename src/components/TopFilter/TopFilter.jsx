@@ -6,5 +6,5 @@ const TopBar = () => {
         <CarouselFilter />
     );
 };
- 
+
 export default TopBar;
