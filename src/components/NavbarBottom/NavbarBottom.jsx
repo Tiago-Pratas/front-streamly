@@ -13,7 +13,7 @@ const NavbarBottom = () => {
                 <Link className="navbar-bottom__icons-i" to="/"><AiFillHome /></Link>
                 <Link className="navbar-bottom__icons-i" to="/building"><MdLocalMovies /></Link>
                 <Link className="navbar-bottom__icons-i" to="/recommender"><MdEventSeat /></Link>
-                <Link className="navbar-bottom__icons-i" to="/building"><AiFillHeart /></Link>
+                <Link className="navbar-bottom__icons-i" to="/favorites"><AiFillHeart /></Link>
                 <Link className="navbar-bottom__icons-i" to="/building"><IoNewspaperSharp /></Link>
             </nav>
         </>
