@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { sendProviders } from '../../api/api';
+import { Link } from 'react-router-dom';
 import './FilterProviders.scss';
 
 const FilterProviders = () => {
@@ -15,18 +16,28 @@ const FilterProviders = () => {
     };
 
     return (
-        <div className="suscription">
-            <h1 className="suscription__title">Selecciona tus suscripciones</h1>
-            {allProviders.map((provider) => (
-                <img
-                    src={`${imgUrl}${provider.logo_path}`}
-                    key={provider.provider_id}
-                    alt="img-providers"
-                    className="suscription__img"
-                    onClick={() => setProviders(provider.provider_id)}
-                />
-            ))}
-        </div>
+        <>
+            <div className="suscription">
+                <h1 className="suscription__title">
+                    Selecciona tus suscripciones
+                </h1>
+                {allProviders.map((provider) => (
+                    <a className="suscription__link" key={provider.provider_id}>
+                        <img
+                            src={`${imgUrl}${provider.logo_path}`}
+                            alt="img-providers"
+                            className="suscription__img"
+                            onClick={() => setProviders(provider.provider_id)}
+                        />
+                    </a>
+                ))}
+            </div>
+            <div className="suscription">
+                <Link to="/">
+                    <button className="btn btn-primary btn-blue">Finalizar</button>
+                </Link>
+            </div>
+        </>
     );
 };
 

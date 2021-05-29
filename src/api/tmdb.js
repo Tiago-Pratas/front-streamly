@@ -24,7 +24,7 @@ const getTvShows = async (provider) => {
 
     let page = 0;
 
-    while (page < 10) {
+    while (page < 5) {
         page += 1;
         const result = await axios.get(`${baseUrl}discover/tv`, {
             params: {
@@ -48,7 +48,7 @@ const getMovies = async (provider) => {
 
     let page = 0;
 
-    while (page < 10) {
+    while (page < 5) {
         page += 1;
         const result = await axios.get(`${baseUrl}discover/movie`, {
             params: {
