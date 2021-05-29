@@ -40,7 +40,7 @@ const Recommender3Page = () => {
                 <div className="recommender3__container-text">
                     <button
                         className="recommender3__button"
-                        onClick={() => setYear(1981)}
+                        onClick={() => setYear(2000)}
                     >
                         <FaHatCowboy className="recommender3__icon" />
                     </button>
@@ -49,7 +49,7 @@ const Recommender3Page = () => {
                 <div className="recommender3__container-text">
                     <button
                         className="recommender3__button"
-                        onClick={() => setYear(2000)}
+                        onClick={() => setYear(2021)}
                     >
                         <FiStar className="recommender3__icon" />
                     </button>

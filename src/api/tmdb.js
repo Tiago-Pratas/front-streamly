@@ -124,6 +124,8 @@ const findRandomMedia = async (search) => {
 };
 
 const getRecommendation = async (format, runtime, genre, year) => {
+
+    let yearGte = (year-20);
    
     const result = await axios.get(`${baseUrl}discover/${format}`, {
         params: {
@@ -132,6 +134,8 @@ const getRecommendation = async (format, runtime, genre, year) => {
             'with_runtime.gte': runtime,
             with_genres: genre,
             'primary_release_date.lte': year,
+            'primary_release_date.gte': yearGte,
+            ' sort_by':' realease_date.desc',
         },
     });
     console.log(result.data.results);

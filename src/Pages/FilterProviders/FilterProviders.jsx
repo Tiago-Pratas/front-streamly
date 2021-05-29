@@ -16,22 +16,28 @@ const FilterProviders = () => {
     };
 
     return (
-        <div className="suscription">
-            <h1 className="suscription__title">Selecciona tus suscripciones</h1>
-            {allProviders.map((provider) => (
-                <a className="suscription__link" key={provider.provider_id}>
-                    <img
-                        src={`${imgUrl}${provider.logo_path}`}
-                        alt="img-providers"
-                        className="suscription__img"
-                        onClick={() => setProviders(provider.provider_id)}
-                    />
-                </a>
-            ))}
-            <Link to="/">
-                <button className="btn btn-primary btn-blue">Finalizar</button>
-            </Link>
-        </div>
+        <>
+            <div className="suscription">
+                <h1 className="suscription__title">
+                    Selecciona tus suscripciones
+                </h1>
+                {allProviders.map((provider) => (
+                    <a className="suscription__link" key={provider.provider_id}>
+                        <img
+                            src={`${imgUrl}${provider.logo_path}`}
+                            alt="img-providers"
+                            className="suscription__img"
+                            onClick={() => setProviders(provider.provider_id)}
+                        />
+                    </a>
+                ))}
+            </div>
+            <div className="suscription">
+                <Link to="/">
+                    <button className="btn btn-primary btn-blue">Finalizar</button>
+                </Link>
+            </div>
+        </>
     );
 };
 

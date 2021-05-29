@@ -26,29 +26,29 @@ const Recommender2Page = () => {
             </div>
             <div className="recommender2__button-icon">
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button  icon" onClick={() => setGenre(35)}> <FaRegLaughSquint className="recommender2__icon"/></button>
+                    <button className="recommender2__button  icon" onClick={() => setGenre('35')}> <FaRegLaughSquint className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Unas risas</p>
                 </div>
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button" onClick={() => setGenre(18)}><RiEmotionSadLine className="recommender2__icon"/></button>
+                    <button className="recommender2__button" onClick={() => setGenre('18')}><RiEmotionSadLine className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Emotiva</p>
                 </div>
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button" onClick={() => setGenre(10749)}><RiEmotionLine className="recommender2__icon"/></button>
+                    <button className="recommender2__button" onClick={() => setGenre('10749')}><RiEmotionLine className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Íntima</p>
                 </div>
             </div>
             <div className="recommender2__button-icon">
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button" onClick={() => setGenre(10751)}><ImSmile className="recommender2__icon"/></button>
+                    <button className="recommender2__button" onClick={() => setGenre('10751')}><ImSmile className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Familiar</p>
                 </div>
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button" onClick={() => setGenre(9648)}><ImBaffled className="recommender2__icon"/></button>
+                    <button className="recommender2__button" onClick={() => setGenre('9648')}><ImBaffled className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Inquietante</p>
                 </div>
                 <div className="recommender2__container-text">
-                    <button className="recommender2__button" onClick={() => setGenre(27)}><ImEvil className="recommender2__icon"/></button>
+                    <button className="recommender2__button" onClick={() => setGenre('27')}><ImEvil className="recommender2__icon"/></button>
                     <p className="recommender2__container-p">Terrofífica</p>
                 </div>
             </div>
