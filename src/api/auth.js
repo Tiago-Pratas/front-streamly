@@ -6,10 +6,11 @@ const registerUrl = `${serverDirection}/auth/register`;
 const loginUrl = `${serverDirection}/auth/login`;
 const logoutUrl = `${serverDirection}/auth/logout`;
 const checkSessionUrl = `${serverDirection}/auth/check-session`;
+const validationUrl = `${serverDirection}/auth/verify`;
 
 const register = async (userData) => {
     try {
-        const request = await axios.post(registerUrl, userData, {withCredentials: true});
+        const request = await axios.post(registerUrl, userData, { withCredentials: true});
 
         console.log(request);
         
@@ -51,10 +52,11 @@ const logout = async (user) => {
     return request;
 };
 
-const sendEmailValidation = async (validationUrl) => {
-    const request = await axios.post(validationUrl);
+const sendEmailValidation = async (email, token) => {
+    const request = await axios.post(`${validationUrl}/${email}/${token}`);
+    console.log(request.data, `${validationUrl}/${email}/${token}`);
 
-    return request;
+    return request.data.username;
 };
 
 export {

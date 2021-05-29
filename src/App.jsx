@@ -21,6 +21,7 @@ import {
     Details,
     FilterProviders,
     BuildingPage,
+    UserVerify
 } from './pages';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -73,6 +74,9 @@ function App() {
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
+                        <Route path="/user/:email/:token">
+                            <UserVerify />
+                        </Route>
                         <SecureRoute exact path="/user-settings">
                             <UserSettings />
                         </SecureRoute>
@@ -94,14 +98,10 @@ function App() {
                         <SecureRoute exact path="/filter-providers">
                             <FilterProviders />
                         </SecureRoute>
-                        <SecureRoute
-                            exact
-                            path="/find-movie">
+                        <SecureRoute exact path="/find-movie">
                             <FindMovie />
                         </SecureRoute>
-                        <SecureRoute
-                            exact
-                            path="/building">
+                        <SecureRoute exact path="/building">
                             <BuildingPage />
                         </SecureRoute>
                     </Switch>

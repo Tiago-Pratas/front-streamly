@@ -9,6 +9,7 @@ import Recommender3Page from './Recommender3Page/Recommender3Page';
 import Details from './Details/Details';
 import FilterProviders from './FilterProviders/FilterProviders';
 import BuildingPage from './BuildingPage/BuildingPage';
+import UserVerify from './UserVerify/UserVerify';
 
 export {
     WelcomePage,
@@ -22,4 +23,5 @@ export {
     Details,
     FilterProviders,
     BuildingPage,
+    UserVerify
 };
