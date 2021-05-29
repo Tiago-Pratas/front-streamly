@@ -12,7 +12,7 @@ const Header = () => {
 
                 <nav className="header__nav">
                     <Link className="header__nav-link" to="/recommender">Recomendador</Link>
-                    <Link className="header__nav-link" to="/building">Favoritos</Link>
+                    <Link className="header__nav-link" to="/favorites">Favoritos</Link>
                     <Link className="header__nav-link" to="/building">Blog</Link>
                 </nav>
 
