@@ -11,13 +11,11 @@ const recommenderResults = () => {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        
         dispatch(recommenderAsync(tvOrMovie, runtime, genre, year));
     }, []);
 
     let randomId =
         recommendations[Math.floor(Math.random() * recommendations.length)];
-
     
     return (
         <div className="recommendation-container" >

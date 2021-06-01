@@ -1,10 +1,6 @@
 import React from 'react';
 import { CarouselFilter } from '../index';
 
-const TopBar = () => {
-    return (
-        <CarouselFilter />
-    );
-};
+const TopBar = () => <CarouselFilter />;
 
 export default TopBar;

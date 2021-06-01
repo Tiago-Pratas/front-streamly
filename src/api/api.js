@@ -1,6 +1,5 @@
 import axios from 'axios';
-import {serverDirection} from './auth.js';
-
+import { serverDirection } from './auth.js';
 
 const sendProviders = async (email, id) => {
     const request = await axios.post(`${serverDirection}/set/providers`, 
@@ -25,4 +24,4 @@ const deleteFavorites = async (email, id) =>{
 };
 
 
-export {sendProviders, sendFavorites, deleteFavorites };
+export { sendProviders, sendFavorites, deleteFavorites };

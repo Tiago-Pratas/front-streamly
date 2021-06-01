@@ -9,42 +9,38 @@ const Auth = () => {
     const [showForm, setShowForm] = useState('login');
     const {hasUser} = useSelector(state => state.user);
 
-
-
-
-    return (
-        <>{
-            !hasUser ? (
-                <div>
-                    <div className="form-container__controls">
-                        <button
-                            className="form-container__controls-btn btn-blue"
-                            onClick={() => setShowForm('login')}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className="form-container__controls-btn btn-blue"
-                            onClick={() => setShowForm('register')}
-                        >
-                            Registro
-                        </button>
-                    </div>
-
-                    <div className="form-container">
-                        {showForm === 'login' && <LoginForm />}
-
-                        {showForm === 'register' && <RegisterForm />}
-                    </div>
+    if (!hasUser) {
+        return (
+            <div>
+                <div className="form-container__controls">
+                    <button
+                        className="form-container__controls-btn btn-blue"
+                        onClick={() => setShowForm('login')}
+                    >
+                        Login
+                    </button>
+                    <button
+                        className="form-container__controls-btn btn-blue"
+                        onClick={() => setShowForm('register')}
+                    >
+                        Registro
+                    </button>
                 </div>
-            ): (
-                <div>
-                    <UserSettings/>
+
+                <div className="form-container">
+                    {showForm === 'login' && <LoginForm />}
+
+                    {showForm === 'register' && <RegisterForm />}
                 </div>
-            )
-        }
-        </>
-    );
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <UserSettings/>
+            </div>
+        );
+    };
 };
 
 export default Auth;

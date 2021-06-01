@@ -1,7 +1,6 @@
 import React from 'react';
 import popcorn from '../../img/popcorn.png';
 
-
 const EmailConfirmation = (props) => {
     
     console.log(props.confirmation);

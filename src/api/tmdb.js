@@ -74,6 +74,7 @@ const getGenres = async () => {
             language: 'es-ES',
         },
     });
+    
     const responseTv = await axios.get(`${baseUrl}genre/tv/list`, {
         params: {
             api_key: process.env.REACT_APP_API_KEY,

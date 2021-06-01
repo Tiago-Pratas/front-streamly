@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { getMovieDetails } from '../../api/tmdb';
 import { sendFavoritesAsync, deleteFavoritesAsync } from '../../redux/slices/user.slice';
 import './Details.scss';
 
-const Details = () => {
+const Details = (props) => {
     window.scroll({
         top: 0,
     });
@@ -16,6 +15,7 @@ const Details = () => {
     const [video, setVideo] = useState('');
     const [providers, setProviders] = useState([]);
     const { user, isAddingFavorite } = useSelector((state) => state.user);
+    const { params } = props.location;
 
     const tvShows = useSelector((state) => state.tmdb.tvShows);
     const movies = useSelector((state) => state.tmdb.movies);
@@ -23,14 +23,13 @@ const Details = () => {
     const allMedia = [...tvShows, ...movies];
 
     //use the params that are passed from Carousel.jsx
-    const params = useParams();
-
     const mediaSp = allMedia.find((allMedia) => allMedia.id == params.id) || {};
     const isFavorite = user?.id_medias?.indexOf(params.id) > -1;
 
     //TODO: set logic in order to update redux and refresh id_medias (don't forget to flag tv || movie)
     const setFavorites = (id) => {
         if (isAddingFavorite) return;
+        
         if (!isFavorite) {
             dispatch(sendFavoritesAsync({email: user.email, id }));
         } else {

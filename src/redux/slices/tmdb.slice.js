@@ -49,7 +49,7 @@ export const searchMediaAsync = createAsyncThunk(
 
 export const recommenderAsync = createAsyncThunk(
     'tmdb/getRec',
-    async (data) =>{
+    async (data) => {
         return await getRecommendation(data);
     });
 
@@ -83,9 +83,9 @@ export const dataSlice = createSlice({
         });
         builder.addCase(recommenderAsync.fulfilled, (state, action) => {
             console.log(action.meta.arg);
-            if(action.meta.arg == 'tv'){
+            if (action.meta.arg === 'tv'){
                 state.tvShows = [...state.tvShows, ...action.payload];
-            }else{
+            } else {
                 state.movies = [...state.movies, ...action.payload];
             }
             state.recommenderResults = action.payload;

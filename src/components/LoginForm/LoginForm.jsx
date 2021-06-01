@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginAsync } from '../../redux/slices/user.slice';
+import { unwrapResult } from '@reduxjs/toolkit'
 import { useHistory } from 'react-router-dom';
 import { BiLogIn } from 'react-icons/bi';
+import { loginAsync } from '../../redux/slices/user.slice';
 import './LoginForm.scss';
 
 const INITIAL_STATE = {
@@ -21,9 +22,15 @@ const LoginForm = () => {
     console.log(hasUser);
     const handleFormSubmit = async (ev) => {
         ev.preventDefault();
-        await dispatch(loginAsync(formData));
-        setFormData(INITIAL_STATE);
-        if(!error)history.push('/');
+        dispatch(loginAsync(formData))
+            .then(unwrapResult)
+            .then(res => {
+                if(!res.error) {
+                    history.push('/');
+                } else {
+                    setFormData(INITIAL_STATE);
+                }
+            });
     };
 
     const handleInputChange = (ev) => {

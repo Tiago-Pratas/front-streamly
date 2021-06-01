@@ -3,61 +3,58 @@ import { AllMovies } from '../../components/';
 import { Carousel } from '../../components';
 import { TopFilter } from '../../components';
 
-const Home = () => {
-    const setupSwiper = [
-        {
-            title: 'Populares',
-            date: '2021/01/01',
-            genre: '',
-        },
-        {
-            title: 'Comedias',
-            release_date: '',
-            genre: '35',
-        },
-        {
-            title: 'Acción',
-            release_date: '',
-            genre: '28',
-        },
-        {
-            title: 'Animación',
-            release_date: '',
-            genre: '16',
-        },
-        {
-            title: 'Terror',
-            release_date: '',
-            genre: '27',
-        },
-        {
-            title: 'Drama',
-            release_date: '',
-            genre: '18',
-        },
-        {
-            title: 'Fantasía',
-            release_date: '',
-            genre: '14',
-        },
-        {
-            title: 'Suspense',
-            release_date: '',
-            genre: '53',
-        },
-        {
-            title: 'Aventura',
-            release_date: '',
-            genre: '53',
-        },
-    ];
+const SETUP_SWIPER = [
+    {
+        title: 'Populares',
+        date: '2021/01/01',
+        genre: '',
+    },
+    {
+        title: 'Comedias',
+        release_date: '',
+        genre: '35',
+    },
+    {
+        title: 'Acción',
+        release_date: '',
+        genre: '28',
+    },
+    {
+        title: 'Animación',
+        release_date: '',
+        genre: '16',
+    },
+    {
+        title: 'Terror',
+        release_date: '',
+        genre: '27',
+    },
+    {
+        title: 'Drama',
+        release_date: '',
+        genre: '18',
+    },
+    {
+        title: 'Fantasía',
+        release_date: '',
+        genre: '14',
+    },
+    {
+        title: 'Suspense',
+        release_date: '',
+        genre: '53',
+    },
+    {
+        title: 'Aventura',
+        release_date: '',
+        genre: '53',
+    },
+];
 
+const Home = () => {
     const [value, setValue] = useState('');
 
-    const onchange = (data) => {
-        setValue(data);
-
-    };
+    const onchange = (data) => setValue(data);
 
     const [carouselView, setCarouselView] = useState(true);
 
@@ -67,31 +64,29 @@ const Home = () => {
 
     return (
         <>
-            {
-                carouselView ? (
+            {carouselView ? (
+                <div>
                     <div>
-                        <div>
-                            <TopFilter />
-                        </div>
-                        <div>
-                            {setupSwiper.map((setup) => (
-                                <Carousel
-                                    title={setup.title}
-                                    date={setup.date}
-                                    genre={setup.genre}
-                                    key={setup.title}
-                                    changeView={handleView}
-                                    onchange={onchange}
-                                />
-                            ))}
-                        </div>
+                        <TopFilter />
                     </div>
-                )
-                    :
-                    (<AllMovies
-                        changeView={handleView}
-                        value={value}
-                    />)
+                    <div>
+                        {SETUP_SWIPER.map((setup) => (
+                            <Carousel
+                                title={setup.title}
+                                date={setup.date}
+                                genre={setup.genre}
+                                key={setup.title}
+                                changeView={handleView}
+                                onchange={onchange}
+                            />
+                        ))}
+                    </div>
+                </div>)
+            :
+                (<AllMovies
+                    changeView={handleView}
+                    value={value}
+                />)
             }
         </>
     );

@@ -13,7 +13,7 @@ const Loading = () => {
 
     return (
         <>
-            { loading &&
+            {loading &&
                 <div className="loading background-blue">
                     <h1 className="loading__title">Streamly</h1>
                 </div>

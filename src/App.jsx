@@ -1,6 +1,13 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {
+    getAllProviders,
+    getAllTvShows,
+    getAllMovies,
+    getAllGenres,
+} from './redux/slices/data.slice';
+import { checkSessionAsync } from './redux/slices/user.slice';
 import {
     Loading,
     Header,
@@ -26,29 +33,20 @@ import {
     FavoritesPage
 } from './pages';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import {
-    getAllProviders,
-    getAllTvShows,
-    getAllMovies,
-    getAllGenres,
-} from './redux/slices/data.slice';
-import { checkSessionAsync } from './redux/slices/user.slice';
-
 import './App.scss';
 
-function App() {
+const App = () => {
     const dispatch = useDispatch();
 
     const filteredProviders = useSelector((state) => state.tmdb.topFilter);
-
-    dispatch(getAllProviders());
-    dispatch(getAllGenres());
-    dispatch(getAllTvShows(filteredProviders));
-    dispatch(getAllMovies(filteredProviders));
-
+    
     useEffect(() => {
         getUser();
+
+        dispatch(getAllProviders());
+        dispatch(getAllGenres());
+        dispatch(getAllTvShows(filteredProviders));
+        dispatch(getAllMovies(filteredProviders));
     }, []);
 
     const getUser = async () => {
@@ -66,9 +64,7 @@ function App() {
                             <Home />
                         </Route>
                         {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
-                        <Route path="/bienvenida-step1">
-                            <WelcomePage />
-                        </Route>
+                        <Route path="/bienvenida-step1" component={WelcomePage} />
                         {/* Esta ruta no está en el menú, porque es la página de bienvenida */}
                         <Route exact path="/bienvenida-step2">
                             <WelcomePage2 />
@@ -76,9 +72,7 @@ function App() {
                         <Route path="/registro-iniciar-sesion">
                             <Auth />
                         </Route>
-                        <Route path="/user/:email/:token">
-                            <UserVerify />
-                        </Route>
+                        <Route path="/user/:email/:token" component={UserVerify} />
                         <SecureRoute exact path="/user-settings">
                             <UserSettings />
                         </SecureRoute>
@@ -97,9 +91,7 @@ function App() {
                         <SecureRoute exact path="/recommender-results">
                             <RecommenderResults />
                         </SecureRoute>
-                        <SecureRoute path="/details/:format/:id">
-                            <Details />
-                        </SecureRoute>
+                        <SecureRoute path="/details/:format/:id" component={Details} />
                         <SecureRoute exact path="/filter-providers">
                             <FilterProviders />
                         </SecureRoute>

@@ -1,20 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-/* import { recommenderAsync } from '../../redux/slices/data.slice'; */
-import { handleInput } from '../../redux/slices/recommeder.slice';
+import { Link } from 'react-router-dom';
 import { FaHatCowboy } from 'react-icons/fa';
 import { GiWesternHat } from 'react-icons/gi';
 import { FiStar } from 'react-icons/fi';
+/* import { recommenderAsync } from '../../redux/slices/data.slice'; */
+import { handleInput } from '../../redux/slices/recommeder.slice';
 import './Recommender3Page.scss';
 
 const Recommender3Page = () => {
     
     const dispatch = useDispatch();
 
-    const setYear = (year) => {
-        dispatch(handleInput({ year }));
-    };
+    const setYear = (year) => dispatch(handleInput({ year }));
 
     return (
         <div className="recommender3-container">

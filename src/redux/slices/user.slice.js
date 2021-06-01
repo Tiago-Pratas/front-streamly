@@ -53,13 +53,13 @@ export const userSlice = createSlice({
         });
 
         builder.addCase(registerAsync.fulfilled, (state, action) => {
-            if (Object(action.payload) === action.payload) {
+            if (action.payload.email) {
                 state.user = action.payload;
                 state.hasUser = true;
-                state.error = '';
+                state.error = '';x
             } else {
                 state.hasUser = false;
-                state.error = action.payload;
+                state.error = action.payload.message;
             }
         });
 

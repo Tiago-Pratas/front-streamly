@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleInput } from '../../redux/slices/recommeder.slice';
+import { Link } from 'react-router-dom';
 import { FaRegLaughSquint } from 'react-icons/fa';
 import { RiEmotionSadLine, RiEmotionLine } from 'react-icons/ri';
 import { ImEvil } from 'react-icons/im';
 import { ImBaffled, ImSmile } from 'react-icons/im';
+import { handleInput } from '../../redux/slices/recommeder.slice';
 import './Recommender2Page.scss';
 
 const Recommender2Page = () => {

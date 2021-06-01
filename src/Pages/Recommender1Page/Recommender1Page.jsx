@@ -1,25 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { handleInput } from '../../redux/slices/recommeder.slice';
+import { Link } from 'react-router-dom';
 import { MdUpdate } from 'react-icons/md';
 import { BsPlay, BsDisplayFill } from 'react-icons/bs';
 import { BiMovie } from 'react-icons/bi';
 import { FiFastForward } from 'react-icons/fi';
 import { IoPlaySkipForwardOutline } from 'react-icons/io5';
+import { handleInput } from '../../redux/slices/recommeder.slice';
 import './Recommender1Page.scss';
 
 const RecommenderPage = () => {
 
     const dispatch = useDispatch();
 
-    const setTvOrMovie = (tvOrMovie) => {
-        dispatch(handleInput({ tvOrMovie }));
-    };
+    const setTvOrMovie = (tvOrMovie) => dispatch(handleInput({ tvOrMovie }))
 
-    const setRuntime = (runtime) => {
-        dispatch(handleInput({ runtime }));
-    };
+    const setRuntime = (runtime) => dispatch(handleInput({ runtime }));
 
     return (
         <div className="recommender-container">
@@ -32,8 +28,7 @@ const RecommenderPage = () => {
                         className="recommender__button icon"
                         onClick={() => setTvOrMovie('tv')}
                     >
-                        {' '}
-                        <BsDisplayFill className="recommender__icon" />
+                        {' '} <BsDisplayFill className="recommender__icon" />
                     </button>
 
                     <p className="recommender__container-p">Serie</p>
@@ -61,8 +56,7 @@ const RecommenderPage = () => {
                         className="recommender__button"
                         onClick={() => setRuntime(120)}
                     >
-                        {' '}
-                        <IoPlaySkipForwardOutline className="recommender__icon" />
+                        {' '} <IoPlaySkipForwardOutline className="recommender__icon" />
                     </button>
                     <p className="recommender__container-p">No tengo prisa</p>
                 </div>

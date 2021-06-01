@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { filterProviders } from '../../redux/slices/data.slice';
-import { Link } from 'react-router-dom';
 import add from '../../img/add--v1.png';
 
 import 'swiper/swiper.scss';
@@ -14,24 +14,22 @@ import './CarouselFilter.scss';
 SwiperCore.use([Scrollbar]);
 
 const Carousel = () => {
+    const dispatch = useDispatch();
     const [swiperView, setSwiperView] = useState(false);
+    const providers = useSelector((state) => state.tmdb.providers);
+    const user = useSelector((state) => state.user.user);
 
     const showSwiper = () => setSwiperView(!swiperView);
-
-    const dispatch = useDispatch();
 
     const handleFilter = (ev) => {
         dispatch(filterProviders(ev));
     };
 
-    const providers = useSelector((state) => state.tmdb.providers);
-    const user = useSelector((state) => state.user.user);
     if (!user) return null;
 
     const providersFiltered = providers.filter((provider) =>
         user.id_providers.includes(provider.provider_id.toString())
     );
-    console.log(providersFiltered);
 
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 

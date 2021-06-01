@@ -12,16 +12,16 @@ export const recommenderSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         handleInput: (state, action) => {
-            if (Object.keys(action.payload) == 'tvOrMovie') {
+            if (Object.keys(action.payload) === 'tvOrMovie') {
                 state.tvOrMovie = action.payload.tvOrMovie;
             }
-            if (Object.keys(action.payload) == 'runtime') {
+            if (Object.keys(action.payload) === 'runtime') {
                 state.runtime = action.payload.runtime;
             }
-            if (Object.keys(action.payload) == 'genre') {
+            if (Object.keys(action.payload) === 'genre') {
                 state.genre = action.payload.genre;
             }
-            if (Object.keys(action.payload) == 'year') {
+            if (Object.keys(action.payload) === 'year') {
                 state.year = action.payload.year;
             }
         },

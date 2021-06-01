@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './AllMovies.scss';
 import PropTypes from 'prop-types';
 import { BiArrowBack } from 'react-icons/bi';
+import './AllMovies.scss';
 
 
 const AllMovies = (props) => {
+
     AllMovies.propTypes = {
         changeView: PropTypes.node,
         value: PropTypes.node,
     };
 
-    window.scroll({
-        top: 0,
-    });
-    let genreId = parseInt(props.value[1]);
-
     const movies = useSelector((state) => state.tmdb.movies);
     const tvShows = useSelector((state) => state.tmdb.tvShows);
 
+    useEffect(() => {
+        window.scroll({ top: 0 });
+    });
+    
+    let genreId = parseInt(props.value[1]);
+    
     const imgUrl = 'https://image.tmdb.org/t/p/original/';
 
     const allMoviesTvShows = [...movies, ...tvShows];
